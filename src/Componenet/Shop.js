@@ -60,7 +60,7 @@ export const Shop = () => {
                         <div className="row px-3">
                             <div className="col-6 col-md-4 mb-3">
                                 <div className="card">
-                                <span  className='badge-f'><FontAwesomeIcon icon={faHeart}  /></span>
+                                    <span className='badge-f'><FontAwesomeIcon icon={faHeart} /></span>
                                     <img src="/asset/logo/d.png" className="card-img-top" alt="Biomagnetic Mattress" />
                                     <div className="card-body">
                                         <p className="card-title title-c">Biomagnetic Mattress</p>
@@ -77,7 +77,7 @@ export const Shop = () => {
 
                             <div className="col-6 col-md-4 mb-3">
                                 <div className="card">
-                               <span className='badge-f ' >  <FontAwesomeIcon icon={faHeart}  /></span>
+                                    <span className='badge-f ' >  <FontAwesomeIcon icon={faHeart} /></span>
                                     <img src="/asset/logo/d.png" className="card-img-top" alt="Biomagnetic Mattress" />
                                     <div className="card-body">
                                         <p className="card-title title-c">Biomagnetic Mattress</p>
@@ -93,7 +93,7 @@ export const Shop = () => {
                             </div>
                             <div className="col-6 col-md-4 mb-3">
                                 <div className="card">
-                               <span className='badge-f ' >  <FontAwesomeIcon icon={faHeart}  /></span>
+                                    <span className='badge-f ' >  <FontAwesomeIcon icon={faHeart} /></span>
                                     <img src="/asset/logo/d.png" className="card-img-top" alt="Biomagnetic Mattress" />
                                     <div className="card-body">
                                         <p className="card-title title-c">Biomagnetic Mattress</p>
@@ -109,7 +109,7 @@ export const Shop = () => {
                             </div>
                             <div className="col-6 col-md-4 mb-3">
                                 <div className="card">
-                               <span className='badge-f ' >  <FontAwesomeIcon icon={faHeart}  /></span>
+                                    <span className='badge-f ' >  <FontAwesomeIcon icon={faHeart} /></span>
                                     <img src="/asset/logo/d.png" className="card-img-top" alt="Biomagnetic Mattress" />
                                     <div className="card-body">
                                         <p className="card-title title-c">Biomagnetic Mattress</p>
@@ -125,7 +125,7 @@ export const Shop = () => {
                             </div>
                             <div className="col-6 col-md-4 mb-3">
                                 <div className="card">
-                               <span className='badge-f ' >  <FontAwesomeIcon icon={faHeart}  /></span>
+                                    <span className='badge-f ' >  <FontAwesomeIcon icon={faHeart} /></span>
                                     <img src="/asset/logo/d.png" className="card-img-top" alt="Biomagnetic Mattress" />
                                     <div className="card-body">
                                         <p className="card-title title-c">Biomagnetic Mattress</p>
@@ -141,7 +141,7 @@ export const Shop = () => {
                             </div>
                             <div className="col-6 col-md-4 mb-3">
                                 <div className="card">
-                               <span className='badge-f ' >  <FontAwesomeIcon icon={faHeart}  /></span>
+                                    <span className='badge-f ' >  <FontAwesomeIcon icon={faHeart} /></span>
                                     <img src="/asset/logo/d.png" className="card-img-top" alt="Biomagnetic Mattress" />
                                     <div className="card-body">
                                         <p className="card-title title-c">Biomagnetic Mattress</p>

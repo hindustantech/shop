@@ -234,6 +234,10 @@ ul li.active .text-color {
 
 .t{
   color: #97B690;
+  position: absolute;
+  right: 15px;
+  top: 6px;
+  margin: -5px;
 }
 
 .btn-b .btn-c{
