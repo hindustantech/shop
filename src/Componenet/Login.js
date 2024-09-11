@@ -9,7 +9,7 @@ const Login = () => {
 
         <div className="login-container mx-auto">
 
-          <img src="/asset/logo/3.png" className="img-fluid close-png" alt="" />
+        <Link to="/">  <img src="/asset/logo/3.png" className="img-fluid close-png" alt="" /></Link>
           <div className="row mt-4">
             <div className="col-12 ">
               <img src="/asset/logo/2.png" alt="Logo" className="logo me-2 logo-h" />

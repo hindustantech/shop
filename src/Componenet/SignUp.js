@@ -8,7 +8,7 @@ const SignUp = () => {
 
                 <div className="login-container mx-auto">
 
-                    <img src="/asset/logo/3.png" className="img-fluid close-png" alt="" />
+                <Link to="/">  <img src="/asset/logo/3.png" className="img-fluid close-png" alt="" /></Link>
                     <div className="row mt-4">
                         <div className="col-12 ">
                             <img src="/asset/logo/2.png" alt="Logo" className="logo me-2 logo-h" />
@@ -46,7 +46,7 @@ const SignUp = () => {
                         </div>
                         <div className='d-flex justify-content-center'>
                             <p className='text-black'>Already registered? </p>
-                            <span>  <Link to="/Login" className=' text-black '> sign up </Link></span>
+                            <span>  <Link to="/Login" className=' text-black '> sign in </Link></span>
 
                         </div>
                     </div>

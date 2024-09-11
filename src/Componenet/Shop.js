@@ -3,6 +3,7 @@ import Nav from './Nav'
 import Header from './Header'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { faHeart } from '@fortawesome/free-solid-svg-icons/faHeart';
 
 export const Shop = () => {
     return (
@@ -59,7 +60,7 @@ export const Shop = () => {
                         <div className="row px-3">
                             <div className="col-6 col-md-4 mb-3">
                                 <div className="card">
-                                
+                                <span  className='badge-f'><FontAwesomeIcon icon={faHeart}  /></span>
                                     <img src="/asset/logo/d.png" className="card-img-top" alt="Biomagnetic Mattress" />
                                     <div className="card-body">
                                         <p className="card-title title-c">Biomagnetic Mattress</p>
@@ -76,6 +77,71 @@ export const Shop = () => {
 
                             <div className="col-6 col-md-4 mb-3">
                                 <div className="card">
+                               <span className='badge-f ' >  <FontAwesomeIcon icon={faHeart}  /></span>
+                                    <img src="/asset/logo/d.png" className="card-img-top" alt="Biomagnetic Mattress" />
+                                    <div className="card-body">
+                                        <p className="card-title title-c">Biomagnetic Mattress</p>
+                                        <p className="card-title title-c">425+ Reviwe</p>
+                                        <div className="  d-flex Rating">
+                                            <p className='card-text rating-r'><FontAwesomeIcon icon={faStar} /></p>
+                                            <p className='card-text rating-r'><FontAwesomeIcon icon={faStar} /></p>
+                                            <p className='card-text rating-r'><FontAwesomeIcon icon={faStar} /></p>
+                                            <p className='card-text rating-r'><FontAwesomeIcon icon={faStar} />425+ Reviews</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-6 col-md-4 mb-3">
+                                <div className="card">
+                               <span className='badge-f ' >  <FontAwesomeIcon icon={faHeart}  /></span>
+                                    <img src="/asset/logo/d.png" className="card-img-top" alt="Biomagnetic Mattress" />
+                                    <div className="card-body">
+                                        <p className="card-title title-c">Biomagnetic Mattress</p>
+                                        <p className="card-title title-c">425+ Reviwe</p>
+                                        <div className="  d-flex Rating">
+                                            <p className='card-text rating-r'><FontAwesomeIcon icon={faStar} /></p>
+                                            <p className='card-text rating-r'><FontAwesomeIcon icon={faStar} /></p>
+                                            <p className='card-text rating-r'><FontAwesomeIcon icon={faStar} /></p>
+                                            <p className='card-text rating-r'><FontAwesomeIcon icon={faStar} />425+ Reviews</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-6 col-md-4 mb-3">
+                                <div className="card">
+                               <span className='badge-f ' >  <FontAwesomeIcon icon={faHeart}  /></span>
+                                    <img src="/asset/logo/d.png" className="card-img-top" alt="Biomagnetic Mattress" />
+                                    <div className="card-body">
+                                        <p className="card-title title-c">Biomagnetic Mattress</p>
+                                        <p className="card-title title-c">425+ Reviwe</p>
+                                        <div className="  d-flex Rating">
+                                            <p className='card-text rating-r'><FontAwesomeIcon icon={faStar} /></p>
+                                            <p className='card-text rating-r'><FontAwesomeIcon icon={faStar} /></p>
+                                            <p className='card-text rating-r'><FontAwesomeIcon icon={faStar} /></p>
+                                            <p className='card-text rating-r'><FontAwesomeIcon icon={faStar} />425+ Reviews</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-6 col-md-4 mb-3">
+                                <div className="card">
+                               <span className='badge-f ' >  <FontAwesomeIcon icon={faHeart}  /></span>
+                                    <img src="/asset/logo/d.png" className="card-img-top" alt="Biomagnetic Mattress" />
+                                    <div className="card-body">
+                                        <p className="card-title title-c">Biomagnetic Mattress</p>
+                                        <p className="card-title title-c">425+ Reviwe</p>
+                                        <div className="  d-flex Rating">
+                                            <p className='card-text rating-r'><FontAwesomeIcon icon={faStar} /></p>
+                                            <p className='card-text rating-r'><FontAwesomeIcon icon={faStar} /></p>
+                                            <p className='card-text rating-r'><FontAwesomeIcon icon={faStar} /></p>
+                                            <p className='card-text rating-r'><FontAwesomeIcon icon={faStar} />425+ Reviews</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-6 col-md-4 mb-3">
+                                <div className="card">
+                               <span className='badge-f ' >  <FontAwesomeIcon icon={faHeart}  /></span>
                                     <img src="/asset/logo/d.png" className="card-img-top" alt="Biomagnetic Mattress" />
                                     <div className="card-body">
                                         <p className="card-title title-c">Biomagnetic Mattress</p>
