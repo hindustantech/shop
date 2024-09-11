@@ -1,0 +1,254 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.main-body {
+  height: 100%;
+
+  background-color: #cbddd1;
+}
+
+.navbar-b {
+  position: sticky;
+  bottom: 0;
+  width: 100vw;
+}
+
+.logo-h {
+  height: 8vh;
+}
+
+.header-bg {
+  background-color: #F6F6E9;
+}
+
+.color-name {
+  color: #97B690;
+}
+
+.profile-pic {
+  height: 35px;
+}
+
+.notifaction-m {
+  height: 50px;
+  background-color: #cbddd1;
+  border-radius: 50%;
+  border: 10px solid #cbddd1;
+}
+
+
+.search-bg {
+  background-color: #cbddd1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.hambar {
+  color: #97B690;
+
+}
+
+.height-img {
+  height: 35px;
+}
+
+.category-img {
+  height: 70px;
+  background-color: #F6F6E9;
+  border-radius: 50%;
+  height: 75px;
+  border: 15px solid #F6F6E9;
+}
+
+.Achivers-img {
+  height: 100px;
+  background-color: #F6F6E9;
+  border: 3px solid #F6F6E9;
+  border-radius: 5%;
+}
+
+
+
+.arrow-ogin {
+  height: 40px;
+  color: #F6F6E9;
+}
+
+
+
+.login-container {
+  background-color: #f6f6e9;
+  border-radius: 15px 15px 0 0;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.green-box {
+  background-color: #7D9B76;
+  padding-top: 40px;
+}
+
+.close-png {
+  width: 30px;
+  float: right;
+  margin: 10px;
+  position: absolute;
+  right: 0;
+}
+
+button.btn-color {
+  background-color: #7ba571;
+  border: 1px solid #000000;
+  width: 50%;
+  color: #fff;
+}
+
+.input-text {
+  width: 80%;
+}
+
+.logo-e {
+  height: 30px;
+
+}
+.loginForm{
+  width:70% ;
+  margin: auto;
+}
+.loginForm img{
+  height: 25px;
+  margin-right: 5px;
+}
+.input-fi {
+  background-color: transparent;
+  border-radius: 8px;
+  border: 1px solid #000000;
+  padding: 1px 10px;
+  align-items: center!important;
+  display: flex;
+}
+.loginForm .input-login{
+  height: 35px;
+  width: 100%;
+  border: 0;
+  background: transparent;
+}
+
+*:focus {
+  outline: none;
+}
+
+button .fa-arrow-right {
+  font-size: 1.2rem;
+}
+
+
+.card-body .title-c{
+    font-size: 10px;
+    color:#97B690 ;
+}
+
+.price-c{
+  font-size: 10px;
+  color: #97B690;
+}
+
+.Rating .rating-r{
+  font-size: 10px;
+  color: #97B690;
+}
+
+div .decs{
+  font-size: 15px;
+  text-align: justify;
+  display: flex;
+text-align: center;
+}
+
+ul li .text-color{
+  color: #97B690;
+}
+
+ul li.active .text-color {
+  font-weight: bold;
+  color: #7D9B76;
+}
+
+.text-c{
+  color: #7D9B76;
+}
+
+.conteaner{
+  background: #cbddd1;
+  width: 100%;
+}
+
+.l-h{
+  height: 40px;
+}
+
+
+.dashboard-body{
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.text-s{
+  font-size: 10px;
+}
+
+.cardBox .gradient-border{
+  border: 2px solid #0097B2;
+  border-radius: 12px ;
+}
+
+.t{
+  color: #97B690;
+}
+
+.btn-b .btn-c{
+  width: 80%;
+  font-weight: bolder;
+  font-size: larger;
+}
+.search-input {
+  background-color: #cbddd1;
+  border-radius: 8px;
+  padding: 1px 10px;
+  align-items: center!important;
+  display: flex;
+}
+
+.search-input .sear::placeholder{
+    color: #000000;
+}
