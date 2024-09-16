@@ -5,21 +5,20 @@ const SignUp = () => {
     return (
         <>
             <div className='green-box App'>
-
                 <div className="login-container mx-auto">
 
-                <Link to="/">  <img src="/asset/logo/3.png" className="img-fluid close-png" alt="" /></Link>
+                    <Link to="/">  <img src="/asset/design/2.png" className="img-fluid close-png" alt="" /></Link>
                     <div className="row mt-4">
                         <div className="col-12 ">
-                            <img src="/asset/logo/2.png" alt="Logo" className="logo me-2 logo-h" />
-                            <h1 className="login-text ">Login</h1>
+                            <img src="/asset/design/1.png" alt="Logo" className="logo me-2 logo-h" />
+                            <h1 className="login-text ">Sing Up</h1>
                         </div>
                     </div>
 
 
                     <div className="row justify-content-center mt-4">
                         <div className="col-12 col-md-6 text-center">
-                            <img src="/asset/logo/4.png" alt="" className="img-fluid logo-h"  style={{height: '250px',}}/>
+                            <img src="/asset/design/4.png" alt="" className="img-fluid logo-h" style={{ height: '280px', }} />
                         </div>
                     </div>
                     <div className="row justify-content-center mt-4">
@@ -41,12 +40,12 @@ const SignUp = () => {
                                     <img src="/asset/logo/8.png" className='logo-e' alt="" />
                                     <input type="Date" className="password input-login" id="Date" placeholder=" Date of Birth" />
                                 </div>
-                                <button type="submit" className="btn-color btn">Login <i className="fas fa-arrow-right mx-3"></i> </button>
+                                <button type="submit" className="btn-color btn">Sing up<i className="fas fa-arrow-right mx-3"></i> </button>
                             </form>
                         </div>
-                        <div className='d-flex justify-content-center'>
-                            <p className='text-black'>Already registered? </p>
-                            <span>  <Link to="/Login" className=' text-black '> sign in </Link></span>
+                        <div className='d-flex justify-content-center mt-3'>
+                            <p className='text-white'>Already registered? </p>
+                            <span>  <Link to="/Login" className=' text-white fw-bold'> sign in </Link></span>
 
                         </div>
                     </div>

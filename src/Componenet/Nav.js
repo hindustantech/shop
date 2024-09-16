@@ -1,35 +1,53 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faShop, faTachometerAlt, faUser } from '@fortawesome/free-solid-svg-icons';
+import { NavLink } from 'react-router-dom';
 
 const Nav = () => {
   return (
     <nav className="navbar bg-body-tertiary">
       <div className="container-fluid d-flex flex-column flex-md-row justify-content-between align-items-center">
-      
+
         <ul className="navbar-nav d-flex flex-row flex-md-row justify-content-around w-100">
           <li className="nav-item p-2">
-            <Link className="nav-link text-center text-color" aria-current="page" to="/">
-              <FontAwesomeIcon icon={faHome} className="me-1" /> <br />
-               Home
-            </Link>
+            <NavLink 
+              className="nav-link text-center text-color" 
+              to="/" 
+              activeClassName="active"
+            >
+              <i className="fa fa-home" aria-hidden="true"></i>
+              <br />
+              Home
+            </NavLink>
           </li>
           <li className="nav-item p-2">
-            <Link className="nav-link text-center text-color" to="/shop">
-              <FontAwesomeIcon icon={faShop} className="me-1" /><br /> Shop
-            </Link>
+            <NavLink 
+              className="nav-link text-center text-color" 
+              to="/shop" 
+              activeClassName="active"
+            >
+              <i className="fa-solid fa-shop"></i><br /> 
+              Shop
+            </NavLink>
           </li>
           <li className="nav-item p-2">
-            <Link className="nav-link text-center text-color" to="/dahboard">
-              <FontAwesomeIcon icon={faTachometerAlt} className="me-1" /><br /> Dashboard
-            </Link>
+            <NavLink 
+              className="nav-link text-center text-color" 
+              to="/dashboard" 
+              activeClassName="active"
+            >
+              <i className="fa fa-tachometer" aria-hidden="true"></i>
+              <br /> 
+              Dashboard
+            </NavLink>
           </li>
           <li className="nav-item p-2">
-            <Link className="nav-link text-center text-color" to="/profile">
-              <FontAwesomeIcon icon={faUser} className="me-1" /> <br />
+            <NavLink 
+              className="nav-link text-center text-color" 
+              to="/profile" 
+              activeClassName="active"
+            >
+              <i className="fa-solid fa-user"></i> <br />
               Profile
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </div>

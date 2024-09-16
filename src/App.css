@@ -7,11 +7,7 @@
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+
 
 .App-header {
   background-color: #282c34;
@@ -30,14 +26,20 @@
 
 .main-body {
   height: 100%;
-
-  background-color: #cbddd1;
+  background-color: #022341;
 }
+
 
 .navbar-b {
   position: sticky;
   bottom: 0;
   width: 100vw;
+}
+
+.nav-link.active {
+  color: #f39437 !important;
+  /* Force the color change */
+  font-weight: bold;
 }
 
 .logo-h {
@@ -46,10 +48,19 @@
 
 .header-bg {
   background-color: #F6F6E9;
+  white-space: fill;
+}
+
+.home-heading {
+  font-size: 12px;
+}
+
+.p-text {
+  font-size: 8px;
 }
 
 .color-name {
-  color: #97B690;
+  color: #022341;
 }
 
 .profile-pic {
@@ -58,9 +69,9 @@
 
 .notifaction-m {
   height: 50px;
-  background-color: #cbddd1;
+  background-color: #022341;
   border-radius: 50%;
-  border: 10px solid #cbddd1;
+  border: 10px solid #022341;
 }
 
 
@@ -72,7 +83,7 @@
 }
 
 .hambar {
-  color: #97B690;
+  color: #022341;
 
 }
 
@@ -81,20 +92,24 @@
 }
 
 .category-img {
-  height: 70px;
+  height: 58px;
   background-color: #F6F6E9;
   border-radius: 50%;
-  height: 75px;
-  border: 15px solid #F6F6E9;
+  border: 4px solid #F6F6E9;
 }
+
 
 .Achivers-img {
-  height: 100px;
+  height: 84px;
   background-color: #F6F6E9;
-  border: 3px solid #F6F6E9;
-  border-radius: 5%;
+  border: 5px solid #F6F6E9;
+  border-radius: 20%;
 }
 
+.Achivers {
+
+  width: 85vw;
+}
 
 
 .arrow-ogin {
@@ -103,9 +118,12 @@
 }
 
 
+.hotProduct .t-h {
+  color: #ffffff;
+}
 
 .login-container {
-  background-color: #f6f6e9;
+  background-color: #022341;
   border-radius: 15px 15px 0 0;
   height: 100vh;
   width: 100vw;
@@ -113,8 +131,8 @@
 }
 
 .green-box {
-  background-color: #7D9B76;
-  padding-top: 40px;
+  background-color: #ffffff;
+  padding-top: 60px;
 }
 
 .close-png {
@@ -123,44 +141,63 @@
   margin: 10px;
   position: absolute;
   right: 0;
+
+}
+
+input::placeholder {
+  color: #022341;
 }
 
 button.btn-color {
-  background-color: #7ba571;
+  background-color: #f39437;
   border: 1px solid #000000;
   width: 50%;
-  color: #fff;
+  color: #022341;
 }
 
 .input-text {
   width: 80%;
+
 }
 
 .logo-e {
   height: 30px;
 
 }
-.loginForm{
-  width:70% ;
+
+.loginForm {
+  width: 70%;
   margin: auto;
 }
-.loginForm img{
+
+.loginForm img {
   height: 25px;
   margin-right: 5px;
 }
+
+.login-text {
+  color: #ffffff;
+}
+
 .input-fi {
-  background-color: transparent;
+  background-color: #ffffff;
   border-radius: 8px;
   border: 1px solid #000000;
   padding: 1px 10px;
-  align-items: center!important;
+  align-items: center !important;
   display: flex;
+  height: 60px;
 }
-.loginForm .input-login{
+
+.loginForm .input-login {
   height: 35px;
   width: 100%;
   border: 0;
   background: transparent;
+}
+
+.login-image {
+  height: 300px;
 }
 
 *:focus {
@@ -172,67 +209,67 @@ button .fa-arrow-right {
 }
 
 
-.card-body .title-c{
-    font-size: 10px;
-    color:#97B690 ;
-}
-
-.price-c{
+.card-body .title-c {
   font-size: 10px;
-  color: #97B690;
+  color: #022341;
 }
 
-.Rating .rating-r{
+.price-c {
   font-size: 10px;
-  color: #97B690;
+  color: #022341;
 }
 
-div .decs{
-  font-size: 15px;
-  text-align: justify;
-  display: flex;
-text-align: center;
+.Rating .rating-r {
+  font-size: 8px;
+  color: #022341;
 }
 
-ul li .text-color{
-  color: #97B690;
+div .decs {
+  font-size: 9px;
+  text-align: center;
+  color: #ffffff;
 }
 
-ul li.active .text-color {
-  font-weight: bold;
+ul li .text-color {
+  color: #022341;
+}
+
+.header-dashboard {
+  background-color: #022341;
+}
+
+
+
+.text-c {
   color: #7D9B76;
 }
 
-.text-c{
-  color: #7D9B76;
-}
 
-.conteaner{
-  background: #cbddd1;
-  width: 100%;
-}
 
-.l-h{
+.l-h {
   height: 40px;
 }
 
 
-.dashboard-body{
-  width: 100vw;
-  height: 100vh;
+.dashboard-body {
+  width: 100VW;
+  
   overflow: hidden;
+
 }
 
-.text-s{
+.text-s {
   font-size: 10px;
 }
 
-.cardBox .gradient-border{
+.cardBox .gradient-border {
   border: 2px solid #0097B2;
-  border-radius: 12px ;
+  border-radius: 12px;
+  background-color: #022341;
+  color: #ffffff;
 }
 
-.t{
+.t {
   color: #97B690;
   position: absolute;
   right: 15px;
@@ -240,33 +277,231 @@ ul li.active .text-color {
   margin: -5px;
 }
 
-.btn-b .btn-c{
+.btn-b .btn-c {
   width: 80%;
   font-weight: bolder;
   font-size: larger;
 }
+
 .search-input {
-  background-color: #cbddd1;
+  background-color: #022341;
   border-radius: 8px;
   padding: 1px 10px;
-  align-items: center!important;
+  align-items: center !important;
   display: flex;
+ 
 }
 
-.search-input .sear::placeholder{
-    color: #000000;
+.search-input .sear::placeholder {
+  color: #ffff;
 }
 
-.badge-f{
+.badge-f {
   height: 30px;
   width: 30px;
   position: absolute;
   top: -5px;
   right: -6px;
-  color: #fff;
-  background-color: #7ba571;
+  color: #022341;
+  background-color: #f39437;
   text-align: center;
   line-height: 30px;
   border: 0;
   border-radius: 50%;
+}
+
+.btn-dashboard {
+  background-color: transparent;
+  color: #022341;
+  border: 2px solid #7fceb8;
+}
+
+.text-dashborad {
+  color: #ead8b6;
+}
+
+
+.color-custom {
+  background-color: #022341;
+}
+
+.heading-name {
+  margin-left: 100px;
+  margin-top: 52px;
+}
+
+.profile-text-color {
+  color: #022341;
+  font-size: 14px;
+  align-self: center;
+
+}
+
+.header-profile{
+  height:80px;
+}
+.l-h-h{
+  height: 24px;
+  position: absolute;
+  left: 35px;
+}
+
+.height-nav {
+  height: 20px;
+  margin-left: 26px;
+  margin-top: 52px;
+}
+
+.navbar-p {
+  width: 100vw;
+  position: sticky;
+  bottom: 0;
+
+}
+
+.profile-icons-height {
+  height: 20px;
+}
+
+.profile-pic-height {
+  height: 90px;
+}
+
+.profile-pic-edit {
+  height: 20px;
+}
+
+.eddit {
+  background-color: #022341;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  position: absolute;
+  left: 200px;
+  top: 88px;
+
+}
+
+.profile-detail {
+  margin-top: 22px;
+}
+
+.checkbox-color {
+  color: #022341;
+}
+
+.gernal-settinig {
+  margin-top: 40px;
+}
+
+.profile-content {
+  height: 30px;
+  margin-top: 32px;
+}
+
+.information {
+  margin-top: 52px;
+}
+
+.information-profile {
+  margin-top: 46px;
+}
+
+
+/* Default checkbox style */
+.custom-checkbox {
+  background-color: white;
+  border: 1px solid #ccc;
+  transition: background-color 0.3s ease;
+}
+
+.custom-checkbox:checked {
+  background-color: #022341;
+  border-color: #022341;
+}
+
+
+
+
+@media (min-width: 992px) {
+  .main-body {
+    padding: 20px;
+    background-color: #022341;
+    
+  }
+  .l-h-h {
+    height: 24px;
+    position: absolute;
+    left: 220px;
+  }
+  .heading-h{
+    margin-left: 120px;
+    font-size: 18px;
+    font-weight: bolder;
+  }
+
+  .dashboard-body {
+    
+    width: 100%;
+    
+  }
+  .search-input {
+
+    height: 60px;
+  }
+  .profile-main-body{
+    background-color: red;
+  }
+
+  .home-heading {
+    font-size: 2.5rem;
+  }
+
+  div .decs {
+    font-size: 18px;
+    margin-right: 134px;
+    color: #ffffff;
+  }
+
+  .category-img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .Achivers-img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .hotProduct .card {
+    padding: 15px;
+  }
+
+
+
+
+  .navbar-b {
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+  }
+  .header{
+    
+    width: 100%;
+  }
+
+  
+
+  .eddit {
+    background-color: #022341;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    position: absolute;
+    left: 684px;
+    top: 88px;
+  
+  }
+
+
 }

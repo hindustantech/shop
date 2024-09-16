@@ -9,10 +9,10 @@ const Login = () => {
 
         <div className="login-container mx-auto">
 
-        <Link to="/">  <img src="/asset/logo/3.png" className="img-fluid close-png" alt="" /></Link>
+        <Link to="/">  <img src="/asset/design/2.png" className="img-fluid close-png" alt="" /></Link>
           <div className="row mt-4">
             <div className="col-12 ">
-              <img src="/asset/logo/2.png" alt="Logo" className="logo me-2 logo-h" />
+              <img src="/asset/design/1.png" alt="Logo" className="logo me-2 logo-h" />
               <h1 className="login-text ">Login</h1>
             </div>
           </div>
@@ -20,7 +20,7 @@ const Login = () => {
 
           <div className="row justify-content-center mt-4">
             <div className="col-12 col-md-6 text-center">
-              <img src="/asset/logo/4.png" alt="" className="img-fluid logo-h" style={{height: '250px',}} />
+              <img src="/asset/design/3.png" alt="" className="img-fluid " style={{height: '300px',}} />
             </div>
           </div>
 
@@ -39,10 +39,10 @@ const Login = () => {
                 <button type="submit" className="btn-color btn">Login <i className="fas fa-arrow-right mx-3"></i> </button>
               </form>
             </div>
-            <div className='mt-5 '>
-              <a className='text-black' href="/">Forgot Password?</a>
-              <p className=''>Don’t have account?
-                <span className=''><Link to="/profile" className='text-black'> sign up</Link></span>
+            <div className='mt-3 '>
+              <a className='text-white' href="/">Forgot Password?</a>
+              <p className='text-white'>Don’t have account?
+                <span className='text-white'><Link to="/singup" className='text-white fw-bold'> sign up</Link></span>
               </p>
             </div>
           </div>
