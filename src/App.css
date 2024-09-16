@@ -310,7 +310,7 @@ ul li .text-color {
 }
 
 .nav-height {
-  height: 60px;
+  height: 70px;
   position: sticky;
   bottom: 0;
   width: 100%;
@@ -402,16 +402,17 @@ ul li .text-color {
     
   }
   .nav-height {
-    height: 50px;
+    height: 100px;
+    width: 100%;
     position: sticky;
     bottom: 0;
-    width: 100%;
   }
 
   ul li .text-color {
     color: #022341;
     font-size: 18px;
   }
+
   .l-h-h {
     height: 24px;
     position: absolute;
