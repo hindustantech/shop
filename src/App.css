@@ -5,11 +5,11 @@
 }
 
 
-.navbar-b {
+.nav-height {
+  height: 44px;
   position: sticky;
   bottom: 0;
-  width: 100vw;
-  
+  width: 100%;
 }
 
 .nav-link.active {
@@ -402,7 +402,7 @@ ul li .text-color {
     
   }
   .nav-height {
-    height: 100px;
+    height: 80px;
     width: 100%;
     position: sticky;
     bottom: 0;
@@ -428,6 +428,11 @@ ul li .text-color {
     
     width: 100%;
     
+  }
+
+  ul li .text-color {
+   
+    font-size: 18px;
   }
   .search-input {
 

@@ -15,7 +15,7 @@ export const Shop = () => {
 
                 <div className="main container ">
                     <div className="container">
-                        <div className="category mt-2 ">
+                        <div className="category ">
                             <h4 className='home-heading text-white pt-4'>Category</h4>
 
                             <div className="row justify-content-evenly">

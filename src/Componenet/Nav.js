@@ -8,7 +8,7 @@ const Nav = () => {
       <div className="container  ">
 
         <ul className="navbar-nav d-flex flex-row flex-md-row justify-content-around w-100">
-          <li className="nav-item p-2">
+          <li className="nav-item ">
             <NavLink 
               className="nav-link text-center text-color" 
               to="/" 
@@ -19,7 +19,7 @@ const Nav = () => {
               Home
             </NavLink>
           </li>
-          <li className="nav-item p-2">
+          <li className="nav-item ">
             <NavLink 
               className="nav-link text-center text-color" 
               to="/shop" 
@@ -29,7 +29,7 @@ const Nav = () => {
               Shop
             </NavLink>
           </li>
-          <li className="nav-item p-2">
+          <li className="nav-item ">
             <NavLink 
               className="nav-link text-center text-color" 
               to="/dashboard" 
@@ -40,7 +40,7 @@ const Nav = () => {
               Dashboard
             </NavLink>
           </li>
-          <li className="nav-item p-2">
+          <li className="nav-item ">
             <NavLink 
               className="nav-link text-center text-color" 
               to="/profile" 
