@@ -21,38 +21,38 @@ export const Home = () => {
                             <div className="row justify-content-evenly">
                                 <div className="col-3 ">
                                     <img src="/asset/logo/11.png" alt="" className='category-img' />
-                                    <p className='decs'>Health &
+                                    <p className='decs mt-2'>Health &
                                         Nutritution</p>
                                 </div>
                                 <div className="col-3 ">
                                     <img src="/asset/logo/12.png" alt="" className='category-img' />
-                                    <p className='decs'>Agriculture
+                                    <p className='decs mt-2'>Agriculture
                                         Veterinary</p>
                                 </div>
                                 <div className="col-3 ">
                                     <img src="/asset/logo/13.png" alt="" className='category-img' />
-                                    <p className='decs'>Skin Care</p>
+                                    <p className='decs mt-2'>Skin Care</p>
                                 </div>
                                 <div className="col-3 ">
                                     <img src="/asset/logo/14.png" alt="" className='category-img' />
-                                    <p className='decs'>Personal
+                                    <p className='decs mt-2'>Personal
                                         Care</p>
                                 </div>
                                 <div className="col-3  mt-3">
                                     <img src="/asset/design/15.png" alt="" className='category-img' />
-                                    <p className='decs'>Home Care</p>
+                                    <p className='decs mt-2'>Home Care</p>
                                 </div>
                                 <div className="col-3  mt-3">
                                     <img src="/asset/logo/16.png" alt="" className='category-img' />
-                                    <p className='decs'>Child Care</p>
+                                    <p className='decs mt-2'>Child Care</p>
                                 </div>
                                 <div className="col-3  mt-3">
                                     <img src="/asset/logo/17.png" alt="" className='category-img' />
-                                    <p className='decs'>Garments & Apparels</p>
+                                    <p className='decs mt-2'>Garments & Apparels</p>
                                 </div>
                                 <div className="col-3  mt-3">
                                     <img src="/asset/design/16.png" alt="" className='category-img' />
-                                    <p className='decs'>See all</p>
+                                    <p className='decs mt-2'>See all</p>
                                 </div>
                             </div>
                         </div>
@@ -63,15 +63,15 @@ export const Home = () => {
                             <div className="row justify-content-evnaly">
                                 <div className="col-4">
                                     <img src="/asset/design/17.png" alt="" className='Achivers-img' />
-                                    <p className='decs'>Goa Tour</p>
+                                    <p className='decs mt-2'>Goa Tour</p>
                                 </div>
                                 <div className="col-4">
                                     <img src="/asset/design/17.png" alt="" className='Achivers-img' />
-                                    <p className='decs'>Bankok Tour</p>
+                                    <p className='decs mt-2'>Bankok Tour</p>
                                 </div>
                                 <div className="col-4">
                                     <img src="/asset/design/17.png" alt="" className='Achivers-img' />
-                                    <p className='decs'>Dubai Tour</p>
+                                    <p className='decs mt-2'>Dubai Tour</p>
                                 </div>
                             </div>
                         </div>
