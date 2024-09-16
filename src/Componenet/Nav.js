@@ -3,8 +3,9 @@ import { NavLink } from 'react-router-dom';
 
 const Nav = () => {
   return (
-    <nav className="navbar bg-body-tertiary">
-      <div className="container-fluid d-flex flex-column flex-md-row justify-content-between align-items-center">
+    
+    <nav className="navbar bg-body-tertiary ">
+      <div className="container-fluid  nav-height">
 
         <ul className="navbar-nav d-flex flex-row flex-md-row justify-content-around w-100">
           <li className="nav-item p-2">

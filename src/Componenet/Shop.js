@@ -133,9 +133,9 @@ export const Shop = () => {
                 </div >
 
             </div>
-            <div className="navbar-b">
+            
                 <Nav />
-            </div>
+            
         </>
     )
 }

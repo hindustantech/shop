@@ -1,28 +1,3 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
 
 .main-body {
   height: 100%;
@@ -34,6 +9,7 @@
   position: sticky;
   bottom: 0;
   width: 100vw;
+  
 }
 
 .nav-link.active {
@@ -232,6 +208,7 @@ div .decs {
 
 ul li .text-color {
   color: #022341;
+  font-size: 12px;
 }
 
 .header-dashboard {
@@ -251,12 +228,6 @@ ul li .text-color {
 }
 
 
-.dashboard-body {
-  width: 100VW;
-  
-  overflow: hidden;
-
-}
 
 .text-s {
   font-size: 10px;
@@ -337,24 +308,28 @@ ul li .text-color {
 .header-profile{
   height:80px;
 }
+
+.nav-height {
+  height: 60px;
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+}
+.nav-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
 .l-h-h{
   height: 24px;
   position: absolute;
   left: 35px;
 }
 
-.height-nav {
-  height: 20px;
-  margin-left: 26px;
-  margin-top: 52px;
-}
 
-.navbar-p {
-  width: 100vw;
-  position: sticky;
-  bottom: 0;
-
-}
 
 .profile-icons-height {
   height: 20px;
@@ -426,6 +401,17 @@ ul li .text-color {
     background-color: #022341;
     
   }
+  .nav-height {
+    height: 50px;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+  }
+
+  ul li .text-color {
+    color: #022341;
+    font-size: 18px;
+  }
   .l-h-h {
     height: 24px;
     position: absolute;
@@ -476,12 +462,6 @@ ul li .text-color {
 
 
 
-
-  .navbar-b {
-    position: sticky;
-    bottom: 0;
-    width: 100%;
-  }
   .header{
     
     width: 100%;

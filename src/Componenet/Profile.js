@@ -100,9 +100,9 @@ const Profile = () => {
                 </div>
             </div>
 
-            <div className="navbar-b">
+            
                 <Nav />
-            </div>
+            
 
         </>
     )

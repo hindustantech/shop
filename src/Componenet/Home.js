@@ -116,9 +116,8 @@ export const Home = () => {
                 </div >
 
             </div>
-            <div className="navbar-b">
                 <Nav />
-            </div>
+            
         </>
     )
 }
