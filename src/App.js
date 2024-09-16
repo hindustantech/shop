@@ -5,7 +5,7 @@ import { Shop } from './Componenet/Shop';
 import SignUp from './Componenet/SignUp';
 import Login from './Componenet/Login';
 import Dashboard from './Componenet/Dashboard';
-import Profile from './Componenet/Profile';
+// import Profile from './Componenet/Profile';
 
 function App() {
   return (
@@ -16,8 +16,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/shop" element={<Shop/>} /> 
           <Route path="/dashboard" element={<Dashboard/>} /> 
-          <Route path="/profile" element={<Profile/>} /> 
-          <Route path="/Login" element={<Login/>} /> 
+          {/* <Route path="/profile" element={<Profile/>} />  */}
+          <Route path="/profile" element={<Login/>} /> 
           <Route path="/singup" element={<SignUp/>} /> 
           
           

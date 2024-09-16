@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const SignUp = () => {
     return (
@@ -10,7 +10,7 @@ const SignUp = () => {
                     <Link to="/">  <img src="/asset/design/2.png" className="img-fluid close-png" alt="" /></Link>
                     <div className="row mt-4">
                         <div className="col-12 ">
-                            <img src="/asset/design/1.png" alt="Logo" className="logo me-2 logo-h" />
+                            <img src="/asset/design/1.png" alt="Logo" className="logo me-2 logo-h login-logo" />
                             <h1 className="login-text ">Sing Up</h1>
                         </div>
                     </div>
@@ -18,7 +18,7 @@ const SignUp = () => {
 
                     <div className="row justify-content-center mt-4">
                         <div className="col-12 col-md-6 text-center">
-                            <img src="/asset/design/4.png" alt="" className="img-fluid logo-h" style={{ height: '280px', }} />
+                            <img src="/asset/design/4.png" alt="" className="img-fluid "  />
                         </div>
                     </div>
                     <div className="row justify-content-center mt-4">
@@ -40,12 +40,12 @@ const SignUp = () => {
                                     <img src="/asset/logo/8.png" className='logo-e' alt="" />
                                     <input type="Date" className="password input-login" id="Date" placeholder=" Date of Birth" />
                                 </div>
-                                <button type="submit" className="btn-color btn">Sing up<i className="fas fa-arrow-right mx-3"></i> </button>
+                                <button type="submit" className="btn-color ">Sing up<i className="fas fa-arrow-right mx-3"></i> </button>
                             </form>
                         </div>
                         <div className='d-flex justify-content-center mt-3'>
                             <p className='text-white'>Already registered? </p>
-                            <span>  <Link to="/Login" className=' text-white fw-bold'> sign in </Link></span>
+                            <span>  <NavLink to="/profile" className=' text-white fw-bold'> sign in </NavLink></span>
 
                         </div>
                     </div>
