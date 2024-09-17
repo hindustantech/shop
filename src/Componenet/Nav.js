@@ -15,7 +15,7 @@ const Nav = () => {
               activeClassName="active"
             >
               <i className="fa fa-home" aria-hidden="true"></i>
-              <br />
+              
               Home
             </NavLink>
           </li>
@@ -25,7 +25,7 @@ const Nav = () => {
               to="/shop" 
               activeClassName="active"
             >
-              <i className="fa-solid fa-shop"></i><br /> 
+              <i className="fa-solid fa-shop"></i> 
               Shop
             </NavLink>
           </li>
@@ -36,7 +36,7 @@ const Nav = () => {
               activeClassName="active"
             >
               <i className="fa fa-tachometer" aria-hidden="true"></i>
-              <br /> 
+               
               Dashboard
             </NavLink>
           </li>
@@ -46,7 +46,7 @@ const Nav = () => {
               to="/profile" 
               activeClassName="active"
             >
-              <i className="fa-solid fa-user"></i> <br />
+              <i className="fa-solid fa-user"></i> 
               Profile
             </NavLink>
           </li>

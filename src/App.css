@@ -18,6 +18,9 @@
   font-weight: bold;
 }
 
+.input-login::-ms-value{
+  color: #ffff;
+}
 .logo-h {
   height: 8vh;
 }
