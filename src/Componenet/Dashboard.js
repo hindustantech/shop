@@ -9,7 +9,7 @@ const Dashboard = () => {
                 <h3 className='text-dashborad mx-4'>Dashboards</h3>
                 <img src="/asset/design/25.png" className='l-h mx-3' alt="Company Logo 2" />
             </div>
-            <div className="dashboard-body container">
+            <div className="dashboard-body container h-100">
                 <div class="row px-2 mt-3">
                     <h2>Wallets</h2>
                     <div class="col-6 ">

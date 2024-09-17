@@ -5,12 +5,7 @@
 }
 
 
-.nav-height {
-  height: 44px;
-  position: sticky;
-  bottom: 0;
-  width: 100%;
-}
+
 
 .nav-link.active {
   color: #f39437 !important;
@@ -18,7 +13,7 @@
   font-weight: bold;
 }
 
-.input-login::-ms-value{
+.input-login{
   color: #ffff;
 }
 .logo-h {
@@ -259,6 +254,7 @@ ul li .text-color {
 
 .search-input {
   background-color: #022341;
+  color: #ffffff;
   border-radius: 8px;
   padding: 1px 10px;
   align-items: center !important;

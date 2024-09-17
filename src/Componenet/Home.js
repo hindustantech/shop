@@ -10,7 +10,7 @@ export const Home = () => {
             <div className="header ">
                 <Header />
             </div>
-            <div className='main-body'>
+            <div className='main-body '>
 
                 <div className="main container">
                     <div className="container">
