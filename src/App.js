@@ -5,26 +5,72 @@ import { Shop } from './Componenet/Shop';
 import SignUp from './Componenet/SignUp';
 import Login from './Componenet/Login';
 import Dashboard from './Componenet/Dashboard';
-// import Profile from './Componenet/Profile';
-
+import Profile from './Componenet/Profile';
+import EdditProfile from './Componenet/EdditProfile';
+import Earn from './Componenet/Earn';
+import ProfileDeatils from './Componenet/ProfileDeatils';
+import { Toaster } from 'react-hot-toast';
+import { Forgot } from './Componenet/Forgot';
+import OTP from './Componenet/OTP';
+import ChangePassword from './Componenet/ChangePassword';
+import ForgotPasswod from './Componenet/ForgotPasswod';
+import SucerityPin from './Componenet/SucerityPin';
+import Notifications from './Componenet/Notifications';
+import AccountSatlement from './Componenet/AccountSatlement';
+import { KYC } from './Componenet/Kyc';
+import ViewEvent from './Componenet/ViewEvent';
+import ForgotSecurity from './Componenet/ForgotSucerityPin';
+import IDCards from './Componenet/IDCards';
+import SponsorReport from './Componenet/SponsorReport';
+import ProductDeatis from './Componenet/ProductDeatis';
+import AccountStatement from './AccountStatement';
+import Withdraw from './Componenet/Withdraw';
+import Activation from './Componenet/Activation'
+import Deposit from'./Componenet/Deposit'
+import PackageActivationHistory from './Componenet/PackageActivationHistory';
+import DepositHistory from './Componenet/DepositHistory';
+import WithdrawHistory from './Componenet/WithdrawHistory';
 function App() {
   return (
-
     <>
+      <Toaster position="top-right" />
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/shop" element={<Shop/>} /> 
-          <Route path="/dashboard" element={<Dashboard/>} /> 
-          {/* <Route path="/profile" element={<Profile/>} />  */}
-          <Route path="/profile" element={<Login/>} /> 
-          <Route path="/singup" element={<SignUp/>} /> 
-          
-          
-          
+          <Route path="/shop" element={<Shop />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/Login" element={<Login />} />
+          <Route path="/register" element={<SignUp />} />
+          <Route path='/profileDeatils' element={<ProfileDeatils />} />
+          <Route path="/edditproile" element={<EdditProfile />} />
+          <Route path="/earn" element={<Earn />} />
+          <Route path="/forgot" element={<Forgot />} />
+          <Route path="/OTP" element={<OTP />} />
+          <Route path="/forgotpassword" element={<ForgotPasswod/>} />
+          <Route path="/ChangePassword" element={<ChangePassword/>} />
+          <Route path="/sucerityPin" element={<SucerityPin/>} />
+          <Route path="/Notification" element={<Notifications/>} />
+          <Route path="/Accountsatlement" element={<AccountSatlement/>} />
+          <Route path="/kyc" element={<KYC/>} />
+          <Route path="/ViewEvent" element={<ViewEvent/>} />
+          <Route path="/IDCards" element={<IDCards/>} />
+          <Route path="/ForgotSecurity" element={<ForgotSecurity/>} />
+          <Route path="/SponsorReport" element={ <SponsorReport/>} />
+          <Route path="/AccountStatement" element={ <AccountStatement/>} />
+          <Route path="/withdraw" element={ <Withdraw/>} />
+          <Route path="/Activation" element={ <Activation/>} />
+          <Route path="/Deposit" element={ <Deposit/>} />
+          <Route path="/historyA" element={ <PackageActivationHistory/>} />
+          <Route path="/historyD" element={ <DepositHistory/>} />
+          <Route path="/historyW" element={ <WithdrawHistory/>} />
+          <Route path="/ProductDeatis/:id" element={ <ProductDeatis/>} />
+           
+                     
         </Routes>
       </Router>
-
+      
+      
     </>
 
 
