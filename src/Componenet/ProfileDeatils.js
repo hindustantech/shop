@@ -194,6 +194,7 @@ const ProfileDeatils = () => {
                             <div className="d-flex justify-content-space-between box-s">
                                 <p className='mb-0 px-1 mt-2 profile-text-right'>USER id</p>
                                 <input
+                                    readOnly
                                     type="text"
                                     name="title"
                                     value={formData.id}
@@ -206,6 +207,7 @@ const ProfileDeatils = () => {
                             <div className="d-flex justify-content-space-between box-s">
                                 <p className='mb-0 px-1 mt-2 profile-text-right'>Title</p>
                                 <input
+                                    readOnly
                                     type="text"
                                     name="title"
                                     value={formData.title}
@@ -218,6 +220,7 @@ const ProfileDeatils = () => {
                             <div className="d-flex justify-content-space-between box-s">
                                 <p className='mb-0 px-1 mt-2 profile-text-right'>Name</p>
                                 <input
+                                    readOnly
                                     type="text"
                                     name="name"
                                     value={formData.name}
@@ -230,6 +233,7 @@ const ProfileDeatils = () => {
                             <div className="d-flex justify-content-space-between box-s">
                                 <p className='mb-0 px-1 mt-2 profile-text-right'>Gender</p>
                                 <input
+                                    readOnly
                                     type="text"
                                     name="gender"
                                     value={formData.gender}
@@ -242,6 +246,7 @@ const ProfileDeatils = () => {
                             <div className="d-flex justify-content-space-between box-s">
                                 <p className='mb-0 px-1 mt-2 profile-text-right'>Date of Birth</p>
                                 <input
+                                    readOnly
                                     type="text"
                                     name="dob"
                                     value={formData.dob}
@@ -254,6 +259,7 @@ const ProfileDeatils = () => {
                             <div className="d-flex justify-content-space-between box-s">
                                 <p className='mb-0 px-1 mt-2 profile-text-right'>Residence</p>
                                 <input
+                                    readOnly
                                     type="text"
                                     name="address"
                                     value={formData.address}
@@ -266,6 +272,7 @@ const ProfileDeatils = () => {
                             <div className="d-flex justify-content-space-between box-s">
                                 <p className='mb-0 px-1 mt-2 profile-text-right'>State</p>
                                 <input
+                                    readOnly
                                     type="text"
                                     name="state"
                                     value={formData.state}
@@ -278,6 +285,7 @@ const ProfileDeatils = () => {
                             <div className="d-flex justify-content-space-between box-s">
                                 <p className='mb-0 px-1 mt-2 profile-text-right'>City</p>
                                 <input
+                                    readOnly
                                     type="text"
                                     name="city"
                                     value={formData.city}
@@ -290,6 +298,7 @@ const ProfileDeatils = () => {
                             <div className="d-flex justify-content-space-between box-s">
                                 <p className='mb-0 px-1 mt-2 profile-text-right'>District</p>
                                 <input
+                                    readOnly
                                     type="text"
                                     name="district"
                                     value={formData.district}
@@ -302,6 +311,7 @@ const ProfileDeatils = () => {
                             <div className="d-flex justify-content-space-between box-s">
                                 <p className='mb-0 px-1 mt-2 profile-text-right'>Pincode</p>
                                 <input
+                                    readOnly
                                     type="text"
                                     name="pincode"
                                     value={formData.pincode}
@@ -314,18 +324,20 @@ const ProfileDeatils = () => {
                             <div className="d-flex justify-content-space-between box-s">
                                 <p className='mb-0 px-1 mt-2 profile-text-right'>Email</p>
                                 <input
+                                    readOnly
                                     type="email"
                                     name="email"
                                     value={formData.email}
                                     onChange={handleChange}
                                     className="px-4 p-text-p fw-bold border-0 mt-2"
-                                    style={{ outline: 'none', width: "55%" }}
+                                    style={{ outline: 'none', width: "60%" }}
                                 />
                                  {errors.email && <p style={{ color: 'red',fontSize:'12px' }}>*</p>}
                             </div>
                             <div className="d-flex justify-content-space-between box-s">
                                 <p className='mb-0 px-1 mt-2 profile-text-right'>Mobile</p>
                                 <input
+                                    readOnly
                                     type="text"
                                     name="mobile"
                                     value={formData.mobile}
@@ -342,6 +354,7 @@ const ProfileDeatils = () => {
                             <div className="d-flex justify-content-space-between box-s">
                                 <p className='mb-0 px-1 mt-2 profile-text-right'>PAN</p>
                                 <input
+                                    readOnly
                                     type="text"
                                     name="pan"
                                     value={formData.pan}
@@ -354,6 +367,7 @@ const ProfileDeatils = () => {
                             <div className="d-flex justify-content-space-between box-s">
                                 <p className='mb-0 px-1 mt-2 profile-text-right'>GST </p>
                                 <input
+                                    readOnly
                                     type="text"
                                     name="gst"
                                     value={formData.gst}
@@ -376,6 +390,7 @@ const ProfileDeatils = () => {
                             <div className="d-flex justify-content-space-between box-s">
                                 <p className='px-1 profile-text-right fw-bold mt-2'>Nominee Name</p>
                                 <input
+                                    readOnly
                                     type="text"
                                     name="nomineeName"
                                     value={formData.nomineeName}
@@ -388,6 +403,7 @@ const ProfileDeatils = () => {
                             <div className="d-flex justify-content-space-between box-s">
                                 <p className='px-1 profile-text-right fw-bold mt-2'>Nominee Age</p>
                                 <input
+                                    readOnly
                                     type="text"
                                     name="nomineeAge"
                                     value={formData.nomineeAge}
@@ -400,6 +416,7 @@ const ProfileDeatils = () => {
                             <div className="d-flex justify-content-space-between box-s">
                                 <p className='px-1 profile-text-right fw-bold mt-2'>Nominee Relation</p>
                                 <input
+                                    readOnly
                                     type="text"
                                     name="nomineeRelation"
                                     value={formData.nomineeRelation}
@@ -411,12 +428,7 @@ const ProfileDeatils = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="referal-card profile-information d-flex flex-column justify-content-evenly container-fluid mt-2 mb-4">
-                        <div className="referal-information-header">
-                            <h3 className='text-center text-white'>update  Your Informaiton Information</h3>
-                        </div>
-                        <button className="update-Deatils mx-4 ">Update Deatils </button>
-                    </div>
+                    
                 </form>
             </div>
         </>
