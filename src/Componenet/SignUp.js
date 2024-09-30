@@ -33,77 +33,13 @@ const SignUp = () => {
 
 
     // Form validation function
-    const validateFormData = () => {
-        let validationErrors = {};
-        const phonePattern = /^[0-9]{10,15}$/;
-        const emailPattern = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
-
-        // Validate sponsor_id (Required)
-        if (!formData.sponcer_id.trim()) {
-            validationErrors.sponcer_id = "Sponsor ID is required";
-        }
-
-        // Validate country_code (Required)
-        if (!formData.country_code.trim()) {
-            validationErrors.country_code = "Country code is required";
-        }
-
-        // Validate mobile (Required, should be a valid phone number)
-        if (!formData.mobile.trim()) {
-            validationErrors.mobile = "Mobile number is required";
-        } else if (!phonePattern.test(formData.mobile)) {
-            validationErrors.mobile = "Invalid mobile number";
-        }
-
-        // Validate name (Required, min 3 characters)
-        if (!formData.name.trim()) {
-            validationErrors.name = "Name is required";
-        } else if (formData.name.length < 3) {
-            validationErrors.name = "Name must be at least 3 characters long";
-        }
-
-        // Validate email (Required, should be a valid email)
-        if (!formData.email.trim()) {
-            validationErrors.email = "Email is required";
-        } else if (!emailPattern.test(formData.email)) {
-            validationErrors.email = "Invalid email format";
-        }
-
-        // Validate password (Required, min 6 characters)
-        if (!formData.password.trim()) {
-            validationErrors.password = "Password is required";
-        } else if (formData.password.length < 6) {
-            validationErrors.password = "Password must be at least 6 characters long";
-        }
-
-        // Validate pwd_open (Required and should match password)
-        if (!formData.pwd_open.trim()) {
-            validationErrors.pwd_open = "Password confirmation is required";
-        } else if (formData.pwd_open !== formData.password) {
-            validationErrors.pwd_open = "Passwords do not match";
-        }
-
-        // Validate is_active (Should be true or false)
-        if (!formData.is_active.trim()) {
-            validationErrors.is_active = "Active status is required";
-        } else if (!["true", "false"].includes(formData.is_active.toLowerCase())) {
-            validationErrors.is_active = "Active status must be 'true' or 'false'";
-        }
-
-        setErrors(validationErrors);
-
-        // If there are no errors, return true
-        return Object.keys(validationErrors).length === 0;
-    };
+   
 
     // Handle form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (!validateFormData()) {
-            toast.error('Please fix the errors in the form');
-            return;
-        }
+        
         try {
             // Store a success message in localStorage (or you can use state for this)
 
