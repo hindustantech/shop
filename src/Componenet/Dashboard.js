@@ -21,7 +21,7 @@ const Dashboard = () => {
                             <div className="card gradient-border">
                                 <div className="card-body d-flex justify-content-between align-items-center">
                                     <div>
-                                        <h4>{data&&data.wallet&& data.wallet.activation_wallet}</h4>
+                                        <h4> ₹ {data&&data.wallet&& data.wallet.activation_wallet}</h4>
                                         <h5 className="text-s">Activation Wallet</h5>
                                     </div>
                                     <img src="asset/logo/26.png" className="l-h" alt="Activation Wallet Logo" />
@@ -35,7 +35,7 @@ const Dashboard = () => {
                             <div className="card gradient-border">
                                 <div className="card-body d-flex justify-content-between align-items-center">
                                     <div>
-                                        <h4>{data&&data.wallet&& data.wallet.wallet_balance}</h4>
+                                        <h4> ₹ {data&&data.wallet&& data.wallet.wallet_balance}</h4>
                                         <h5 className="text-s">Income Wallet</h5>
                                     </div>
                                     <img src="asset/logo/26.png" className="l-h" alt="Activation Wallet Logo" />
@@ -52,7 +52,7 @@ const Dashboard = () => {
                             <div className="card gradient-border">
                                 <div className="card-body d-flex justify-content-between align-items-center">
                                     <div>
-                                        <h4>₹2000</h4>
+                                        <h4>₹ 2000</h4>
                                         <h5 className="text-s">Leval Commission</h5>
                                     </div>
                                     <div className='Activation Wallet Logo'>
@@ -69,7 +69,7 @@ const Dashboard = () => {
                             <div className="card gradient-border">
                                 <div className="card-body d-flex justify-content-between align-items-center">
                                     <div>
-                                        <h4>₹2000</h4>
+                                        <h4>₹ 2000</h4>
                                         <h5 className="text-s">Leval Commission</h5>
                                     </div>
                                     <div className='Activation Wallet Logo'>
@@ -86,7 +86,7 @@ const Dashboard = () => {
                             <div className="card gradient-border">
                                 <div className="card-body d-flex justify-content-between align-items-center">
                                     <div>
-                                        <h4>₹2000</h4>
+                                        <h4>₹ 2000</h4>
                                         <h5 className="text-s">Leval Commission</h5>
                                     </div>
                                     <div className='Activation Wallet Logo'>
@@ -110,7 +110,7 @@ const Dashboard = () => {
                             <div className="card gradient-border">
                                 <div className="card-body d-flex justify-content-between align-items-center">
                                     <div>
-                                        <h4>{data&&data.wallet&& data.wallet.total_income}</h4>
+                                        <h4>₹ {data&&data.wallet&& data.wallet.total_income}</h4>
                                         <h5 className="text-s">Total Earning</h5>
                                     </div>
                                     <img src="asset/logo/28.png" className="l-h" alt="Activation Wallet Logo" />
@@ -124,7 +124,7 @@ const Dashboard = () => {
                             <div className="card gradient-border">
                                 <div className="card-body d-flex justify-content-between align-items-center">
                                     <div>
-                                        <h4>₹12000</h4>
+                                        <h4>₹ 12000</h4>
                                         <h5 className="text-s">Total Payout</h5>
                                     </div>
                                     <img src="asset/logo/28.png" className="l-h" alt="Activation Wallet Logo" />
