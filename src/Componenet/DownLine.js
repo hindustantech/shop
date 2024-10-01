@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Headers from './Headers'
 import axios from 'axios';
-const SponsorReport = () => {
+const DownLine = () => {
 
     const [reports, setReports] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -43,7 +43,7 @@ const SponsorReport = () => {
 
     return (
         <>
-            <Headers Name="Direct Report" />
+            <Headers Name="DownLine  Report" />
             <div className="main-id-card  ">
                 <div className=" search-reports mt-3 mx-2 d-flex justify-content-center aling-item-center  ">
 
@@ -54,11 +54,11 @@ const SponsorReport = () => {
 
 
                 <div className="card-id  mt-3 row ">
-                    {reports.my_direct.map((report) => (
+                    {reports.my_downline.map((report) => (
                         <div className="col-md-4 mt-2 col-12" key={report.id}> {/* Add a unique key for each report */}
                             <div className="id-card mx-2 mt-1">
                                 <div className="info">
-                                    <p className="id-no text-center">ID: {report.id}</p>
+                                    <p className="id-no text-center">ID: {report.user_id}</p>
                                     <hr />
 
                                     <div className="d-flex justify-content-between"> {/* Corrected from justify-content-space-between */}
@@ -105,4 +105,4 @@ const SponsorReport = () => {
     )
 }
 
-export default SponsorReport
+export default DownLine

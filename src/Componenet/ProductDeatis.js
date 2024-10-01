@@ -111,9 +111,8 @@ const ProductDeatis = () => {
                 <img src="/asset/logo/37.png" className="product-d mt-3 mx-3" alt="" />
                 </Link>
                 <p className='text-center text-white mt-3 f-w-bold'>{product.products.product_name}</p>
-                <i className="fa fa-search mt-4 mx-4 p-s" aria-hidden="true"></i>
-                <i className="fa-solid fa-cart-shopping mx-4 mt-4 p-s"></i>
-                <p className='cart-count text-center'>{cartQuantity}</p>
+                <i className="fa fa-search mt-3 mx-4 p-s" aria-hidden="true"></i>
+                
             </div>
             <div className="px-2">
                 <div className='productdeatils main-page-product mt-2 mx-3'>
@@ -158,7 +157,7 @@ const ProductDeatis = () => {
 
                 <div className="info d-flex mx-2">
                     <p className="price px-2 text-capitalize"> {product.products.product_name}</p>
-                    <button className='btn-add-card' onClick={addToCart}>Add to Cart <i className="fa-solid fa-cart-shopping mx-3"></i></button>
+                    <button className='btn-add-card'>BUY NOW <i className="fa-solid fa-cart-shopping mx-3"></i></button>
                 </div>
 
                 <div className="quantity-controls px-3">

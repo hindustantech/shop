@@ -30,6 +30,8 @@ import Deposit from'./Componenet/Deposit'
 import PackageActivationHistory from './Componenet/PackageActivationHistory';
 import DepositHistory from './Componenet/DepositHistory';
 import WithdrawHistory from './Componenet/WithdrawHistory';
+import DownLine from './Componenet/DownLine';
+
 function App() {
   return (
     <>
@@ -64,6 +66,8 @@ function App() {
           <Route path="/historyA" element={ <PackageActivationHistory/>} />
           <Route path="/historyD" element={ <DepositHistory/>} />
           <Route path="/historyW" element={ <WithdrawHistory/>} />
+          <Route path="/DownLine" element={ <DownLine/>} />
+          
           <Route path="/ProductDeatis/:id" element={ <ProductDeatis/>} />
            
                      

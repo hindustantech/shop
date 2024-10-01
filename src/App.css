@@ -987,6 +987,15 @@ p {
   border: 1px solid #dcdada;
 }
 
+.Logout-btn{
+  border: none;
+}
+.form-check-input{
+  position: absolute;
+  
+  right: 42px;
+
+}
 /* img previwe */
 
 .l-h-q {
