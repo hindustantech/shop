@@ -12,7 +12,7 @@ const Dashboard = () => {
                 <h3 className='text-dashborad mx-4'>Dashboards</h3>
                 <img src="/asset/design/25.png" className='l-h heade-nav mx-3' alt="Company Logo 2" />
             </div>
-            <div className="dashboard-body container h-100">
+            <div className="dashboard-body container " style={{height:"100vh"}}>
                 <div className="row px-2 mt-3">
                     <h2>Wallets</h2>
                     <div className="col-6 ">
@@ -52,7 +52,7 @@ const Dashboard = () => {
                             <div className="card gradient-border">
                                 <div className="card-body d-flex justify-content-between align-items-center">
                                     <div>
-                                        <h4>₹ 2000</h4>
+                                        <h4>₹ {data&&data.wallet&& data.wallet.level_income}</h4>
                                         <h5 className="text-s">Leval Commission</h5>
                                     </div>
                                     <div className='Activation Wallet Logo'>
@@ -64,41 +64,8 @@ const Dashboard = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-12 mt-3">
-                        <div className='cardBox '>
-                            <div className="card gradient-border">
-                                <div className="card-body d-flex justify-content-between align-items-center">
-                                    <div>
-                                        <h4>₹ 2000</h4>
-                                        <h5 className="text-s">Leval Commission</h5>
-                                    </div>
-                                    <div className='Activation Wallet Logo'>
-                                        <h4 className='t' >+18%</h4>
-                                        <p>From Last Week</p>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-12 mt-3">
-                        <div className='cardBox '>
-                            <div className="card gradient-border">
-                                <div className="card-body d-flex justify-content-between align-items-center">
-                                    <div>
-                                        <h4>₹ 2000</h4>
-                                        <h5 className="text-s">Leval Commission</h5>
-                                    </div>
-                                    <div className='Activation Wallet Logo'>
-                                        <h4 className='t' >+18%</h4>
-                                        <p>From Last Week</p>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+                 
+                    
 
 
                 </div>
@@ -124,7 +91,7 @@ const Dashboard = () => {
                             <div className="card gradient-border">
                                 <div className="card-body d-flex justify-content-between align-items-center">
                                     <div>
-                                        <h4>₹ 12000</h4>
+                                        <h4>₹ {data&&data.wallet&& data.wallet.total_withdrawal}</h4>
                                         <h5 className="text-s">Total Payout</h5>
                                     </div>
                                     <img src="asset/logo/28.png" className="l-h" alt="Activation Wallet Logo" />

@@ -5,7 +5,7 @@ import { DataContext } from '../DataContext';
 
 const Profile = () => {
     const { data } = useContext(DataContext);
-    
+
     // Assuming `kyc_status` is part of the `data.user.user` object and holds the KYC status
     const isKYCVerified = data && data.user.user && data.user.user.verified === 'verified';
 
@@ -36,7 +36,7 @@ const Profile = () => {
 
                 <div className="gernal-settinig mt-4">
                     <h2 className='profile-text-color heading-h px-4'>General Settings</h2>
-                    
+
                     {/* KYC Status */}
                     <div className="kyc d-flex justify-content-around  profile-content ">
                         <img src="/asset/profile/2.png" className='profile-icons-height' alt="" />
@@ -46,9 +46,9 @@ const Profile = () => {
                                 className="form-check-input custom-checkbox"
                                 type="checkbox"
                                 id="flexSwitchCheckDefault"
-                                checked={isKYCVerified} 
+                                checked={isKYCVerified}
                                 readOnly
-                                  
+
                             />
                         </div>
                     </div>
@@ -99,16 +99,23 @@ const Profile = () => {
 
                 <div className="information">
                     <h2 className='profile-text-color heading-h px-4'>Information</h2>
-                    <div className="d-flex justify-content-around profile-content">
-                        <img src="/asset/profile/7.png" alt="" className='profile-icons-height' />
-                        <p className='profile-text-color'>About Digiconcepts</p>
-                        <img src="/asset/logo/38.png" alt="" className='profile-icons-height' />
-                    </div>
+                    <Link to="/About" className="link-none">
+                        <div className="d-flex justify-content-around profile-content">
+
+                            <img src="/asset/profile/7.png" alt="" className='profile-icons-height' />
+
+                            <p className='profile-text-color'>About Digiconcepts</p>
+                            <img src="/asset/logo/38.png" alt="" className='profile-icons-height' />
+
+                        </div>
+                    </Link>
+                    <Link to="/AbouTermsAndConditionst" className="link-none">
                     <div className="d-flex justify-content-around profile-content">
                         <img src="/asset/profile/8.png" alt="" className='profile-icons-height' />
                         <p className='profile-text-color'>Terms & Conditions</p>
                         <img src="/asset/logo/38.png" alt="" className='profile-icons-height' />
                     </div>
+                    </Link>
                 </div>
             </div>
             <Nav />

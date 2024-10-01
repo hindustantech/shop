@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
+import { DataContext } from '../DataContext';
 
 
 const SignUp = () => {
-
+    const { data } = useContext(DataContext);
     const navigate = useNavigate();
     const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
     const [errors, setErrors] = useState({});
+    const [sponcerMessage, setSponcerMessage] = useState('');
     // State to store form data
     const [formData, setFormData] = useState({
         sponcer_id: "",
@@ -31,15 +33,27 @@ const SignUp = () => {
         setFormData({ ...formData, [name]: value });
     };
 
+    const handleBlur = () => {
+        const { sponcer_id } = formData;
 
+        // Check if the entered sponcer_id matches any email in the data context
+        const emailExists = data && data.user && data.user.sponsor && data.user.sponsor.email === sponcer_id;
+        if (emailExists) {
+            setSponcerMessage(`Name : ${data && data.user && data.user.sponsor && data.user.sponsor.first_name}`);
+            toast.success(`Sponcer found: ${sponcer_id}`);
+        } else {
+            setSponcerMessage('Sponcer not found.');
+            toast.error('Sponcer not found.');
+        }
+    };
     // Form validation function
-   
+
 
     // Handle form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        
+
         try {
             // Store a success message in localStorage (or you can use state for this)
 
@@ -51,12 +65,24 @@ const SignUp = () => {
 
 
 
-            await axios.post(`${apiBaseUrl}/register`, formData, {
+            const res = await axios.post(`${apiBaseUrl}/register`, formData, {
                 headers: {
                     "Content-Type": "application/json; charset=utf-8",
                 },
             });
-            toast.success('Register Success!');
+
+            const userDetails = res.data.user; // Ensure this matches your actual response structure
+        
+            if (userDetails) {
+                // Display the email (as user ID) and temporary password
+                toast.success(`Registration Successful! 
+                    Your User ID: ${userDetails.email},
+                    Your Password: ${userDetails.pwd_open}`, {
+                    duration: 50000, // 5 seconds
+                });
+            } else {
+                toast.error('User details not found in response!');
+            }
 
             // Redirect to homepage or login after successful registration
             navigate("/Login");
@@ -90,12 +116,16 @@ const SignUp = () => {
 
 
                     <form className='loginForm mt-4' onSubmit={handleSubmit}>
+
                         <div className="mb-3 input-fi">
+
+
                             <img src="/asset/logo/7.png" className='logo-e' alt="" />
                             <input
                                 type="text"
                                 className="text login-color input-login"
                                 onChange={handleChange}
+                                onBlur={handleBlur}
                                 value={formData.sponcer_id}
                                 name='sponcer_id'
                                 placeholder="Enter Your Refferal ID "
@@ -104,8 +134,9 @@ const SignUp = () => {
                             {errors.sponcer_id && <p>{errors.sponcer_id}</p>}
 
                         </div>
+                        {sponcerMessage && <p className="text-success message-name-emai mb-0">{sponcerMessage}</p>}
 
-                        <div className="mb-3 input-fi">
+                        <div className="mb-3 input-fi mt-2">
                             <img src="/asset/logo/7.png" className='logo-e' alt="" />
                             <input
                                 type="text"

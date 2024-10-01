@@ -137,7 +137,7 @@ const Activation = () => {
 
           <form className="select-package" onSubmit={handleSubmit}>
             <p className="text-center font-size-name Withdraw-heading ">
-              User Name:  {data && data.user && data.user.name ? data.user.name : "User name not available"}
+              User Name:  {data && data.user.user && data.user.user.first_name ? data.user.user.first_name : "User name not available"}
             </p>
             <input
               type="text"

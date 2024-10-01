@@ -40,9 +40,9 @@
 .profile-pic {
   height: 35px;
 }
-.mani-profile-deatils{
-    overflow-x: hidden
 
+.mani-profile-deatils {
+  overflow-x: hidden
 }
 
 .notifaction-m {
@@ -295,7 +295,7 @@ div .decs {
   font-size: 9px;
   text-align: center;
   color: #ffffff;
-  
+
 }
 
 ul li .text-color {
@@ -603,7 +603,7 @@ ul li .text-color {
 }
 
 .referal-card {
- 
+
   border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 
@@ -637,18 +637,18 @@ p {
   margin-top: 0;
 }
 
-.update-Deatils{
+.update-Deatils {
   border: 1px solid #c0c0cc;
   background-color: #022341;
   color: white;
   border-radius: 5px;
   margin-top: 14px;
   margin-bottom: 10px;
-  
+
 }
 
 .p-text-p {
-  
+
   margin-left: 130px;
   position: absolute;
   font-size: 12px;
@@ -864,7 +864,7 @@ p {
 
 .close-btn-side {
   margin-left: 240px;
-
+  cursor: pointer;
   height: 40px;
   width: 40px;
   background-color: #d47a1a;
@@ -911,6 +911,83 @@ p {
 }
 
 
+
+
+/* About */
+.app-container_about {
+  background-color: #022341;
+  /* 70% color */
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.content_about {
+  background-color: #d47a1a;
+  /* 30% color */
+  border-radius: 8px;
+  padding: 30px;
+  margin: 20px 0;
+}
+
+.h3_about {
+  color: #022341;
+  /* Main color for headings */
+}
+
+.strong_about {
+  color: #022341;
+  /* Main color for emphasized text */
+}
+
+
+/* Term and Cond */
+
+
+.digiconcepts-terms-container {
+  background-color: #f8f9fa;
+  /* Light background for contrast */
+  color: #022341;
+  /* Main text color */
+  padding: 20px;
+  border-radius: 8px;
+  margin: 20px;
+}
+
+.digiconcepts-terms-title {
+  text-align: center;
+  color: #d47a1a;
+  /* Accent color for title */
+}
+
+.digiconcepts-section-title {
+  margin-top: 20px;
+  color: #022341;
+  /* Main color for headings */
+}
+
+.digiconcepts-list {
+  list-style-type: disc;
+  /* Use bullets for lists */
+  margin-left: 20px;
+  /* Indent lists */
+}
+
+.digiconcepts-effective-date {
+  font-weight: bold;
+}
+
+.digiconcepts-brand {
+  color: #d47a1a;
+  /* Accent color for brand name */
+}
+
+.digiconcepts-definition {
+  font-weight: bold;
+}
 
 /* ADD Card */
 
@@ -987,15 +1064,23 @@ p {
   border: 1px solid #dcdada;
 }
 
-.Logout-btn{
+.Logout-btn {
   border: none;
 }
-.form-check-input{
+
+.form-check-input {
   position: absolute;
-  
+
   right: 42px;
 
 }
+
+.message-name-emai {
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: -17px;
+}
+
 /* img previwe */
 
 .l-h-q {
@@ -1125,7 +1210,8 @@ p {
 
 
 .dropzone {
-  border: 2px dashed white; /* Customize as needed */
+  border: 2px dashed white;
+  /* Customize as needed */
   border-radius: 4px;
   background-color: #022341;
   text-align: center;
@@ -1136,7 +1222,8 @@ p {
 }
 
 .dropzone:hover {
-  background-color: #f8f9fa; /* Light background on hover */
+  background-color: #f8f9fa;
+  /* Light background on hover */
 }
 
 
@@ -1420,7 +1507,7 @@ p {
   border-radius: 5px;
   background-color: #ffffff;
   padding: 3px;
-  
+
 
 }
 
@@ -1464,7 +1551,8 @@ p {
 .check-user-id {
   font-size: 12px;
 }
-.userid-A{
+
+.userid-A {
   border: 1px solid #c0c0c0;
   border-radius: 9px;
   width: 175px;
@@ -1473,11 +1561,12 @@ p {
   margin-bottom: 14px;
 }
 
-.password-filed-a{
+.password-filed-a {
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
-    border: 1px solid #c0c0c0;
+  border-radius: 5px;
+  border: 1px solid #c0c0c0;
 }
+
 .package-card-price-section {
   background-color: #022341d1;
   width: 132px;
@@ -1485,7 +1574,7 @@ p {
   text-align: center;
   border-radius: 5px;
   height: 34px;
-  
+
   font-weight: bold;
 }
 
@@ -1526,13 +1615,14 @@ p {
 
 /* Activation History  */
 
-.package-activation-text{
+.package-activation-text {
   font-size: 13px;
   font-weight: bold;
   border-radius: 5%;
   color: #022341;
 }
-.history-card{
+
+.history-card {
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(44, 44, 44, 0.2);
   border: 2px solid #dedede;
@@ -1540,22 +1630,28 @@ p {
 
 .right-text-history {
   margin-left: 110px;
-  position: absolute; /* Align the text to the right */
-  font-weight: bold; /* Make the text bold */
-  color:#022341; /* Customize the text color */
-  font-size: 12px; /* Adjust the font size */
+  position: absolute;
+  /* Align the text to the right */
+  font-weight: bold;
+  /* Make the text bold */
+  color: #022341;
+  /* Customize the text color */
+  font-size: 12px;
+  /* Adjust the font size */
 }
 
-.activation-img_h{
+.activation-img_h {
   position: absolute;
   margin-left: 172px;
   margin-top: -7px;
 }
-.data-history{
+
+.data-history {
   color: #022341;
   font-size: 14px;
   font-weight: bold;
 }
+
 /* Withdraw Page Styles */
 .withdraw-main {
   display: flex;
@@ -1575,7 +1671,8 @@ p {
   width: 100%;
   margin-top: 80px;
 }
-.Withdraw-heading{
+
+.Withdraw-heading {
   color: #022341;
 }
 
@@ -1647,9 +1744,10 @@ p {
   width: 120px;
   margin-left: 95px;
 }
-.amt-w{
- border:  1px solid #c0c0c0;
- border-radius: 5px;
+
+.amt-w {
+  border: 1px solid #c0c0c0;
+  border-radius: 5px;
 }
 
 .wran {
@@ -1694,7 +1792,7 @@ p {
   background-color: #f4f4f4;
 }
 
-.password-wi{
+.password-wi {
   border-radius: 5px;
   border: 1px solid #c0c0c0;
   width: 100%;
@@ -1702,18 +1800,20 @@ p {
 }
 
 
-.atm-d{
+.atm-d {
   border: none;
   width: 100%;
- text-align: center;
+  text-align: center;
 }
-.Amt-Dep{
+
+.Amt-Dep {
   border: 2px solid #c0c0c0;
   border-radius: 5px;
   width: 271px;
   margin-left: 14px;
 }
-.sec_package{
+
+.sec_package {
   border: 1px solid #c0c0c0;
   border-radius: 5px;
 }
@@ -1727,14 +1827,17 @@ p {
   width: 330px;
   margin-top: 100px;
 }
-.sec-package{
+
+.sec-package {
   height: 28px;
 }
-.qr-img{
-  
+
+.qr-img {
+
   height: 100px;
 }
-.selected-package-deposit{
+
+.selected-package-deposit {
   border: 1px solid #c0c0c0;
   border-radius: 5px;
   position: relative;
@@ -1742,7 +1845,7 @@ p {
   color: #ffffff;
   font-size: 14px;
   background-color: #014172;
-  
+
   width: 100px;
   height: 28px;
   font-weight: bold;
@@ -1795,12 +1898,12 @@ p {
 
 
 @media (min-width: 992px) {
- 
- 
+
+
   .main-body {
     padding: 20px;
     background-color: #022341;
-   height: 100%;
+    height: 100%;
 
   }
 
@@ -1852,8 +1955,8 @@ p {
   }
 
   .dashboard-body {
-
     width: 100%;
+    height: 100vh !important;
 
   }
 
