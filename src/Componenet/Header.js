@@ -19,7 +19,7 @@ const Header = () => {
       <div className="header-bg bg-light ">
         <div className=" d-flex justify-content-between align-items-center p-3 container">
 
-          <img src="/asset/design/1.png" alt="logo" className='height-img' />
+          <img src="/asset/logo/1.png" alt="logo" className='height-img' />
 
           <form className='loginForm search-from'>
             <div className=" search-input ">

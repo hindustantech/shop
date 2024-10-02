@@ -22,7 +22,7 @@ const Sidebar = ({ sidebarOpen, toggleSidebar }) => {
 
   return (
     <div className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
-      <img src="/asset/design/1.png" alt="logo" className='side-bar-logo' />
+      <img src="/asset/design/1.png" alt="logo" className='side-bar-logo' style={{height:"70px"}} />
 
       <button className="close-btn-side" onClick={toggleSidebar}>
         X
@@ -86,12 +86,12 @@ const Sidebar = ({ sidebarOpen, toggleSidebar }) => {
                 </Link>
                 <Link className="link-none" to="/profileDetails">
                   <li className="list-profile-sidebar mt-3">
-                    <FontAwesomeIcon className='px-2' icon={faUser} /> Profile Details
+                  <img src="/icon/Profiledetail.png" style={{height:"18px"}} alt=""  className='mx-2'/>  Profile Details
                   </li>
                 </Link>
                 <Link className="link-none" to="/edditproile">
                   <li className="list-profile-sidebar mt-3">
-                    <FontAwesomeIcon className='px-2' icon={faUser} /> Edit Profile
+                  <img src="/icon/profileedit.png" style={{height:"22px"}} alt="" className='mx-2' /> Edit Profile
                   </li>
                 </Link>
                 <Link className="link-none" to="/ChangePassword">
@@ -172,7 +172,7 @@ const Sidebar = ({ sidebarOpen, toggleSidebar }) => {
       <div className="dasboard-sidebar mt-3 px-1 px-3 mx-2 d-flex gap-3">
         <Link to="/Deposit" className="link-none">
           <p className="mt-2 text-align-center">
-            <FontAwesomeIcon className="mx-2 mt-2" icon={faBell} /> Deposit
+          <img src="/icon/deposit.png" style={{height:"22px"}} alt=""className='mx-2' /> Deposit
           </p>
         </Link>
       </div>
@@ -181,7 +181,7 @@ const Sidebar = ({ sidebarOpen, toggleSidebar }) => {
       <div className="dasboard-sidebar mt-3 px-1 px-3 mx-2 d-flex gap-3">
         <Link to="/Activation" className="link-none">
           <p className="mt-2 text-align-center">
-            <FontAwesomeIcon className="mx-2 mt-2" icon={faBell} /> Activation
+          <img src="/icon/activation.png" style={{height:"22px"}} alt="" className='mx-2'/> Activation
           </p>
         </Link>
       </div>
@@ -190,7 +190,7 @@ const Sidebar = ({ sidebarOpen, toggleSidebar }) => {
       <div className="dasboard-sidebar mt-3 px-1 px-3 mx-2 d-flex gap-3">
         <Link to="/withdraw" className="link-none">
           <p className="mt-2 text-align-center">
-            <FontAwesomeIcon className="mx-2 mt-2" icon={faCreditCard} /> Withdraw
+          <img src="/icon/withdrawal.png" style={{height:"22px"}} alt="" className='mx-2' /> Withdraw
           </p>
         </Link>
       </div>
@@ -199,35 +199,35 @@ const Sidebar = ({ sidebarOpen, toggleSidebar }) => {
       <div className="dasboard-sidebar mt-3 px-1 px-3 mx-2 d-flex gap-3">
         <Link to="/historyA" className="link-none">
           <p className="mt-2 text-align-center">
-            <FontAwesomeIcon className="mx-2 mt-2" icon={faHistory} /> Activation Package History
+          <img src="/icon/activationhistory.png" style={{height:"22px"}} alt="" className='mx-2' /> Activation Package History
           </p>
         </Link>
       </div>
       <div className="dasboard-sidebar mt-3 px-1 px-3 mx-2 d-flex gap-3">
         <Link to="/historyD" className="link-none">
           <p className="mt-2 text-align-center">
-            <FontAwesomeIcon className="mx-2 mt-2" icon={faMoneyCheckAlt} /> Deposit History
+            <img src="/icon/deposithistory.png" style={{height:"22px"}} alt=""className='mx-2'  /> Deposit History
           </p>
         </Link>
       </div>
       <div className="dasboard-sidebar mt-3 px-1 px-3 mx-2 d-flex gap-3">
         <Link to="/historyW" className="link-none">
           <p className="mt-2 text-align-center">
-            <FontAwesomeIcon className="mx-2 mt-2" icon={faMoneyBillWaveAlt} /> Withdraw History
+          <img src="/icon/withdrawalhistory.png" style={{height:"22px"}} alt="" className='mx-2'/> Withdraw History
           </p>
         </Link>
       </div>
       <div className="dasboard-sidebar mt-3 px-1 px-3 mx-2 d-flex gap-3">
         <Link to="/AccountStatement" className="link-none">
           <p className="mt-2 text-align-center">
-            <FontAwesomeIcon className="mx-2 mt-2" icon={faMoneyBillWaveAlt} />AccountStatement
+          <img src="/icon/accountstatement.png" style={{height:"22px"}} alt=""className='mx-2' /> AccountStatement
           </p>
         </Link>
       </div>
       <div className="dasboard-sidebar mt-3 px-1 px-3 mx-2 d-flex gap-3">
         <Link to="/kyc" className="link-none">
-          <p className="mt-2 text-align-center">
-            <FontAwesomeIcon className="mx-2 mt-2" icon={faMoneyBillWaveAlt} />KYC
+          <p className="mt-2 text-align-center ">
+          <img src="/icon/kyc.png" style={{height:"22px"}} alt=""className='mx-2' /> KYC
           </p>
         </Link>
       </div>
