@@ -40,16 +40,30 @@ const SignUp = () => {
     const handleBlur = () => {
         const { sponcer_id } = formData;
 
-        // Check if the entered sponcer_id matches any email in the data context
-        const emailExists = data && data.user && data.user.sponsor && data.user.sponsor.email === sponcer_id;
-        if (emailExists) {
-            setSponcerMessage(`Name : ${data && data.user && data.user.sponsor && data.user.sponsor.first_name}`);
-            toast.success(`Sponcer found: ${sponcer_id}`);
-        } else {
-            setSponcerMessage('Sponcer not found.');
-            toast.error('Sponcer not found.');
+        // Check if sponcer_id is set and data.getalluser is an array
+        if (sponcer_id && data && Array.isArray(data.getalluser)) {
+            // Use a flag to determine if the sponsor was found
+            let sponsorFound = false;
+
+            // Iterate over all users in the array
+            data.getalluser.forEach((user) => {
+                if (user.email === sponcer_id) {
+                    sponsorFound = true; // Mark as found
+                    setSponcerMessage(`Name: ${user.first_name}`); // Set the message with the found name
+                    toast.success(`Sponsor found: ${sponcer_id}`); // Show success toast
+                }
+            });
+
+            // If no sponsor was found after checking all users
+            if (!sponsorFound) {
+                setSponcerMessage('Sponsor not found.'); // Update message
+                toast.error('Sponsor not found.'); // Show error toast
+            }
+        } else if (!sponcer_id) {
+            setSponcerMessage('Please enter a Sponsor ID.'); // Handle case where no ID is entered
         }
     };
+
     // Form validation function
 
     const validateForm = () => {
@@ -91,18 +105,31 @@ const SignUp = () => {
     useEffect(() => {
         const { sponcer_id } = formData;
 
-        if (sponcer_id) {
-            // Check if the entered sponcer_id matches any email in the data context
-            const emailExists = data && data.user && data.user.sponsor && data.user.sponsor.email === sponcer_id;
-            if (emailExists) {
-                setSponcerMessage(`Name: ${data.user.sponsor.first_name}`);
-                toast.success(`Sponsor found: ${sponcer_id}`);
-            } else {
-                setSponcerMessage('Sponsor not found.');
-                toast.error('Sponsor not found.');
+        // Check if sponcer_id is set and data is available
+        if (sponcer_id && data && Array.isArray(data.getalluser)) {
+            // Use a flag to determine if the sponsor was found
+            let sponsorFound = false;
+
+            // Iterate over all users in the array
+            data.getalluser.forEach((user) => {
+                if (user.email === sponcer_id) {
+                    sponsorFound = true; // Mark as found
+                    setSponcerMessage(`Name: ${user.first_name}`); // Set the message with the found name
+                    toast.success(`Sponsor found: ${sponcer_id}`); // Show success toast
+                }
+            });
+
+            // If no sponsor was found after checking all users
+            if (!sponsorFound) {
+                setSponcerMessage('Sponsor not found.'); // Update message
+                toast.error('Sponsor not found.'); // Show error toast
             }
+        } else if (!sponcer_id) {
+            setSponcerMessage('Please enter a Sponsor ID.'); // Handle case where no ID is entered
         }
     }, [formData.sponcer_id, data]);
+
+
 
     // Handle form submission
     const handleSubmit = async (e) => {
