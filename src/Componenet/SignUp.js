@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Link, NavLink, useNavigate, useLocation  } from 'react-router-dom';
+import { Link, NavLink, useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import { DataContext } from '../DataContext';
@@ -10,7 +10,7 @@ const SignUp = () => {
     const navigate = useNavigate();
     const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
     const [errors, setErrors] = useState({});
-   
+
     const location = useLocation();
 
     const [sponcerMessage, setSponcerMessage] = useState('');
@@ -77,7 +77,8 @@ const SignUp = () => {
     };
     useEffect(() => {
         const queryParams = new URLSearchParams(location.search); // Parse the query string
-        const email = queryParams.get('email'); // Get the email from the URL query parameter
+        const email = queryParams.get('email');
+        // Get the email from the URL query parameter
         if (email) {
             setFormData((prevFormData) => ({
                 ...prevFormData,
@@ -85,6 +86,23 @@ const SignUp = () => {
             }));
         }
     }, [location.search]);
+
+
+    useEffect(() => {
+        const { sponcer_id } = formData;
+
+        if (sponcer_id) {
+            // Check if the entered sponcer_id matches any email in the data context
+            const emailExists = data && data.user && data.user.sponsor && data.user.sponsor.email === sponcer_id;
+            if (emailExists) {
+                setSponcerMessage(`Name: ${data.user.sponsor.first_name}`);
+                toast.success(`Sponsor found: ${sponcer_id}`);
+            } else {
+                setSponcerMessage('Sponsor not found.');
+                toast.error('Sponsor not found.');
+            }
+        }
+    }, [formData.sponcer_id, data]);
 
     // Handle form submission
     const handleSubmit = async (e) => {
