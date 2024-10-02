@@ -1,5 +1,5 @@
-import React, { useContext, useState } from 'react';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { Link, NavLink, useNavigate,useLocation } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import { DataContext } from '../DataContext';
@@ -10,6 +10,8 @@ const SignUp = () => {
     const navigate = useNavigate();
     const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
     const [errors, setErrors] = useState({});
+   
+    const location = useLocation();
     const [sponcerMessage, setSponcerMessage] = useState('');
     // State to store form data
     const [formData, setFormData] = useState({
@@ -25,7 +27,17 @@ const SignUp = () => {
     });
 
 
-
+    useEffect(() => {
+        const queryParams = new URLSearchParams(location.search);
+        const emailParam = queryParams.get('email');
+        
+        if (emailParam) {
+            setFormData((prevFormData) => ({
+                ...prevFormData,
+                sponcer_id: emailParam
+            }));
+        }
+    }, [location.search]);
 
     // Handle input changes
     const handleChange = (e) => {

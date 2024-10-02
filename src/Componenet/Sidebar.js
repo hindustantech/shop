@@ -234,7 +234,7 @@ const Sidebar = ({ sidebarOpen, toggleSidebar }) => {
 
       {/* Logout */}
       {isAuthenticated && (
-        <div className="dasboard-sidebar mt-3 px-1 px-3 mx-2 d-flex gap-3">
+        <div className="dasboard-sidebar mt-3 px-1 px-3 mx-2 d-flex gap-3 mb-2">
           <Link to="#" className="link-none" onClick={handleLogout}>
             <p className="mt-2 text-align-center">
               <FontAwesomeIcon className="mx-2 mt-2" icon={faSignOutAlt} /> Logout
