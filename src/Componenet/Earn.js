@@ -5,9 +5,9 @@ import { DataContext } from '../DataContext';
 const Earn = () => {
     const { data } = useContext(DataContext);
     const [copySuccess, setCopySuccess] = useState('');
-    
+
     // Create the shared link with the user's email
-    const sharedLink = `https://www.digiapp.ukvalley.com/register?email=${data.user.user.email}`;
+    const sharedLink = `${window.location.origin}/register?email=${data && data.user.user && data.user.user.email}`;
 
     // Social media sharing URLs
     const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(sharedLink)}`;

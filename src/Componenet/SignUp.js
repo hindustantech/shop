@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Link, NavLink, useNavigate,useLocation } from 'react-router-dom';
+import { Link, NavLink, useNavigate, useLocation  } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import { DataContext } from '../DataContext';
@@ -12,6 +12,7 @@ const SignUp = () => {
     const [errors, setErrors] = useState({});
    
     const location = useLocation();
+
     const [sponcerMessage, setSponcerMessage] = useState('');
     // State to store form data
     const [formData, setFormData] = useState({
@@ -27,17 +28,7 @@ const SignUp = () => {
     });
 
 
-    useEffect(() => {
-        const queryParams = new URLSearchParams(location.search);
-        const emailParam = queryParams.get('email');
-        
-        if (emailParam) {
-            setFormData((prevFormData) => ({
-                ...prevFormData,
-                sponcer_id: emailParam
-            }));
-        }
-    }, [location.search]);
+
 
     // Handle input changes
     const handleChange = (e) => {
@@ -84,6 +75,17 @@ const SignUp = () => {
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
     };
+    useEffect(() => {
+        const queryParams = new URLSearchParams(location.search); // Parse the query string
+        const email = queryParams.get('email'); // Get the email from the URL query parameter
+        if (email) {
+            setFormData((prevFormData) => ({
+                ...prevFormData,
+                sponcer_id: email // Autofill sponcer_id with email from the URL
+            }));
+        }
+    }, [location.search]);
+
     // Handle form submission
     const handleSubmit = async (e) => {
         e.preventDefault();

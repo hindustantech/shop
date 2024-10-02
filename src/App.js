@@ -71,7 +71,7 @@ function App() {
           <Route path="/DownLine" element={ <DownLine/>} />
           <Route path="/About" element={ <About/>} />
           <Route path="/AbouTermsAndConditionst" element={ <TermsAndConditions/>} />
-            
+          <Route path="/signup/:email" element={<SignUp />} />
           <Route path="/ProductDeatis/:id" element={ <ProductDeatis/>} />
            
                      
