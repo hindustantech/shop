@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { DataContext } from '../DataContext';
+import toast from 'react-hot-toast';
 
 const Earn = () => {
     const { data } = useContext(DataContext);
@@ -18,9 +19,11 @@ const Earn = () => {
     // Function to copy the link to the clipboard
     const copyToClipboard = () => {
         navigator.clipboard.writeText(sharedLink).then(() => {
-            setCopySuccess('Link copied!');
+            setCopySuccess(`Link copied! ${data && data.user.user && data.user.user.email}`);
+            toast.success(`Link copied! ${data && data.user.user && data.user.user.email}`)
         }).catch(() => {
-            setCopySuccess('Failed to copy!');
+            setCopySuccess(`Failed to copy! ${data && data.user.user && data.user.user.email}`);
+            toast.error(`Failed to copy! ${data && data.user.user && data.user.user.email}`)
         });
     };
 
