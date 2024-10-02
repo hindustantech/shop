@@ -3,13 +3,17 @@ import Headers from './Headers';
 import { DataContext } from '../DataContext';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { useDropzone } from 'react-dropzone'
 const ProfileDeatils = () => {
     const { data } = useContext(DataContext);
     const [errors, setErrors] = useState({});
+
+
+
     // State for holding editable profile data
     const [formData, setFormData] = useState({
         id: '',
-        title: 'MR',
+        title: '',
         name: '',
         gender: '',
         dob: '',
@@ -25,8 +29,10 @@ const ProfileDeatils = () => {
         nomineeName: '',
         nomineeAge: '',
         nomineeRelation: '',
+        image: null, // Set image as a file object
     });
     const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
+    const imageurl = process.env.REACT_APP_IMAGE_BASE_URL;
     // Effect to set initial values from context data
     useEffect(() => {
         if (data && data.user && data.user.user) {
@@ -45,6 +51,7 @@ const ProfileDeatils = () => {
                 mobile: data.user.user.mobile || '',
                 pan: data.user.user.pan || '',
                 gst: data.user.user.gst || '',
+                image: data.user.user.image || null,
                 nomineeName: data.user.user.nominee_name || '',
                 nomineeAge: data.user.user.nominee_age || '',
                 nomineeRelation: data.user.user.nominee_relation || '',
@@ -53,101 +60,69 @@ const ProfileDeatils = () => {
     }, [data]);
 
 
-    const validateForm = (formData) => {
-        let errors = {};
 
-        // Validate Name
-        if (!formData.name.trim()) {
-            errors.name = "Name is required";
-        } else if (formData.name.length < 3) {
-            errors.name = "Name must be at least 3 characters long";
-        }
-
-        // Validate Email
-        if (!formData.email.trim()) {
-            errors.email = "Email is required";
-        } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-            errors.email = "Email address is invalid";
-        }
-
-        // Validate Mobile
-        if (!formData.mobile.trim()) {
-            errors.mobile = "Mobile number is required";
-        } else if (!/^\d{10}$/.test(formData.mobile)) {
-            errors.mobile = "Mobile number must be exactly 10 digits";
-        }
-
-        // Validate PAN
-        if (!formData.pan.trim()) {
-            errors.pan = "PAN is required";
-        } else if (formData.pan.length !== 10) {
-            errors.pan = "PAN must be 10 characters long";
-        }
-
-        // Validate GST (if required)
-        if (formData.gst && !/^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9A-Z]{1}[Z]{1}[0-9A-Z]{1}$/.test(formData.gst)) {
-            errors.gst = "Invalid GST number";
-        }
-
-        // Validate Nominee Name
-        if (!formData.nomineeName.trim()) {
-            errors.nomineeName = "Nominee name is required";
-        }
-
-        // Validate Nominee Age
-        if (!formData.nomineeAge.trim()) {
-            errors.nomineeAge = "Nominee age is required";
-        } else if (isNaN(formData.nomineeAge) || formData.nomineeAge <= 0) {
-            errors.nomineeAge = "Nominee age must be a valid number";
-        }
-
-        // Validate Address
-        if (!formData.address.trim()) {
-            errors.address = "Address is required";
-        }
-
-        // Validate Pincode
-        if (!formData.pincode.trim()) {
-            errors.pincode = "Pincode is required";
-        } else if (!/^\d{6}$/.test(formData.pincode)) {
-            errors.pincode = "Pincode must be exactly 6 digits";
-        }
-
-        return errors;
-    };
+    // File upload handler
 
 
-
+    // Handle form field changes
     const handleChange = (e) => {
+        const { name, value, files } = e.target;
 
-        const formErrors = validateForm(formData);
-        setErrors(formErrors);
-
-        const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
+        if (name === 'image') {
+            if (files && files.length > 0) {
+                // Ensure file is available and accessible
+                setFormData({
+                    ...formData,
+                    image: files[0], // Safely store file object
+                });
+            }
+        } else {
+            setFormData({
+                ...formData,
+                [name]: value,
+            });
+        }
     };
 
+
+
+    // Handle form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+
         try {
-
-
-            await axios.post(
-                `${apiBaseUrl}/update`,
-                formData,
-                {
-                    headers: {
-                        Authorization: `Bearer ${data.user.token}`, // Ensure token is passed
-                    },
+            const formDataToSend = new FormData();
+            Object.keys(formData).forEach((key) => {
+                // Append each form field to FormData
+                if (key === 'image' && formData[key]) {
+                    // Only append if image is available
+                    formDataToSend.append(key, formData[key]);
+                } else if (key !== 'image') {
+                    formDataToSend.append(key, formData[key]);
                 }
-            );
-            toast.success('Profile updated successfully:');
+            });
+
+
+            const res = await axios.post(`${apiBaseUrl}/update`, formDataToSend, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                    Authorization: `Bearer ${data.user.token}`, // Ensure token is passed
+                },
+            });
+            console.log(res.data)
+            toast.success('Profile updated successfully', {
+                duration: 5000, // 5 seconds
+            });
         } catch (error) {
-            toast.error('Error updating profile:', error.response ? error.response.data : error);
+            toast.error('Error updating profile:', error.response ? error.response.data : error, {
+                duration: 50000, // 5 seconds
+            });
         }
+
     };
 
-
+    // File dropzone for uploading images
 
     return (
         <>
@@ -156,7 +131,20 @@ const ProfileDeatils = () => {
             {/* Detail */}
             <div className="mani-profile-deatils ">
                 <div className="profile-name d-flex justify-content-center align-items-center mt-2">
-                    <img src="/asset/design/10.png" className="profile-deatils-img" alt="" />
+
+
+                    <img
+                        src={`${imageurl}/profile/${data && data.user.user && data.user.user.image}`}
+                       
+                        style={{
+                            height: '70px',  // Set desired height
+                            width: '70px',   // Set desired width
+                            borderRadius: '50%', // Makes the image circular
+                            objectFit: 'cover' // Ensures the image covers the entire area without distortion
+                        }}
+                         className="profile-deatils-img mx-2 profile-pi"
+                        alt="img"
+                    />
                     <div className="detail px-3 mb-0">
                         <p className="sponser_id mb-0dd">
                             ID : <span>{data?.user?.user?.email}</span>
@@ -201,7 +189,7 @@ const ProfileDeatils = () => {
                                     className="px-4 p-text-p fw-bold border-0 mt-2"
                                     style={{ outline: 'none', width: "55%" }}
                                 />
-                                 {errors.name && <p style={{ color: 'red',fontSize:'12px' }}>*</p>}
+
                             </div>
                             <div className="d-flex justify-content-space-between box-s">
                                 <p className='mb-0 px-1 mt-2 profile-text-right'>Title</p>
@@ -213,7 +201,7 @@ const ProfileDeatils = () => {
                                     className="px-4 p-text-p fw-bold border-0 mt-2"
                                     style={{ outline: 'none', width: "55%" }}
                                 />
-                                 {errors.name && <p style={{ color: 'red',fontSize:'12px' }}>*</p>}
+
                             </div>
                             <div className="d-flex justify-content-space-between box-s">
                                 <p className='mb-0 px-1 mt-2 profile-text-right'>Name</p>
@@ -225,7 +213,7 @@ const ProfileDeatils = () => {
                                     className="px-4 p-text-p fw-bold border-0 mt-2"
                                     style={{ outline: 'none', width: "61%" }}
                                 />
-                                 {errors.name && <p style={{ color: 'red',fontSize:'12px' }}>*</p>}
+
                             </div>
                             <div className="d-flex justify-content-space-between box-s">
                                 <p className='mb-0 px-1 mt-2 profile-text-right'>Gender</p>
@@ -237,7 +225,7 @@ const ProfileDeatils = () => {
                                     className="px-4 p-text-p fw-bold border-0 mt-2"
                                     style={{ outline: 'none', width: "55%" }}
                                 />
-                                 {errors.gender && <p style={{ color: 'red',fontSize:'12px' }}>*</p>}
+
                             </div>
                             <div className="d-flex justify-content-space-between box-s">
                                 <p className='mb-0 px-1 mt-2 profile-text-right'>Date of Birth</p>
@@ -249,7 +237,7 @@ const ProfileDeatils = () => {
                                     className="px-4 p-text-p fw-bold border-0 mt-2"
                                     style={{ outline: 'none', width: "55%" }}
                                 />
-                                 {errors.dob && <p style={{ color: 'red',fontSize:'12px' }}>*</p>}
+
                             </div>
                             <div className="d-flex justify-content-space-between box-s">
                                 <p className='mb-0 px-1 mt-2 profile-text-right'>Residence</p>
@@ -261,7 +249,7 @@ const ProfileDeatils = () => {
                                     className="px-4 p-text-p fw-bold border-0 mt-2"
                                     style={{ outline: 'none', width: "55%" }}
                                 />
-                                 {errors.address && <p style={{ color: 'red',fontSize:'12px' }}>*</p>}
+
                             </div>
                             <div className="d-flex justify-content-space-between box-s">
                                 <p className='mb-0 px-1 mt-2 profile-text-right'>State</p>
@@ -273,7 +261,7 @@ const ProfileDeatils = () => {
                                     className="px-4 p-text-p fw-bold border-0 mt-2"
                                     style={{ outline: 'none', width: "55%" }}
                                 />
-                                 {errors.state && <p style={{ color: 'red',fontSize:'12px' }}>*</p>}
+
                             </div>
                             <div className="d-flex justify-content-space-between box-s">
                                 <p className='mb-0 px-1 mt-2 profile-text-right'>City</p>
@@ -285,7 +273,7 @@ const ProfileDeatils = () => {
                                     className="px-4 p-text-p fw-bold border-0 mt-2"
                                     style={{ outline: 'none', width: "55%" }}
                                 />
-                                 {errors.city && <p style={{ color: 'red',fontSize:'12px' }}>*</p>}
+
                             </div>
                             <div className="d-flex justify-content-space-between box-s">
                                 <p className='mb-0 px-1 mt-2 profile-text-right'>District</p>
@@ -297,7 +285,7 @@ const ProfileDeatils = () => {
                                     className="px-4 p-text-p fw-bold border-0 mt-2"
                                     style={{ outline: 'none', width: "55%" }}
                                 />
-                                 {errors.district && <p style={{ color: 'red',fontSize:'12px' }}>*</p>}
+
                             </div>
                             <div className="d-flex justify-content-space-between box-s">
                                 <p className='mb-0 px-1 mt-2 profile-text-right'>Pincode</p>
@@ -309,7 +297,7 @@ const ProfileDeatils = () => {
                                     className="px-4 p-text-p fw-bold border-0 mt-2"
                                     style={{ outline: 'none', width: "55%" }}
                                 />
-                                 {errors.pincode && <p style={{ color: 'red',fontSize:'12px' }}>*</p>}
+
                             </div>
                             <div className="d-flex justify-content-space-between box-s">
                                 <p className='mb-0 px-1 mt-2 profile-text-right'>Email</p>
@@ -321,7 +309,7 @@ const ProfileDeatils = () => {
                                     className="px-4 p-text-p fw-bold border-0 mt-2"
                                     style={{ outline: 'none', width: "55%" }}
                                 />
-                                 {errors.email && <p style={{ color: 'red',fontSize:'12px' }}>*</p>}
+
                             </div>
                             <div className="d-flex justify-content-space-between box-s">
                                 <p className='mb-0 px-1 mt-2 profile-text-right'>Mobile</p>
@@ -333,7 +321,7 @@ const ProfileDeatils = () => {
                                     className="px-4 p-text-p fw-bold border-0 mt-2"
                                     style={{ outline: 'none', width: "55%" }}
                                 />
-                                 {errors.mobile && <p style={{ color: 'red',fontSize:'12px' }}>*</p>}
+
                             </div>
                             <div className="d-flex justify-content-space-between box-s">
                                 <p className='mb-0 px-1 mt-2 profile-text-right'>Status</p>
@@ -349,7 +337,7 @@ const ProfileDeatils = () => {
                                     className="px-4 p-text-p fw-bold border-0 mt-2"
                                     style={{ outline: 'none', width: "55%" }}
                                 />
-                                 {errors.pan && <p style={{ color: 'red',fontSize:'12px' }}>*</p>}
+
                             </div>
                             <div className="d-flex justify-content-space-between box-s">
                                 <p className='mb-0 px-1 mt-2 profile-text-right'>GST </p>
@@ -361,9 +349,20 @@ const ProfileDeatils = () => {
                                     className="px-4 p-text-p fw-bold border-0 mt-2"
                                     style={{ outline: 'none', width: "55%" }}
                                 />
-                                 {errors.gst && <p style={{ color: 'red',fontSize:'12px' }}>*</p>}
+
                             </div>
-                           
+                            <div className="d-flex justify-content-space-between box-s">
+                                <p className="mb-0 px-1 mt-2 profile-text-right">Upload user image</p>
+                                <input
+                                    type="file"
+                                    name="image"
+                                    accept="image/*"  // Ensure only image files are allowed
+                                    onChange={handleChange}
+                                    className="px-4 p-text-p fw-bold border-0 mt-2"
+                                    style={{ outline: 'none', width: "55%" }}
+                                />
+                            </div>
+
                         </div>
                     </div>
 
@@ -383,7 +382,7 @@ const ProfileDeatils = () => {
                                     className="px-4 p-text-p fw-bold border-0 mt-2"
                                     style={{ outline: 'none', width: "55%" }}
                                 />
-                                 {errors.nomineeName && <p style={{ color: 'red',fontSize:'12px' }}>*</p>}
+
                             </div>
                             <div className="d-flex justify-content-space-between box-s">
                                 <p className='px-1 profile-text-right fw-bold mt-2'>Nominee Age</p>
@@ -395,7 +394,7 @@ const ProfileDeatils = () => {
                                     className="px-4 p-text-p fw-bold border-0 mt-2"
                                     style={{ outline: 'none', width: "55%" }}
                                 />
-                                 {errors.nomineeAge && <p style={{ color: 'red',fontSize:'12px' }}>*</p>}
+
                             </div>
                             <div className="d-flex justify-content-space-between box-s">
                                 <p className='px-1 profile-text-right fw-bold mt-2'>Nominee Relation</p>
@@ -406,8 +405,9 @@ const ProfileDeatils = () => {
                                     onChange={handleChange}
                                     className="px-4 p-text-p fw-bold border-0 mt-2"
                                     style={{ outline: 'none', width: "55%" }}
+
                                 />
-                                 {errors.nomineeRelation && <p style={{ color: 'red',fontSize:'12px' }}>*</p>}
+
                             </div>
                         </div>
                     </div>

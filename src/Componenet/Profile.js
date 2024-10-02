@@ -5,7 +5,7 @@ import { DataContext } from '../DataContext';
 
 const Profile = () => {
     const { data } = useContext(DataContext);
-
+    const imageurl = process.env.REACT_APP_IMAGE_BASE_URL;
     // Assuming `kyc_status` is part of the `data.user.user` object and holds the KYC status
     const isKYCVerified = data && data.user.user && data.user.user.verified === 'verified';
 
@@ -25,7 +25,14 @@ const Profile = () => {
                             <img src="asset/logo/46.png" className=" profile-pic-edit" alt="" />
                         </Link>
                     </div>
-                    <img src="asset/logo/22.png" alt="" className="profile-p profile-pic-height  d-inline-block" />
+                    <img  src={`${imageurl}/profile/${data && data.user.user && data.user.user.image}`}
+                       
+                       style={{
+                           height: '90px',  // Set desired height
+                           width: '90px',   // Set desired width
+                           borderRadius: '50%', // Makes the image circular
+                           objectFit: 'cover' // Ensures the image covers the entire area without distortion
+                       }} alt="" className="profile-p profile-pic-height  d-inline-block" />
                     <h3 className="profile-text-color fw-bolder mt-2 p-0">
                         {data && data.user.user && data.user.user.first_name}
                     </h3>

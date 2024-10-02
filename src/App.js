@@ -46,20 +46,20 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/Login" element={<Login />} />
           <Route path="/register" element={<SignUp />} />
-          <Route path='/profileDeatils' element={<ProfileDeatils />} />
+          <Route path='/profileDetails' element={<ProfileDeatils />} />
           <Route path="/edditproile" element={<EdditProfile />} />
           <Route path="/earn" element={<Earn />} />
           <Route path="/forgot" element={<Forgot />} />
           <Route path="/OTP" element={<OTP />} />
           <Route path="/forgotpassword" element={<ForgotPasswod/>} />
           <Route path="/ChangePassword" element={<ChangePassword/>} />
-          <Route path="/sucerityPin" element={<SucerityPin/>} />
+          <Route path="/SecurityPin" element={<SucerityPin/>} />
           <Route path="/Notification" element={<Notifications/>} />
           <Route path="/Accountsatlement" element={<AccountSatlement/>} />
           <Route path="/kyc" element={<KYC/>} />
           <Route path="/ViewEvent" element={<ViewEvent/>} />
           <Route path="/IDCards" element={<IDCards/>} />
-          <Route path="/ForgotSecurity" element={<ForgotSecurity/>} />
+          <Route path="/ForgotSecurityPin" element={<ForgotSecurity/>} />
           <Route path="/SponsorReport" element={ <SponsorReport/>} />
           <Route path="/AccountStatement" element={ <AccountStatement/>} />
           <Route path="/withdraw" element={ <Withdraw/>} />

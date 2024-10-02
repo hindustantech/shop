@@ -2,12 +2,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faKey, faLock, faIdCard, faFileAlt, faBell, faSignOutAlt, faHistory, faMoneyCheckAlt, faMoneyBillWaveAlt, faListAlt, faCreditCard, faChartBar, faClipboardList, faUserGroup } from '@fortawesome/free-solid-svg-icons'; // Import specific icons
 import { Link } from 'react-router-dom'; // Assuming you're using React Router
 import { useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
+import { DataContext } from '../DataContext';
 
 const Sidebar = ({ sidebarOpen, toggleSidebar }) => {
+  const { data } = useContext(DataContext);
   const [isAuthenticated, setIsAuthenticated] = useState(false); // Initial state is false
   const navigate = useNavigate();
-
+  const imageurl = process.env.REACT_APP_IMAGE_BASE_URL;
   const handleLogout = () => {
     localStorage.removeItem("token");
     window.location.href = "/login";
@@ -25,7 +27,24 @@ const Sidebar = ({ sidebarOpen, toggleSidebar }) => {
       <button className="close-btn-side" onClick={toggleSidebar}>
         X
       </button>
+      <div className="profile-name d-flex justify-content-center align-items-center mt-2 "  style={{background:"white"}}>
+        <img src={`${imageurl}/profile/${data && data.user.user && data.user.user.image}`}
 
+          style={{
+            height: '60px',  // Set desired height
+            width: '60px',   // Set desired width
+            borderRadius: '50%', // Makes the image circular
+            objectFit: 'cover' // Ensures the image covers the entire area without distortion
+          }} alt="" className="profile-deatils-img" />
+        <div className="detail px-3 mb-0">
+          <p className="sponser_id mb-0">
+            ID : <span>{data?.user?.user?.email}</span>
+          </p>
+          <p className="sponser_name mb-0">
+            Name : <span>{data?.user?.user?.first_name}</span>
+          </p>
+        </div>
+      </div>
       {/* Register */}
       <div className="dasboard-sidebar mt-3 px-1 px-3 mx-2 d-flex gap-3">
         <Link to="/register" className="link-none">
@@ -33,6 +52,8 @@ const Sidebar = ({ sidebarOpen, toggleSidebar }) => {
             <FontAwesomeIcon className="mx-2 mt-2" icon={faFileAlt} /> Register
           </p>
         </Link>
+
+
       </div>
 
       {/* Accordion - Profile */}
@@ -68,7 +89,7 @@ const Sidebar = ({ sidebarOpen, toggleSidebar }) => {
                     <FontAwesomeIcon className='px-2' icon={faUser} /> Profile Details
                   </li>
                 </Link>
-                <Link className="link-none" to="/editProfile">
+                <Link className="link-none" to="/edditproile">
                   <li className="list-profile-sidebar mt-3">
                     <FontAwesomeIcon className='px-2' icon={faUser} /> Edit Profile
                   </li>
@@ -193,6 +214,20 @@ const Sidebar = ({ sidebarOpen, toggleSidebar }) => {
         <Link to="/historyW" className="link-none">
           <p className="mt-2 text-align-center">
             <FontAwesomeIcon className="mx-2 mt-2" icon={faMoneyBillWaveAlt} /> Withdraw History
+          </p>
+        </Link>
+      </div>
+      <div className="dasboard-sidebar mt-3 px-1 px-3 mx-2 d-flex gap-3">
+        <Link to="/AccountStatement" className="link-none">
+          <p className="mt-2 text-align-center">
+            <FontAwesomeIcon className="mx-2 mt-2" icon={faMoneyBillWaveAlt} />AccountStatement
+          </p>
+        </Link>
+      </div>
+      <div className="dasboard-sidebar mt-3 px-1 px-3 mx-2 d-flex gap-3">
+        <Link to="/kyc" className="link-none">
+          <p className="mt-2 text-align-center">
+            <FontAwesomeIcon className="mx-2 mt-2" icon={faMoneyBillWaveAlt} />KYC
           </p>
         </Link>
       </div>

@@ -4,6 +4,7 @@ import { DataContext } from '../DataContext';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 const ProfileDeatils = () => {
+    const imageurl = process.env.REACT_APP_IMAGE_BASE_URL;
     const { data } = useContext(DataContext);
     const [errors, setErrors] = useState({});
     // State for holding editable profile data
@@ -156,7 +157,14 @@ const ProfileDeatils = () => {
             {/* Detail */}
             <div className="mani-profile-deatils ">
                 <div className="profile-name d-flex justify-content-center align-items-center mt-2">
-                    <img src="/asset/design/10.png" className="profile-deatils-img" alt="" />
+                    <img src={`${imageurl}/profile/${data && data.user.user && data.user.user.image}`}
+
+                        style={{
+                            height: '90px',  // Set desired height
+                            width: '90px',   // Set desired width
+                            borderRadius: '50%', // Makes the image circular
+                            objectFit: 'cover' // Ensures the image covers the entire area without distortion
+                        }} alt="" className="profile-deatils-img"  />
                     <div className="detail px-3 mb-0">
                         <p className="sponser_id mb-0dd">
                             ID : <span>{data?.user?.user?.email}</span>
@@ -202,7 +210,7 @@ const ProfileDeatils = () => {
                                     className="px-4 p-text-p fw-bold border-0 mt-2"
                                     style={{ outline: 'none', width: "55%" }}
                                 />
-                                 {errors.name && <p style={{ color: 'red',fontSize:'12px' }}>*</p>}
+                                {errors.name && <p style={{ color: 'red', fontSize: '12px' }}>*</p>}
                             </div>
                             <div className="d-flex justify-content-space-between box-s">
                                 <p className='mb-0 px-1 mt-2 profile-text-right'>Title</p>
@@ -215,7 +223,7 @@ const ProfileDeatils = () => {
                                     className="px-4 p-text-p fw-bold border-0 mt-2"
                                     style={{ outline: 'none', width: "55%" }}
                                 />
-                                 {errors.name && <p style={{ color: 'red',fontSize:'12px' }}>*</p>}
+                                {errors.name && <p style={{ color: 'red', fontSize: '12px' }}>*</p>}
                             </div>
                             <div className="d-flex justify-content-space-between box-s">
                                 <p className='mb-0 px-1 mt-2 profile-text-right'>Name</p>
@@ -228,7 +236,7 @@ const ProfileDeatils = () => {
                                     className="px-4 p-text-p fw-bold border-0 mt-2"
                                     style={{ outline: 'none', width: "55%" }}
                                 />
-                                 {errors.name && <p style={{ color: 'red',fontSize:'12px' }}>*</p>}
+                                {errors.name && <p style={{ color: 'red', fontSize: '12px' }}>*</p>}
                             </div>
                             <div className="d-flex justify-content-space-between box-s">
                                 <p className='mb-0 px-1 mt-2 profile-text-right'>Gender</p>
@@ -241,7 +249,7 @@ const ProfileDeatils = () => {
                                     className="px-4 p-text-p fw-bold border-0 mt-2"
                                     style={{ outline: 'none', width: "55%" }}
                                 />
-                                 {errors.gender && <p style={{ color: 'red',fontSize:'12px' }}>*</p>}
+                                {errors.gender && <p style={{ color: 'red', fontSize: '12px' }}>*</p>}
                             </div>
                             <div className="d-flex justify-content-space-between box-s">
                                 <p className='mb-0 px-1 mt-2 profile-text-right'>Date of Birth</p>
@@ -254,7 +262,7 @@ const ProfileDeatils = () => {
                                     className="px-4 p-text-p fw-bold border-0 mt-2"
                                     style={{ outline: 'none', width: "55%" }}
                                 />
-                                 {errors.dob && <p style={{ color: 'red',fontSize:'12px' }}>*</p>}
+                                {errors.dob && <p style={{ color: 'red', fontSize: '12px' }}>*</p>}
                             </div>
                             <div className="d-flex justify-content-space-between box-s">
                                 <p className='mb-0 px-1 mt-2 profile-text-right'>Residence</p>
@@ -267,7 +275,7 @@ const ProfileDeatils = () => {
                                     className="px-4 p-text-p fw-bold border-0 mt-2"
                                     style={{ outline: 'none', width: "55%" }}
                                 />
-                                 {errors.address && <p style={{ color: 'red',fontSize:'12px' }}>*</p>}
+                                {errors.address && <p style={{ color: 'red', fontSize: '12px' }}>*</p>}
                             </div>
                             <div className="d-flex justify-content-space-between box-s">
                                 <p className='mb-0 px-1 mt-2 profile-text-right'>State</p>
@@ -280,7 +288,7 @@ const ProfileDeatils = () => {
                                     className="px-4 p-text-p fw-bold border-0 mt-2"
                                     style={{ outline: 'none', width: "55%" }}
                                 />
-                                 {errors.state && <p style={{ color: 'red',fontSize:'12px' }}>*</p>}
+                                {errors.state && <p style={{ color: 'red', fontSize: '12px' }}>*</p>}
                             </div>
                             <div className="d-flex justify-content-space-between box-s">
                                 <p className='mb-0 px-1 mt-2 profile-text-right'>City</p>
@@ -293,7 +301,7 @@ const ProfileDeatils = () => {
                                     className="px-4 p-text-p fw-bold border-0 mt-2"
                                     style={{ outline: 'none', width: "55%" }}
                                 />
-                                 {errors.city && <p style={{ color: 'red',fontSize:'12px' }}>*</p>}
+                                {errors.city && <p style={{ color: 'red', fontSize: '12px' }}>*</p>}
                             </div>
                             <div className="d-flex justify-content-space-between box-s">
                                 <p className='mb-0 px-1 mt-2 profile-text-right'>District</p>
@@ -306,7 +314,7 @@ const ProfileDeatils = () => {
                                     className="px-4 p-text-p fw-bold border-0 mt-2"
                                     style={{ outline: 'none', width: "55%" }}
                                 />
-                                 {errors.district && <p style={{ color: 'red',fontSize:'12px' }}>*</p>}
+                                {errors.district && <p style={{ color: 'red', fontSize: '12px' }}>*</p>}
                             </div>
                             <div className="d-flex justify-content-space-between box-s">
                                 <p className='mb-0 px-1 mt-2 profile-text-right'>Pincode</p>
@@ -319,7 +327,7 @@ const ProfileDeatils = () => {
                                     className="px-4 p-text-p fw-bold border-0 mt-2"
                                     style={{ outline: 'none', width: "55%" }}
                                 />
-                                 {errors.pincode && <p style={{ color: 'red',fontSize:'12px' }}>*</p>}
+                                {errors.pincode && <p style={{ color: 'red', fontSize: '12px' }}>*</p>}
                             </div>
                             <div className="d-flex justify-content-space-between box-s">
                                 <p className='mb-0 px-1 mt-2 profile-text-right'>Email</p>
@@ -332,7 +340,7 @@ const ProfileDeatils = () => {
                                     className="px-4 p-text-p fw-bold border-0 mt-2"
                                     style={{ outline: 'none', width: "60%" }}
                                 />
-                                 {errors.email && <p style={{ color: 'red',fontSize:'12px' }}>*</p>}
+                                {errors.email && <p style={{ color: 'red', fontSize: '12px' }}>*</p>}
                             </div>
                             <div className="d-flex justify-content-space-between box-s">
                                 <p className='mb-0 px-1 mt-2 profile-text-right'>Mobile</p>
@@ -345,7 +353,7 @@ const ProfileDeatils = () => {
                                     className="px-4 p-text-p fw-bold border-0 mt-2"
                                     style={{ outline: 'none', width: "55%" }}
                                 />
-                                 {errors.mobile && <p style={{ color: 'red',fontSize:'12px' }}>*</p>}
+                                {errors.mobile && <p style={{ color: 'red', fontSize: '12px' }}>*</p>}
                             </div>
                             <div className="d-flex justify-content-space-between box-s">
                                 <p className='mb-0 px-1 mt-2 profile-text-right'>Status</p>
@@ -362,7 +370,7 @@ const ProfileDeatils = () => {
                                     className="px-4 p-text-p fw-bold border-0 mt-2"
                                     style={{ outline: 'none', width: "55%" }}
                                 />
-                                 {errors.pan && <p style={{ color: 'red',fontSize:'12px' }}>*</p>}
+                                {errors.pan && <p style={{ color: 'red', fontSize: '12px' }}>*</p>}
                             </div>
                             <div className="d-flex justify-content-space-between box-s">
                                 <p className='mb-0 px-1 mt-2 profile-text-right'>GST </p>
@@ -375,9 +383,9 @@ const ProfileDeatils = () => {
                                     className="px-4 p-text-p fw-bold border-0 mt-2"
                                     style={{ outline: 'none', width: "55%" }}
                                 />
-                                 {errors.gst && <p style={{ color: 'red',fontSize:'12px' }}>*</p>}
+                                {errors.gst && <p style={{ color: 'red', fontSize: '12px' }}>*</p>}
                             </div>
-                           
+
                         </div>
                     </div>
 
@@ -398,7 +406,7 @@ const ProfileDeatils = () => {
                                     className="px-4 p-text-p fw-bold border-0 mt-2"
                                     style={{ outline: 'none', width: "55%" }}
                                 />
-                                 {errors.nomineeName && <p style={{ color: 'red',fontSize:'12px' }}>*</p>}
+                                {errors.nomineeName && <p style={{ color: 'red', fontSize: '12px' }}>*</p>}
                             </div>
                             <div className="d-flex justify-content-space-between box-s">
                                 <p className='px-1 profile-text-right fw-bold mt-2'>Nominee Age</p>
@@ -411,7 +419,7 @@ const ProfileDeatils = () => {
                                     className="px-4 p-text-p fw-bold border-0 mt-2"
                                     style={{ outline: 'none', width: "55%" }}
                                 />
-                                 {errors.nomineeAge && <p style={{ color: 'red',fontSize:'12px' }}>*</p>}
+                                {errors.nomineeAge && <p style={{ color: 'red', fontSize: '12px' }}>*</p>}
                             </div>
                             <div className="d-flex justify-content-space-between box-s">
                                 <p className='px-1 profile-text-right fw-bold mt-2'>Nominee Relation</p>
@@ -424,11 +432,11 @@ const ProfileDeatils = () => {
                                     className="px-4 p-text-p fw-bold border-0 mt-2"
                                     style={{ outline: 'none', width: "55%" }}
                                 />
-                                 {errors.nomineeRelation && <p style={{ color: 'red',fontSize:'12px' }}>*</p>}
+                                {errors.nomineeRelation && <p style={{ color: 'red', fontSize: '12px' }}>*</p>}
                             </div>
                         </div>
                     </div>
-                    
+
                 </form>
             </div>
         </>

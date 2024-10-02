@@ -7,7 +7,7 @@ import Sidebar from './Sidebar';
 
 const Header = () => {
   const { data } = useContext(DataContext);
-
+  const imageurl = process.env.REACT_APP_IMAGE_BASE_URL;
   const [sidebarOpen, setSidebarOpen] = useState(false); // State to track sidebar visibility
 
   const toggleSidebar = () => {
@@ -41,7 +41,8 @@ const Header = () => {
           {/* Placeholder for Image */}
           <div className="profile-image">
             <Link to="/profile">
-              <img src="/asset/logo/22.png" alt="profile" className='profile-pic' />
+
+              <img src={`${imageurl}/profile/${data && data.user.user && data.user.user.image}`}  alt="profile" className='profile-pic' />
             </Link>
           </div>
 
@@ -52,6 +53,7 @@ const Header = () => {
 
           <div className="ms-auto">
             <Link to="/Notification">
+
               <img src="/asset/design/5.png" alt="notification" className='notifaction-m height-img' />
             </Link>
           </div>

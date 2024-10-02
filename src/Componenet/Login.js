@@ -1,8 +1,8 @@
 import axios from 'axios';
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { toast } from 'react-hot-toast';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { DataContext } from '../DataContext';
+
 
 const Login = () => {
   const navigate = useNavigate();
@@ -10,16 +10,13 @@ const Login = () => {
   const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
 
   const [formData, setFormData] = useState({ email: "", password: "" });
+  const [showPassword, setShowPassword] = useState(false); // State to manage password visibility
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-
-    // Check if the entered email matches any email in the data context
-    
   };
 
- 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -55,18 +52,14 @@ const Login = () => {
     }
   };
 
-
-
   const fetchData = async () => {
     try {
       const id = localStorage.getItem("id");
       const response = await axios.get(`${apiBaseUrl}/homepageapi/${id}`);
       setData(response.data);
-      console.log(response.data);
+
     } catch (error) {
       console.log(error);
-    } finally {
-      console.log(false);
     }
   };
 
@@ -99,11 +92,43 @@ const Login = () => {
               <form className='loginForm' onSubmit={handleSubmit}>
                 <div className="mb-3 input-fi">
                   <img src="/asset/logo/1.png" className='logo-e' alt="" />
-                  <input type="text" className="email input-login" id="email"   onChange={handleChange} name='email' placeholder="Email" />
+                  <input
+                    type="text"
+                    className="email input-login"
+                    id="email"
+                    onChange={handleChange}
+                    name='email'
+                    placeholder="Email"
+                  />
                 </div>
-                <div className="mb-3 input-fi">
+                <div className="mb-3 input-fi position-relative">
                   <img src="/asset/logo/5.png" className='logo-e' alt="" />
-                  <input type="password" className="password input-login" onChange={handleChange} id="password" name='password' placeholder="Password" />
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    className="password input-login"
+                    onChange={handleChange}
+                    id="password"
+                    name='password'
+                    placeholder="Password"
+                  />
+                  <span
+                    className="input-group-text show-password-icon"
+                    onClick={() => setShowPassword(!showPassword)} // Toggle password visibility
+                    style={{
+                      cursor: 'pointer',
+                      border: 'none',         
+                      background: 'none',     
+                      padding: '0',           
+                      outline: 'none',        
+                      position: 'absolute',   
+                      right: '10px',          
+                      top: '50%',             
+                      transform: 'translateY(-50%)' 
+                    }}
+                  >
+                    <i className={`fas fa-eye${showPassword ? '' : '-slash'}`}></i> {/* FontAwesome icon */}
+                  </span>
+
                 </div>
                 <button type="submit" className="btn-color">Login <i className="fas fa-arrow-right mx-3"></i></button>
               </form>

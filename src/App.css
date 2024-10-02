@@ -38,7 +38,10 @@
 }
 
 .profile-pic {
-  height: 35px;
+  height: 60px;
+  border: 2px solid #022341;
+  border-radius: 50%;
+  width: 61px;
 }
 
 .mani-profile-deatils {
@@ -1221,15 +1224,27 @@ p {
   box-shadow: 0 2px 5px rgba(44, 44, 44, 0.2);
 }
 
-.dropzone:hover {
-  background-color: #f8f9fa;
-  /* Light background on hover */
+.close-modal-btn{
+  background-color: #022341;
+  text-align: center;
+  cursor: pointer;
+  color: white;
+  padding: 5px;
+  box-shadow: 0 2px 5px rgba(44, 44, 44, 0.2);
+  border: none;
+  border-radius: 5px;
+  width: 59px;
 }
 
 
-.kyc-status {
+
+ .kyc-status {
   box-shadow: 0 2px 5px rgba(44, 44, 44, 0.5);
   height: 380px;
+}
+.btn-kyc-s .btn-kyc{
+  background-color: #022341;
+  color: white;
 }
 
 .main-page-product {

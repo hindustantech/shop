@@ -30,6 +30,7 @@ const SignUp = () => {
     // Handle input changes
     const handleChange = (e) => {
         const { name, value } = e.target;
+
         setFormData({ ...formData, [name]: value });
     };
 
@@ -48,11 +49,35 @@ const SignUp = () => {
     };
     // Form validation function
 
+    const validateForm = () => {
+        const newErrors = {};
 
+        // Validate mobile number (10 digits)
+        const mobileRegex = /^\d{10}$/;
+        if (!mobileRegex.test(formData.mobile)) {
+            newErrors.mobile = 'Please enter a valid  number.';
+        }
+
+        // Validate password (at least 8 characters, 1 number, 1 uppercase, 1 lowercase, 1 special character)
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        if (!passwordRegex.test(formData.password)) {
+            newErrors.password = 'Password must be at least 8 .';
+        }
+
+        // Validate password confirmation
+        if (formData.password !== formData.pwd_open) {
+            newErrors.pwd_open = 'Passwords do not match.';
+        }
+
+        setErrors(newErrors);
+        return Object.keys(newErrors).length === 0;
+    };
     // Handle form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+        if (!validateForm()) {
+            return; // Stop if form validation fails
+        }
 
         try {
             // Store a success message in localStorage (or you can use state for this)
@@ -72,13 +97,13 @@ const SignUp = () => {
             });
 
             const userDetails = res.data.user; // Ensure this matches your actual response structure
-        
+
             if (userDetails) {
                 // Display the email (as user ID) and temporary password
                 toast.success(`Registration Successful! 
                     Your User ID: ${userDetails.email},
                     Your Password: ${userDetails.pwd_open}`, {
-                    duration: 50000, // 5 seconds
+                    duration: 5000, // 5 seconds
                 });
             } else {
                 toast.error('User details not found in response!');
@@ -171,9 +196,9 @@ const SignUp = () => {
                                 placeholder="Enter Your Mobile Number"
                                 required
                             />
-                            {errors.country_code && <p>{errors.country_code}</p>}
-                        </div>
 
+                        </div>
+                        {errors.mobile && <p className="text-danger" style={{ fontSize: "16px" }}>{errors.mobile}</p>}
                         <div className="mb-3 input-fi">
                             <img src="/asset/logo/1.png" className='logo-e' alt="" />
                             <input
@@ -199,8 +224,9 @@ const SignUp = () => {
                                 placeholder=" Enter Password"
                                 required
                             />
-                            {errors.password && <p>{errors.password}</p>}
+
                         </div>
+                        {errors.password && <p className="text-danger" style={{ fontSize: "16px" }}>{errors.password}</p>}
                         <div className="mb-3 input-fi">
                             <img src="/asset/logo/1.png" className='logo-e' alt="" />
                             <input
@@ -212,8 +238,9 @@ const SignUp = () => {
                                 placeholder="confirm Password"
                                 required
                             />
-                            {errors.pwd_open && <p>{errors.pwd_open}</p>}
+
                         </div>
+                        {errors.pwd_open && <p className="text-danger" style={{ fontSize: "16px" }}>{errors.pwd_open}</p>}
                         <div className="d-flex justify-content-center">
 
                             <input
