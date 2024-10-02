@@ -61,7 +61,7 @@ const Earn = () => {
                     </div>
                 </div>
 
-                <div className="p-2">
+                <div className="pt-2">
                     <h4 className="ref-benefits mt-4 px-4">Refer Now</h4>
 
                     <div className="socalmeadia d-flex justify-content-evenly align-items-center">
