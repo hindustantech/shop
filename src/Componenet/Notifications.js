@@ -8,9 +8,8 @@ const Notifications = () => {
   const [filter, setFilter] = useState('All');
   const [notifications, setNotifications] = useState([
 
-    { text: 'Code Review', event: 'Review Session', date: '2024-09-26 03:00 PM' },
-    { text: 'Code Review', event: 'Review Session', date: '2024-09-24 03:00 PM' },
-    { text: 'Lunch Meeting', event: 'Client Lunch', date: '2024-09-22 12:30 PM' },
+    { text: 'Welcome ! DigiConcept', event: 'New  Session', date: '2024-10-02 10:00 AM' },
+   
   ]);
 
 

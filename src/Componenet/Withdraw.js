@@ -60,7 +60,7 @@ const Withdraw = () => {
                 },
             });
 
-            navigate('/withdraw');
+            navigate('/');
         } catch (error) {
             console.log(error);
         }

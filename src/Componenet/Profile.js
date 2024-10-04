@@ -18,7 +18,7 @@ const Profile = () => {
                 <h3 className="text-white text-center flex-grow-1">Profile</h3>
             </div>
 
-            <div className="container mb-4">
+            <div className="container mb-4 ">
                 <div className="profile-detail mt-2 text-center">
                     <div className="eddit">
                         <Link to="/edditproile">
@@ -26,7 +26,10 @@ const Profile = () => {
                         </Link>
                     </div>
                     <img  src={`${imageurl}/profile/${data && data.user.user && data.user.user.image}`}
-                       
+                        onError={(e) => {
+                            e.target.onerror = null; // prevents looping if fallback fails
+                            e.target.src = "/asset/logo/22.png"; // provide fallback image path
+                          }}
                        style={{
                            height: '90px',  // Set desired height
                            width: '90px',   // Set desired width

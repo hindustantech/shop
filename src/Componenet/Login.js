@@ -91,7 +91,7 @@ const Login = () => {
             <div className="col-12 col-md-4">
               <form className='loginForm' onSubmit={handleSubmit}>
                 <div className="mb-3 input-fi">
-                  <img src="/asset/logo/1.png" className='logo-e' alt="" />
+                  <img src="/asset/design/profile/5.png" className='logo-e' alt="" />
                   <input
                     type="text"
                     className="email input-login"
@@ -102,7 +102,7 @@ const Login = () => {
                   />
                 </div>
                 <div className="mb-3 input-fi position-relative">
-                  <img src="/asset/logo/5.png" className='logo-e' alt="" />
+                  <img src="/asset/design/profile/3.png" className='logo-e' alt="" />
                   <input
                     type={showPassword ? "text" : "password"}
                     className="password input-login"

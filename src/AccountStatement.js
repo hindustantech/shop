@@ -93,12 +93,12 @@ const AccountStatement = () => {
                 </div>
                 <p className='nara px-2 mt-2 text-color-account fw-bold'> Narration : Opening Balance</p>
                 <p className='bla mx-2'>$000.75</p>
-                <div className='d-flex   mt-2'>
+                <div className='d-flex justify-content-between  mt-2'>
 
                     <p className='blance-defferent text-color-account mx-2 fw-bold'>PBV:0.00</p>
                     <p className='blance-defferent text-color-account mx-2 fw-bold'>TDS Per:0.00 </p>
                     <p className='blance-defferent text-color-account mx-2 fw-bold'>TDS : 0.00</p>
-                    <p className='blance-defferent  text-color-accountmx-2 fw-bold'>Incentive:0.00</p>
+                    <p className='blance-defferent text-color-account mx-2 fw-bold'>Incentive:0.00</p>
                 </div>
             </div>
             <div className="debit mx-2 mt-4">
@@ -110,7 +110,7 @@ const AccountStatement = () => {
                 </div>
                 <p className='nara px-2 mt-2 text-color-account fw-bold'> Narration : Opening Balance</p>
                 <p className='bla mx-2 text-color-account'>$000.75</p>
-                <div className='d-flex   mt-2'>
+                <div className='d-flex justify-content-between   mt-2'>
 
                     <p className='blance-defferent text-color-account fw-bold mx-2'>PBV:0.00</p>
                     <p className='blance-defferent text-color-account fw-bold mx-2'>TDS Per:0.00 </p>

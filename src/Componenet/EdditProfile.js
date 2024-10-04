@@ -51,7 +51,7 @@ const ProfileDeatils = () => {
                 mobile: data.user.user.mobile || '',
                 pan: data.user.user.pan || '',
                 gst: data.user.user.gst || '',
-                image: data.user.user.image || null,
+                image: data.user.user.image || '',
                 nomineeName: data.user.user.nominee_name || '',
                 nomineeAge: data.user.user.nominee_age || '',
                 nomineeRelation: data.user.user.nominee_relation || '',
@@ -135,15 +135,19 @@ const ProfileDeatils = () => {
 
                     <img
                         src={`${imageurl}/profile/${data && data.user.user && data.user.user.image}`}
-                       
+
                         style={{
                             height: '70px',  // Set desired height
                             width: '70px',   // Set desired width
                             borderRadius: '50%', // Makes the image circular
                             objectFit: 'cover' // Ensures the image covers the entire area without distortion
                         }}
-                         className="profile-deatils-img mx-2 profile-pi"
+                        className="profile-deatils-img mx-2 profile-pi"
                         alt="img"
+                        onError={(e) => {
+                            e.target.onerror = null; // prevents looping if fallback fails
+                            e.target.src = "/asset/logo/22.png"; // provide fallback image path
+                          }}
                     />
                     <div className="detail px-3 mb-0">
                         <p className="sponser_id mb-0dd">
@@ -180,6 +184,17 @@ const ProfileDeatils = () => {
                         </div>
                         <div className="referral-deatils text-center">
                             <div className="d-flex justify-content-space-between box-s">
+                                <p className="mb-0 px-1 mt-2 profile-text-right">Upload user image</p>
+                                <input
+                                    type="file"
+                                    name="image"
+                                    accept="image/*"  // Ensure only image files are allowed
+                                    onChange={handleChange}
+                                    className="px-4 p-text-p fw-bold border-0 mt-2"
+                                    style={{ outline: 'none', width: "55%" }}
+                                />
+                            </div>
+                            <div className="d-flex justify-content-space-between box-s">
                                 <p className='mb-0 px-1 mt-2 profile-text-right'>USER id</p>
                                 <input
                                     type="text"
@@ -191,6 +206,7 @@ const ProfileDeatils = () => {
                                 />
 
                             </div>
+
                             <div className="d-flex justify-content-space-between box-s">
                                 <p className='mb-0 px-1 mt-2 profile-text-right'>Title</p>
                                 <input
@@ -352,16 +368,56 @@ const ProfileDeatils = () => {
 
                             </div>
                             <div className="d-flex justify-content-space-between box-s">
-                                <p className="mb-0 px-1 mt-2 profile-text-right">Upload user image</p>
+                                <p className='mb-0 px-1 mt-2 profile-text-right'>
+                                    Aadhar Number :  </p>
                                 <input
-                                    type="file"
-                                    name="image"
-                                    accept="image/*"  // Ensure only image files are allowed
+                                    type="text"
+                                    name="adhar"
+                                    value={formData.adhar}
                                     onChange={handleChange}
                                     className="px-4 p-text-p fw-bold border-0 mt-2"
                                     style={{ outline: 'none', width: "55%" }}
                                 />
+
                             </div>
+                            <div className="d-flex justify-content-space-between box-s">
+                                <p className='mb-0 px-1 mt-2 profile-text-right'>Name Account Holder </p>
+                                <input
+                                    type="text"
+                                    name="bank_acc_holder_name"
+                                    value={formData.bank_acc_holder_name}
+                                    onChange={handleChange}
+                                    className="px-4 p-text-p fw-bold border-0 mt-2"
+                                    style={{ outline: 'none', width: "55%" }}
+                                />
+
+                            </div>
+                            <div className="d-flex justify-content-space-between box-s">
+                                <p className='mb-0 px-1 mt-2 profile-text-right'>IFSC code </p>
+                                <input
+                                    type="text"
+                                    name="bank_ifsc"
+                                    value={formData.bank_ifsc}
+                                    onChange={handleChange}
+                                    className="px-4 p-text-p fw-bold border-0 mt-2"
+                                    style={{ outline: 'none', width: "55%" }}
+                                />
+
+                            </div>
+                            <div className="d-flex justify-content-space-between box-s">
+                                <p className='mb-0 px-1 mt-2 profile-text-right'>Bank Name </p>
+                                <input
+                                    type="text"
+                                    name="bank_name"
+                                    value={formData.bank_name}
+                                    onChange={handleChange}
+                                    className="px-4 p-text-p fw-bold border-0 mt-2"
+                                    style={{ outline: 'none', width: "55%" }}
+                                />
+
+                            </div>
+
+
 
                         </div>
                     </div>

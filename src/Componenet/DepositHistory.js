@@ -19,6 +19,7 @@ const DepositHistory = () => {
             
             // Update the state with the data
             setDeposit(response.data);
+            console.log(response.data)
            
         } catch (err) {
             setError(err.message);

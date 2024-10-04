@@ -42,7 +42,15 @@ const Header = () => {
           <div className="profile-image">
             <Link to="/profile">
 
-              <img src={`${imageurl}/profile/${data && data.user.user && data.user.user.image}`}  alt="profile" className='profile-pic' />
+              <img
+                src={`${imageurl}/profile/${data && data.user.user && data.user.user.image}`}
+                alt="profile"
+                className='profile-pic'
+                onError={(e) => {
+                  e.target.onerror = null; // prevents looping if fallback fails
+                  e.target.src = "/asset/logo/22.png"; // provide fallback image path
+                }}
+              />
             </Link>
           </div>
 

@@ -5,6 +5,7 @@ import { DataContext } from '../DataContext';
 
 const IDCards = () => {
     const { data } = useContext(DataContext);
+    const imageurl = process.env.REACT_APP_IMAGE_BASE_URL;
     return (
         <>
             <Headers Name="ID card" />
@@ -19,7 +20,8 @@ const IDCards = () => {
                     </div>
                     <div className="info-idcard d-flex justify-content-center mt-4">
 
-                        <img src="/asset/design/m.jpeg" alt="" />
+                        <img src={`${imageurl}/profile/${data && data.user.user && data.user.user.image}`}
+                             alt="" />
                     </div>
                     <div className="text-info-idcard mt-3">
                         <div className="id-info  ">

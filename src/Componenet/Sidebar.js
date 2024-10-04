@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faKey, faLock, faIdCard, faFileAlt, faBell, faSignOutAlt, faHistory, faMoneyCheckAlt, faMoneyBillWaveAlt, faListAlt, faCreditCard, faChartBar, faClipboardList, faUserGroup } from '@fortawesome/free-solid-svg-icons'; // Import specific icons
+import { faUser, faKey, faLock, faIdCard, faFileAlt, faSignOutAlt, faChartBar, faClipboardList, faUserGroup } from '@fortawesome/free-solid-svg-icons'; // Import specific icons
 import { Link } from 'react-router-dom'; // Assuming you're using React Router
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState, useContext } from 'react';
@@ -8,7 +8,7 @@ import { DataContext } from '../DataContext';
 const Sidebar = ({ sidebarOpen, toggleSidebar }) => {
   const { data } = useContext(DataContext);
   const [isAuthenticated, setIsAuthenticated] = useState(false); // Initial state is false
-  const navigate = useNavigate();
+ 
   const imageurl = process.env.REACT_APP_IMAGE_BASE_URL;
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -22,13 +22,17 @@ const Sidebar = ({ sidebarOpen, toggleSidebar }) => {
 
   return (
     <div className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
-      <img src="/asset/design/1.png" alt="logo" className='side-bar-logo' style={{height:"70px"}} />
+      <img src="/asset/design/1.png" alt="logo" className='side-bar-logo' style={{ height: "70px" }} />
 
       <button className="close-btn-side" onClick={toggleSidebar}>
         X
       </button>
-      <div className="profile-name d-flex justify-content-center align-items-center mt-2 "  style={{background:"white"}}>
+      <div className="profile-name d-flex justify-content-center align-items-center mt-2 " style={{ background: "white" }}>
         <img src={`${imageurl}/profile/${data && data.user.user && data.user.user.image}`}
+          onError={(e) => {
+            e.target.onerror = null; // prevents looping if fallback fails
+            e.target.src = "/asset/logo/22.png"; // provide fallback image path
+          }}
 
           style={{
             height: '60px',  // Set desired height
@@ -86,12 +90,12 @@ const Sidebar = ({ sidebarOpen, toggleSidebar }) => {
                 </Link>
                 <Link className="link-none" to="/profileDetails">
                   <li className="list-profile-sidebar mt-3">
-                  <img src="/icon/Profiledetail.png" style={{height:"18px"}} alt=""  className='mx-2'/>  Profile Details
+                    <img src="/icon/Profiledetail.png" style={{ height: "18px" }} alt="" className='mx-2' />  Profile Details
                   </li>
                 </Link>
                 <Link className="link-none" to="/edditproile">
                   <li className="list-profile-sidebar mt-3">
-                  <img src="/icon/profileedit.png" style={{height:"22px"}} alt="" className='mx-2' /> Edit Profile
+                    <img src="/icon/profileedit.png" style={{ height: "22px" }} alt="" className='mx-2' /> Edit Profile
                   </li>
                 </Link>
                 <Link className="link-none" to="/ChangePassword">
@@ -172,7 +176,7 @@ const Sidebar = ({ sidebarOpen, toggleSidebar }) => {
       <div className="dasboard-sidebar mt-3 px-1 px-3 mx-2 d-flex gap-3">
         <Link to="/Deposit" className="link-none">
           <p className="mt-2 text-align-center">
-          <img src="/icon/deposit.png" style={{height:"22px"}} alt=""className='mx-2' /> Deposit
+            <img src="/icon/deposit.png" style={{ height: "22px" }} alt="" className='mx-2' /> Deposit
           </p>
         </Link>
       </div>
@@ -181,7 +185,7 @@ const Sidebar = ({ sidebarOpen, toggleSidebar }) => {
       <div className="dasboard-sidebar mt-3 px-1 px-3 mx-2 d-flex gap-3">
         <Link to="/Activation" className="link-none">
           <p className="mt-2 text-align-center">
-          <img src="/icon/activation.png" style={{height:"22px"}} alt="" className='mx-2'/> Activation
+            <img src="/icon/activation.png" style={{ height: "22px" }} alt="" className='mx-2' /> Activation
           </p>
         </Link>
       </div>
@@ -190,7 +194,7 @@ const Sidebar = ({ sidebarOpen, toggleSidebar }) => {
       <div className="dasboard-sidebar mt-3 px-1 px-3 mx-2 d-flex gap-3">
         <Link to="/withdraw" className="link-none">
           <p className="mt-2 text-align-center">
-          <img src="/icon/withdrawal.png" style={{height:"22px"}} alt="" className='mx-2' /> Withdraw
+            <img src="/icon/withdrawal.png" style={{ height: "22px" }} alt="" className='mx-2' /> Withdraw
           </p>
         </Link>
       </div>
@@ -199,35 +203,35 @@ const Sidebar = ({ sidebarOpen, toggleSidebar }) => {
       <div className="dasboard-sidebar mt-3 px-1 px-3 mx-2 d-flex gap-3">
         <Link to="/historyA" className="link-none">
           <p className="mt-2 text-align-center">
-          <img src="/icon/activationhistory.png" style={{height:"22px"}} alt="" className='mx-2' /> Activation Package History
+            <img src="/icon/activationhistory.png" style={{ height: "22px" }} alt="" className='mx-2' /> Activation Package History
           </p>
         </Link>
       </div>
       <div className="dasboard-sidebar mt-3 px-1 px-3 mx-2 d-flex gap-3">
         <Link to="/historyD" className="link-none">
           <p className="mt-2 text-align-center">
-            <img src="/icon/deposithistory.png" style={{height:"22px"}} alt=""className='mx-2'  /> Deposit History
+            <img src="/icon/deposithistory.png" style={{ height: "22px" }} alt="" className='mx-2' /> Deposit History
           </p>
         </Link>
       </div>
       <div className="dasboard-sidebar mt-3 px-1 px-3 mx-2 d-flex gap-3">
         <Link to="/historyW" className="link-none">
           <p className="mt-2 text-align-center">
-          <img src="/icon/withdrawalhistory.png" style={{height:"22px"}} alt="" className='mx-2'/> Withdraw History
+            <img src="/icon/withdrawalhistory.png" style={{ height: "22px" }} alt="" className='mx-2' /> Withdraw History
           </p>
         </Link>
       </div>
       <div className="dasboard-sidebar mt-3 px-1 px-3 mx-2 d-flex gap-3">
         <Link to="/AccountStatement" className="link-none">
           <p className="mt-2 text-align-center">
-          <img src="/icon/accountstatement.png" style={{height:"22px"}} alt=""className='mx-2' /> AccountStatement
+            <img src="/icon/accountstatement.png" style={{ height: "22px" }} alt="" className='mx-2' /> AccountStatement
           </p>
         </Link>
       </div>
       <div className="dasboard-sidebar mt-3 px-1 px-3 mx-2 d-flex gap-3">
         <Link to="/kyc" className="link-none">
           <p className="mt-2 text-align-center ">
-          <img src="/icon/kyc.png" style={{height:"22px"}} alt=""className='mx-2' /> KYC
+            <img src="/icon/kyc.png" style={{ height: "22px" }} alt="" className='mx-2' /> KYC
           </p>
         </Link>
       </div>

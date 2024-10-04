@@ -259,7 +259,7 @@ const SignUp = () => {
                         </div>
                         {errors.mobile && <p className="text-danger" style={{ fontSize: "16px" }}>{errors.mobile}</p>}
                         <div className="mb-3 input-fi">
-                            <img src="/asset/logo/1.png" className='logo-e' alt="" />
+                            <img src="/asset/design/profile/5.png" className='logo-e' alt="" />
                             <input
                                 type="email"
                                 className="email login-color input-login"
@@ -273,7 +273,7 @@ const SignUp = () => {
                         </div>
 
                         <div className="mb-3 input-fi">
-                            <img src="/asset/logo/1.png" className='logo-e' alt="" />
+                            <img src="/asset/design/profile/3.png" className='logo-e' alt="" />
                             <input
                                 type="password"
                                 className="password login-color input-login"
@@ -287,7 +287,7 @@ const SignUp = () => {
                         </div>
                         {errors.password && <p className="text-danger" style={{ fontSize: "16px" }}>{errors.password}</p>}
                         <div className="mb-3 input-fi">
-                            <img src="/asset/logo/1.png" className='logo-e' alt="" />
+                            <img src="/asset/design/profile/3.png" className='logo-e' alt="" />
                             <input
                                 type="password"
                                 className="password login-color input-login"

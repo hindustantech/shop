@@ -135,7 +135,7 @@ export const KYC = () => {
                             </div>
                             <div className="card-pan" {...getRootPropsPan({ className: 'dropzone' })}>
                                 <input {...getInputPropsPan()} />
-                                <p className='gap-2'>Upload</p>
+                                <img src="/asset/design/profile/8.png" className='logo-e' alt="" />
                             </div>
                         </div>
                         {fileNames.pan && <p className="text-success px-3" style={{ fontSize: "12px" }}>Uploaded: {fileNames.pan}</p>}
@@ -150,7 +150,7 @@ export const KYC = () => {
                             </div>
                             <div className="card-pan" {...getRootPropsadhar({ className: 'dropzone' })}>
                                 <input {...getInputPropsadhar()} />
-                                <p className='gap-2'>Upload</p>
+                                <img src="/asset/design/profile/8.png" className='logo-e' alt="" />
                             </div>
                         </div>
                         {fileNames.adhar && <p className="text-success px-3" style={{ fontSize: "12px" }}>Uploaded: {fileNames.adhar}</p>}
@@ -165,7 +165,7 @@ export const KYC = () => {
                             </div>
                             <div className="card-pan" {...getRootPropsPassbook({ className: 'dropzone' })}>
                                 <input {...getInputPropsPassbook()} />
-                                <p className='gap-2'>Upload</p>
+                                <img src="/asset/design/profile/8.png" className='logo-e' alt="" />
                             </div>
                         </div>
                         {fileNames.passbook && <p className="text-success px-3 " style={{ fontSize: "12px" }}>Uploaded: {fileNames.passbook}</p>}

@@ -10,7 +10,7 @@ const ProfileDeatils = () => {
     // State for holding editable profile data
     const [formData, setFormData] = useState({
         id: '',
-        title: 'MR',
+        title: '',
         name: '',
         gender: '',
         dob: '',
@@ -164,7 +164,12 @@ const ProfileDeatils = () => {
                             width: '90px',   // Set desired width
                             borderRadius: '50%', // Makes the image circular
                             objectFit: 'cover' // Ensures the image covers the entire area without distortion
-                        }} alt="" className="profile-deatils-img"  />
+                        }} alt="" className="profile-deatils-img"
+                        onError={(e) => {
+                            e.target.onerror = null; // prevents looping if fallback fails
+                            e.target.src = "path-to-your-fallback-image.png"; // provide fallback image path
+                        }}
+                    />
                     <div className="detail px-3 mb-0">
                         <p className="sponser_id mb-0dd">
                             ID : <span>{data?.user?.user?.email}</span>

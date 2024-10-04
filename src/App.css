@@ -1,5 +1,5 @@
 .main-body {
-  height: 100vh;
+  height: auto;
   background-color: #022341;
 }
 
@@ -876,6 +876,9 @@ p {
   border: none;
   color: #ffffff;
   text-align: center;
+  position: relative;
+  top: -2%;
+
 }
 
 .p-text-s {
@@ -1213,10 +1216,9 @@ p {
 
 
 .dropzone {
-  border: 2px dashed white;
+  border: 2px dashed #022341;
   /* Customize as needed */
   border-radius: 4px;
-  background-color: #022341;
   text-align: center;
   cursor: pointer;
   color: white;
@@ -1570,7 +1572,7 @@ p {
 .userid-A {
   border: 1px solid #c0c0c0;
   border-radius: 9px;
-  width: 175px;
+  
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
   margin-left: 14px;
   margin-bottom: 14px;
@@ -1757,7 +1759,7 @@ p {
   text-align: center;
   border-radius: 4px;
   width: 120px;
-  margin-left: 95px;
+  margin-left: 120px;
 }
 
 .amt-w {
