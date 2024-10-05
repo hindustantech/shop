@@ -235,6 +235,27 @@ const Sidebar = ({ sidebarOpen, toggleSidebar }) => {
           </p>
         </Link>
       </div>
+      <div className="dasboard-sidebar mt-3 px-1 px-3 mx-2 d-flex gap-3">
+        <Link to="/ChangePassword" className="link-none">
+          <p className="mt-2 text-align-center ">
+            <img src="/icon/kyc.png" style={{ height: "22px" }} alt="" className='mx-2' /> Change Password
+          </p>
+        </Link>
+      </div>
+      <div className="dasboard-sidebar mt-3 px-1 px-3 mx-2 d-flex gap-3">
+        <Link to="/SecurityPin" className="link-none">
+          <p className="mt-2 text-align-center ">
+            <img src="/icon/kyc.png" style={{ height: "22px" }} alt="" className='mx-2' /> Security Pin
+          </p>
+        </Link>
+      </div>
+      <div className="dasboard-sidebar mt-3 px-1 px-3 mx-2 d-flex gap-3">
+        <Link to="/ForgotSecurityPin" className="link-none">
+          <p className="mt-2 text-align-center ">
+            <img src="/icon/kyc.png" style={{ height: "22px" }} alt="" className='mx-2' /> Forgot Security Pin
+          </p>
+        </Link>
+      </div>
 
       {/* Logout */}
       {isAuthenticated && (

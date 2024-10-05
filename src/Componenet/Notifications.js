@@ -9,7 +9,7 @@ const Notifications = () => {
   const [notifications, setNotifications] = useState([
 
     { text: 'Welcome ! DigiConcept', event: 'New  Session', date: '2024-10-02 10:00 AM' },
-   
+
   ]);
 
 
@@ -82,40 +82,22 @@ const Notifications = () => {
               className={`list-notify ${filter === 'All' ? 'active' : ''}`}
               onClick={() => setFilter('All')}
             >
-              All
+              All  <p className='count-n-a'> {filter === 'Today' ? todayNotificationsCount : filteredNotifications.length}</p>
             </li>
             <li
               className={`list-notify ${filter === 'Today' ? 'active' : ''}`}
               onClick={() => setFilter('Today')}
             >
-              Today
+              Today <p className='count-n-t'>{filter === 'Today' ? todayNotificationsCount : filteredNotifications.length}</p>
             </li>
             <li
               className={`list-notify ${filter === 'Previous' ? 'active' : ''}`}
               onClick={() => setFilter('Previous')}
             >
-              Previous
+              Previous <p className='count-n-p'>{filter === 'Today' ? todayNotificationsCount : filteredNotifications.length}</p>
             </li>
           </ul>
-          <p
-            className='notification-count  active text-aling-center'
-            style={{
-              position: 'absolute',
-              top: filter === 'Today'
-                ? '72px'
-                : filter === 'Previous'
-                  ? '78px'
-                  : '76px', // default for 'All'
-
-              // Conditional if-else ladder for left position
-              left: filter === 'Previous'
-                ? '327px'
-                : filter === 'Today'
-                  ? '182px'
-                  : '78px',// adjust position based on filter
-            }} >
-            {filter === 'Today' ? todayNotificationsCount : filteredNotifications.length}
-          </p>
+          
         </div>
         {filteredNotifications.map((notification, index) => (
           isToday(notification.date) ? (

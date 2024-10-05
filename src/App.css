@@ -1,6 +1,7 @@
 .main-body {
-  height: auto;
+  min-height: 100vh;
   background-color: #022341;
+  
 }
 
 
@@ -92,7 +93,7 @@
 
 .Achivers {
 
-  width: 85vw;
+  min-width: 100%;
 }
 
 
@@ -298,6 +299,7 @@ div .decs {
   font-size: 9px;
   text-align: center;
   color: #ffffff;
+  margin-right: 14px;
 
 }
 
@@ -408,6 +410,13 @@ ul li .text-color {
 
 .header-profile {
   height: 80px;
+}
+
+.search-btn-p{
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 15px;
 }
 
 .nav-height {
@@ -713,10 +722,7 @@ p {
   background-color: #022341;
   border: 1px solid black;
   border-radius: 8px;
-  position: absolute;
-  left: 120px;
-  width: 150px;
-  height: 44px;
+  width: 100%;
 }
 
 
@@ -1326,8 +1332,26 @@ p {
   color: #ffffff;
   font-weight: bold;
   border-radius: 5px;
-  padding: 2px;
+  text-align: center;
+  padding: 4px;
 }
+.list-notify p{
+    display: none;
+}
+
+.list-notify.active p{
+  display: inline-block;
+  background-color: #e74c3c;
+  border-radius: 50%;
+  font-size: 16px;
+  position: relative;
+  top: -24px;
+  left: 12px;
+  padding: 1px;
+  width: 30px;
+  height: 30px;
+
+ }
 
 .list-Notificatin ul .inactive {
   color: #4e657a;
@@ -1946,6 +1970,7 @@ p {
     width: 100%;
     position: sticky;
     bottom: 0;
+    top: 100%;
   }
 
   ul li .text-color {

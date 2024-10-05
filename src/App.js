@@ -26,13 +26,17 @@ import ProductDeatis from './Componenet/ProductDeatis';
 import AccountStatement from './AccountStatement';
 import Withdraw from './Componenet/Withdraw';
 import Activation from './Componenet/Activation'
-import Deposit from'./Componenet/Deposit'
+import Deposit from './Componenet/Deposit'
 import PackageActivationHistory from './Componenet/PackageActivationHistory';
 import DepositHistory from './Componenet/DepositHistory';
 import WithdrawHistory from './Componenet/WithdrawHistory';
 import DownLine from './Componenet/DownLine';
 import About from './Componenet/About';
 import TermsAndConditions from './Componenet/TermsAndConditions ';
+import Forgot_Spin from './Componenet/Forgot_Spin';
+import OTPC from './Componenet/OTPC';
+
+
 
 function App() {
   return (
@@ -51,34 +55,38 @@ function App() {
           <Route path="/earn" element={<Earn />} />
           <Route path="/forgot" element={<Forgot />} />
           <Route path="/OTP" element={<OTP />} />
-          <Route path="/forgotpassword" element={<ForgotPasswod/>} />
-          <Route path="/ChangePassword" element={<ChangePassword/>} />
-          <Route path="/SecurityPin" element={<SucerityPin/>} />
-          <Route path="/Notification" element={<Notifications/>} />
-          <Route path="/Accountsatlement" element={<AccountSatlement/>} />
-          <Route path="/kyc" element={<KYC/>} />
-          <Route path="/ViewEvent" element={<ViewEvent/>} />
-          <Route path="/IDCards" element={<IDCards/>} />
-          <Route path="/ForgotSecurityPin" element={<ForgotSecurity/>} />
-          <Route path="/SponsorReport" element={ <SponsorReport/>} />
-          <Route path="/AccountStatement" element={ <AccountStatement/>} />
-          <Route path="/withdraw" element={ <Withdraw/>} />
-          <Route path="/Activation" element={ <Activation/>} />
-          <Route path="/Deposit" element={ <Deposit/>} />
-          <Route path="/historyA" element={ <PackageActivationHistory/>} />
-          <Route path="/historyD" element={ <DepositHistory/>} />
-          <Route path="/historyW" element={ <WithdrawHistory/>} />
-          <Route path="/DownLine" element={ <DownLine/>} />
-          <Route path="/About" element={ <About/>} />
-          <Route path="/AbouTermsAndConditionst" element={ <TermsAndConditions/>} />
+          <Route path="/OTP2" element={<OTPC/>} />
+          
+         
+          
+          <Route path="/forgotpassword" element={<ForgotPasswod />} />
+          <Route path="/ChangePassword" element={<ChangePassword />} />
+          <Route path="/SecurityPin" element={<SucerityPin />} />
+          <Route path="/Notification" element={<Notifications />} />
+          <Route path="/Accountsatlement" element={<AccountSatlement />} />
+          <Route path="/kyc" element={<KYC />} />
+          <Route path="/ViewEvent" element={<ViewEvent />} />
+          <Route path="/IDCards" element={<IDCards />} />
+          <Route path="/ForgotSecurityPin" element={<ForgotSecurity />} />
+          <Route path="/SponsorReport" element={<SponsorReport />} />
+          <Route path="/AccountStatement" element={<AccountStatement />} />
+          <Route path="/withdraw" element={<Withdraw />} />
+          <Route path="/Activation" element={<Activation />} />
+          <Route path="/Deposit" element={<Deposit />} />
+          <Route path="/historyA" element={<PackageActivationHistory />} />
+          <Route path="/historyD" element={<DepositHistory />} />
+          <Route path="/historyW" element={<WithdrawHistory />} />
+          <Route path="/DownLine" element={<DownLine />} />
+          <Route path="/About" element={<About />} />
+          <Route path="/Forgot_Spin" element={<Forgot_Spin />} />
+          <Route path="/AbouTermsAndConditionst" element={<TermsAndConditions />} />
           <Route path="/signup/:email" element={<SignUp />} />
-          <Route path="/ProductDeatis/:id" element={ <ProductDeatis/>} />
-           
-                     
+          <Route path="/ProductDeatis/:id" element={<ProductDeatis />} />
+         
         </Routes>
       </Router>
-      
-      
+
+
     </>
 
 

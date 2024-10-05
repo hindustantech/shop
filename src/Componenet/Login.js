@@ -59,7 +59,7 @@ const Login = () => {
       setData(response.data);
 
     } catch (error) {
-      console.log(error);
+    
     }
   };
 

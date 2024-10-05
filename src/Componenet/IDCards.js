@@ -12,7 +12,7 @@ const IDCards = () => {
             <div className="maind-body-id">
                 <div className="body-main-card mt-2 mx-2">
                     <div className="heading-complogo-id  mt-1 d-flex  justify-content-center">
-                        <img src="asset/design/1.png" className="l-id" alt="Company Logo" />
+                        <img src="/asset/logo/1.png" className="l-id " alt="Company Logo"  style={{height:"50px"}}/>
                         <div className="heading-name-id d-inline-block text-center ml-3">
                             <p className="text-white mb-0 heading-id ">Digiconcept</p>
                             <p className="text-white mb-0 heading-id mx-2">Techmedia Pvt. Ltd.</p>
@@ -20,7 +20,7 @@ const IDCards = () => {
                     </div>
                     <div className="info-idcard d-flex justify-content-center mt-4">
 
-                        <img src={`${imageurl}/profile/${data && data.user.user && data.user.user.image}`}
+                        <img className='mt-4' src={`${imageurl}/profile/${data && data.user.user && data.user.user.image}`}
                              alt="" />
                     </div>
                     <div className="text-info-idcard mt-3">
@@ -51,7 +51,7 @@ const IDCards = () => {
                 </div>
                 <div className="body-main-card mt-3 mx-2">
                     <div className="heading-complogo-id  mt-2 d-flex  justify-content-center">
-                        <img src="asset/design/1.png" className="l-id" alt="Company Logo" />
+                        <img src="/asset/logo/1.png" className="l-id " alt="Company Logo"  style={{height:"50px"}} />
                         <div className="heading-name-id d-inline-block text-center ml-3">
                             <p className="text-white mb-0  heading-id ">Digiconcept</p>
                             <p className="text-white mb-0  heading-id mx-2">Techmedia Pvt. Ltd.</p>

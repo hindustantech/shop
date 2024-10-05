@@ -3,41 +3,45 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import axios from 'axios';
-import { Link, useParams, useNavigate } from 'react-router-dom'; // Import useNavigate
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import Loading from './Loding';
 
 const ProductDeatis = () => {
     const [quantity, setQuantity] = useState(1);
     const sliderRef = useRef(null);
-   
     const [product, setProduct] = useState(null);
     const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
     const imageurl = process.env.REACT_APP_IMAGE_BASE_URL;
     const { id } = useParams();
-    const navigate = useNavigate(); // Initialize useNavigate
-    const images = [
-        "asset/logo/16.png",
-        "asset/logo/15.png",
-        "asset/logo/14.png",
-    ];
-    const [mainImage, setMainImage] = useState(images[0]);
+    const navigate = useNavigate();
+    const [mainImage, setMainImage] = useState(null);
+    const [images, setImages] = useState([]); // Store parsed images
+    
     const settings = {
         dots: false,
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
         beforeChange: (current, next) => {
-            setMainImage(images[next]);
+            if (images.length > 0) {
+                setMainImage(images[next]); // Update main image from parsed images array
+            }
         },
     };
 
     const fetchProductDetails = async (id) => {
         try {
             const response = await axios.get(`${apiBaseUrl}/products_details/${id}`);
+             // Log the response to check the structure
             setProduct(response.data);
-            setMainImage(response.data.images[0]);
-            console.log(response.data);
+            
+            // Parse the product_image field as an array
+            const imageArray = JSON.parse(response.data.products.product_image);
+            setImages(imageArray); // Store the parsed image array
+            if (imageArray.length > 0) {
+                setMainImage(imageArray[0]); // Set the first image as the main image
+            }
         } catch (error) {
             console.error('Error fetching product details:', error);
         }
@@ -45,27 +49,23 @@ const ProductDeatis = () => {
 
     useEffect(() => {
         fetchProductDetails(id);
-        
     }, [id]);
 
     const handleBuyNow = () => {
-        // Create the cart item for the current product
-        const cartItem = {
-            id,
-            productName: product.products.product_name,
-            price: product.products.amount,
-            quantity,
-            image: `${imageurl}/products/${product.products.product_image}`,
-        };
-    
-        // Store only one product in localStorage
-        localStorage.setItem('cart', JSON.stringify([cartItem])); // Store it as an array with one item
-        toast.success('Product added to cart, proceeding to checkout!');
-        navigate('/Activation'); // Redirect to the activation page
+        if (product) {
+            const cartItem = {
+                id,
+                productName: product.products.product_name,
+                price: product.products.amount,
+                quantity,
+                image: `${imageurl}/products/${mainImage}`,
+            };
+        
+            localStorage.setItem('cart', JSON.stringify([cartItem]));
+            toast.success('Product added to cart, proceeding to checkout!');
+            navigate('/Activation');
+        }
     };
-    
-
- 
 
     if (!product) {
         return <div><Loading /></div>;
@@ -86,9 +86,9 @@ const ProductDeatis = () => {
                         {images.map((image, index) => (
                             <div key={index}>
                                 <img
-                                    src={`${imageurl}/products/${product.products.product_image}`}
+                                    src={`${imageurl}/products/${image}`} // Use dynamic image from parsed array
                                     alt={`Slide ${index}`}
-                                    style={{ width: "350", height: "320px", cursor: "pointer" }}
+                                    style={{ width: "350px", height: "320px", cursor: "pointer" }}
                                     className='mx-1'
                                 />
                             </div>
@@ -102,10 +102,10 @@ const ProductDeatis = () => {
                         <div className='previwe productdeatils m-2' key={index}>
                             <img
                                 onClick={() => {
-                                    setMainImage(product.products.product_image);
+                                    setMainImage(image);
                                     sliderRef.current.slickGoTo(index);
                                 }}
-                                src={`${imageurl}/products/${product.products.product_image}`}
+                                src={`${imageurl}/products/${image}`} // Use dynamic image from parsed array
                                 alt={`Preview ${index}`}
                                 style={{ width: "50px", height: "50px", cursor: "pointer" }}
                             />
@@ -125,7 +125,6 @@ const ProductDeatis = () => {
                     </button>
                 </div>  
 
-               
                 <div className="decs px-4">
                     <p className='text-capitalize'>
                         {product.products.product_description}

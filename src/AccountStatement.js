@@ -15,7 +15,7 @@ const AccountStatement = () => {
     const fetchStatementData = async () => {
         setLoading(true);
         const id = localStorage.getItem('id');
-        console.log(id)
+       
         try {
             const response = await axios.get(`${apiBaseUrl}/statement/${id}`, {
                 params: {
@@ -25,7 +25,7 @@ const AccountStatement = () => {
             });
             setStatementData(response.data);
             
-            console.log(response.data)
+        
         } catch (err) {
             setError(err.message);
         } finally {

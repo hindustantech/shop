@@ -18,7 +18,7 @@ const ViewEvent = () => {
 
             // Fetch Events data from the API
             const response = await axios.get(`${apiBaseUrl}/getEvents`);
-            console.log(response.data)
+            
             setEvents(response.data); // Assuming the response contains report data
         } catch (err) {
             setError(err.message);

@@ -110,7 +110,7 @@ const ProfileDeatils = () => {
                     Authorization: `Bearer ${data.user.token}`, // Ensure token is passed
                 },
             });
-            console.log(res.data)
+           
             toast.success('Profile updated successfully', {
                 duration: 5000, // 5 seconds
             });
@@ -203,6 +203,7 @@ const ProfileDeatils = () => {
                                     onChange={handleChange}
                                     className="px-4 p-text-p fw-bold border-0 mt-2"
                                     style={{ outline: 'none', width: "55%" }}
+                                    readOnly
                                 />
 
                             </div>

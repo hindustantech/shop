@@ -14,7 +14,7 @@ const WithdrawHistory = () => {
             const id = localStorage.getItem('id');
             const reason = 'withdraw_payment';
             const response = await axios.get(`${apiBaseUrl}/Transaction/${id}/${reason}`);
-            console.log(response.data);
+           
 
             // Update the state with the data
             setWithdraw(response.data);

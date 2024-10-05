@@ -196,6 +196,7 @@ const Activation = () => {
                   name="activate_package"
                   value={input_amount} // Set value to input_amount
                   readOnly // Make it read-only to prevent manual entry
+                  style={{width:"100%"}}
                 />
               </div>
             )}

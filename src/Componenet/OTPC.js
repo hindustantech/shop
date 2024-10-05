@@ -4,7 +4,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Headers from './Headers';
 
-const OTP = () => {
+const OTPC = () => {
   const [otp, setOtp] = useState('');
   const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   const navigate = useNavigate();
@@ -23,7 +23,6 @@ const OTP = () => {
     useRef(null),
     useRef(null)
   ];
-
 
   // Handle OTP input
   const handleInputChange = (e, index, refs) => {
@@ -49,7 +48,7 @@ const OTP = () => {
     if (e.key === 'Backspace' && index > 0 && value.length === 0) {
       refs[index - 1].current.focus();
     }
-  }
+  };
 
   // Handle form submission
   const handleSubmit = async (e) => {
@@ -63,15 +62,14 @@ const OTP = () => {
       formDataToSend.append('otp', otp);
       formDataToSend.append('email', email);
 
-      await axios.post(`${apiBaseUrl}/otp`, formDataToSend, {
+      await axios.post(`${apiBaseUrl}/checkOtp`, formDataToSend, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
       });
 
-      
-      toast.success("otp varifyed")
-      navigate(`/forgotpassword?email=${encodeURIComponent(email)}`);
+      // Redirect to the Forgot_Spin page with the email query parameter
+      navigate(`/Forgot_Spin?email=${encodeURIComponent(email)}`);
     
     } catch (error) {
       console.error('Error verifying OTP:', error);
@@ -105,7 +103,7 @@ const OTP = () => {
         </div>
 
         <form className="loginForm" onSubmit={handleSubmit}>
-          <p className="  security-p mb-4 text-center">Enter Your Otp*</p>
+          <p className="security-p mb-4 text-center">Enter Your Otp*</p>
           <div className="mb-3 mx-4 security-pin-input d-flex justify-content-center align-items-center">
             {confirmPinRefs.map((ref, index) => (
               <input
@@ -129,5 +127,4 @@ const OTP = () => {
   );
 };
 
-export default OTP;
-
+export default OTPC;

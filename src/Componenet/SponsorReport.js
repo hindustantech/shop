@@ -20,7 +20,7 @@ const SponsorReport = () => {
 
             // Fetch reports data from the API
             const response = await axios.get(`${apiBaseUrl}/userteamapi/${id}`);
-            console.log(response.data);
+           
             setReports(response.data); // Assuming the response contains report data
         } catch (err) {
             setError(err.message);

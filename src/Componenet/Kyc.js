@@ -76,7 +76,7 @@ export const KYC = () => {
                     'Content-Type': 'multipart/form-data',
                 }
             });
-            console.log(formData)
+           
 
             if (response.status === 200) {
                 setUploadSuccess(true);
