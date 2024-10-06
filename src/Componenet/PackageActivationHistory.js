@@ -40,7 +40,7 @@ const PackageActivationHistory = () => {
             <Headers Name="Activation History" />
 
             {Activaton.transaction.data.map((item, index) => (
-                <div className="history-card px-2 pt-2 mt-2 mx-2" key={index}>
+                <div className="history-card px-2 pt-2 mt-2 mx-2 mb-2" key={index}>
                     <div className="d-flex history-data">
                         <p className='package-activation-text'>Sender Name</p>
                         <p className="right-text-history">{item.sender}</p> {/* Assuming the key is 'senderName' */}

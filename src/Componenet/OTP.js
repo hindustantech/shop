@@ -100,7 +100,7 @@ const OTP = () => {
       <div className="main-body-change-password">
         <div className="row justify-content-center mt-4">
           <div className="col-12 col-md-6 text-center">
-            <img src="/asset/design/6.png" alt="" className="img-fluid" />
+            <img src="/asset/design/s.png" alt="" className="img-fluid" />
           </div>
         </div>
 

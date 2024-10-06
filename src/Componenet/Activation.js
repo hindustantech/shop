@@ -122,7 +122,7 @@ const Activation = () => {
   }, []);
 
   useEffect(() => {
-    if (data && data.user && data.user.email) {
+    if (data && data.user.user && data.user.user.email) {
       setActivateid(data.user.user.email); // Correct field name here
       fetchData1(data.user.user.email);
     }
@@ -180,7 +180,6 @@ const Activation = () => {
               className='text-white package-card-price-section mt-2'
               id="id"
               name="id"
-
               value={data && data.user.user && data.user.user.email}
               readOnly
             />

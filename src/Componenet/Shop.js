@@ -22,11 +22,11 @@ export const Shop = () => {
         try {
             const response = await axios.get(`${apiBaseUrl}/products_view`);
             setData(response.data.products || []);
-            console.log(response.data)
+           
         } catch (error) {
-            console.log(error);
+           
         } finally {
-            console.log(false);
+            
         }
     };
     useEffect(() => {
