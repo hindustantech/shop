@@ -1,8 +1,8 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { DataContext } from '../DataContext';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Sidebar from './Sidebar';
 import axios from 'axios'; // Import Axios for API calls
 
@@ -11,20 +11,21 @@ const Header = () => {
   const imageurl = process.env.REACT_APP_IMAGE_BASE_URL;
   const [sidebarOpen, setSidebarOpen] = useState(false); // State to track sidebar visibility
   const [searchTerm, setSearchTerm] = useState(''); // State for search term
-  
+
   const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
-  const { data, setSearchResults } = useContext(DataContext);
+  const { data,setData, setSearchResults } = useContext(DataContext);
+  const navigate = useNavigate();
+
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen); // Toggle sidebar state
   };
 
   const handleSearchInputChange = (e) => {
-    setSearchTerm(e.target.value); // Update search term state
+    setSearchTerm(e.target.value);
   };
 
   const handleSearchSubmit = async (e) => {
-    e.preventDefault(); // Prevent page reload on form submission
-
+    e.preventDefault();
     try {
       const response = await axios.get(`${apiBaseUrl}/search?keywords=${searchTerm}`); // Make API request with search term
       setSearchResults(response.data);
@@ -33,6 +34,18 @@ const Header = () => {
       console.error('Error fetching search results:', error);
     }
   };
+
+
+  useEffect(() => {
+
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      navigate("/login");
+    } 
+
+  }, [])
+
 
   return (
     <>
@@ -92,7 +105,7 @@ const Header = () => {
       </div>
 
       {/* Optional: Display search results */}
-    
+
     </>
   );
 };

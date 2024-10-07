@@ -158,6 +158,7 @@ button.btn-color {
   border-radius: 5px;
 }
 
+
 .img-login {
   width: 70%;
 }
@@ -891,7 +892,7 @@ p {
   text-align: center;
   margin-left: 95px;
   position: absolute;
-  font-size: 12px;
+  font-size: 10px;
   color: #022341;
 
 }
@@ -1333,7 +1334,7 @@ p {
   font-weight: bold;
   border-radius: 5px;
   text-align: center;
-  padding: 4px;
+  padding-left: 30px;
 }
 .list-notify p{
     display: none;

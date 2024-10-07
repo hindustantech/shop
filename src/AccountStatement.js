@@ -24,8 +24,8 @@ const AccountStatement = () => {
                 },
             });
             setStatementData(response.data);
+                console.log(response.data)
             
-        
         } catch (err) {
             setError(err.message);
         } finally {

@@ -313,7 +313,7 @@ const SignUp = () => {
                             <p className='text-white'> I agree to all terms & condition </p>
                         </div>
 
-                        <button type="submit" className="btn-color btn  mt-2">Sign up<i className="fas fa-arrow-right mx-3"></i></button>
+                        <button type="submit" className="btn-color  mt-2">Sign up<i className="fas fa-arrow-right mx-3"></i></button>
                     </form>
 
                     <div className='d-flex justify-content-center mt-1'>

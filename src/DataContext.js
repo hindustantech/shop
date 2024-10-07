@@ -30,7 +30,7 @@ export const DataProvider = ({ children }) => {
   }, []);
 
   return (
-    <DataContext.Provider value={{ data, searchResults, setSearchResults }}>
+    <DataContext.Provider value={{ data,setData, searchResults, setSearchResults }}>
       {children}
     </DataContext.Provider>
   );

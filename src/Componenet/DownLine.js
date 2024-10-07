@@ -104,9 +104,7 @@ const DownLine = () => {
                                             <p className='mb-0 p-text-s fw-bold-p'>: {report.is_active}</p>
                                         </div>
                                     </div>
-                                    <div className="image mt-4">
-                                        <img src="asset/design/m.jpeg" className='img-m mx-3 mt-2' alt='profile' style={{ height: '141px', width: '123px' }} />
-                                    </div>
+                                  
                                 </div>
                             </div>
                         ))

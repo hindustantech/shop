@@ -20,7 +20,7 @@ const SponsorReport = () => {
 
             // Fetch reports data from the API
             const response = await axios.get(`${apiBaseUrl}/userteamapi/${id}`);
-           
+
             setReports(response.data); // Assuming the response contains report data
         } catch (err) {
             setError(err.message);
@@ -48,9 +48,9 @@ const SponsorReport = () => {
 
     // Filter reports based on search term
     const filteredReports = reports?.my_direct?.filter((report) => {
-        return report.first_name.toLowerCase().includes(searchTerm.toLowerCase()) || 
-               report.mobile.includes(searchTerm) || 
-               report.id.toString().includes(searchTerm); // Add more fields as needed
+        return report.first_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            report.mobile.includes(searchTerm) ||
+            report.id.toString().includes(searchTerm); // Add more fields as needed
     }) || [];
 
     return (
@@ -58,11 +58,11 @@ const SponsorReport = () => {
             <Headers Name="Direct Report" />
             <div className="main-id-card">
                 <div className="search-reports mt-3 mx-2 d-flex justify-content-center align-items-center">
-                    <input 
-                        type="search" 
-                        className="search-reports-input px-4" 
-                        id="search" 
-                        placeholder="Search..." 
+                    <input
+                        type="search"
+                        className="search-reports-input px-4"
+                        id="search"
+                        placeholder="Search..."
                         value={searchTerm} // Bind the input value to the search term
                         onChange={handleSearchChange} // Handle input change
                     />
@@ -104,9 +104,7 @@ const SponsorReport = () => {
                                             <p className='mb-0 p-text-s fw-bold-p'>: {report.is_active}</p>
                                         </div>
                                     </div>
-                                    <div className="image mt-4">
-                                        <img src="asset/design/m.jpeg" className='img-m mx-3 mt-2' alt='profile' style={{ height: '141px', width: '123px' }} />
-                                    </div>
+
                                 </div>
                             </div>
                         ))

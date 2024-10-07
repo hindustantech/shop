@@ -23,11 +23,11 @@ export const Home = () => {
         try {
             const response = await axios.get(`${apiBaseUrl}/products_view`);
             setData(response.data.products || []);
-          
+
         } catch (error) {
             toast.error("error")
         } finally {
-            
+
         }
     };
     useEffect(() => {
@@ -35,7 +35,7 @@ export const Home = () => {
             try {
                 const response = await axios.get(`${apiBaseUrl}/categories`); // Replace with your API endpoint
                 setCategories(response.data); // Assuming response.data is an array of categories
-               
+
             } catch (error) {
                 console.error('Error fetching categories:', error);
             }
@@ -49,7 +49,7 @@ export const Home = () => {
         try {
             const response = await axios.get(`${apiBaseUrl}/productsCategories/${categoryId}`);
             setCategoryProducts(response.data || []);
-          
+
         } catch (error) {
             toast.error("error");
         }
@@ -63,13 +63,21 @@ export const Home = () => {
     useEffect(() => {
         fetchProduct()
     }, []);
+
     useEffect(() => {
         const token = localStorage.getItem("token");
         if (!token) {
-            navigate("/login");
-        }
+            
+          
+            navigate("/login");  
+        } else {
+            // Fetch data only if user is authenticated
+           
+            fetchProduct();
+          }
+        // If token exists, do nothing (user is authenticated)
+    }, [navigate]);
 
-    }, []);
     const handleCategoryClick = (categoryId, category_name) => {
         fetchProducts(categoryId);
         setSelectedCategoryName(category_name);

@@ -6,19 +6,39 @@ import { useEffect, useState, useContext } from 'react';
 import { DataContext } from '../DataContext';
 
 const Sidebar = ({ sidebarOpen, toggleSidebar }) => {
-  const { data } = useContext(DataContext);
+  const { data, setData } = useContext(DataContext);
   const [isAuthenticated, setIsAuthenticated] = useState(false); // Initial state is false
- 
+  const navigate = useNavigate();
   const imageurl = process.env.REACT_APP_IMAGE_BASE_URL;
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    window.location.href = "/login";
-  };
-
   useEffect(() => {
     const token = localStorage.getItem('token');
-    setIsAuthenticated(!!token); // Set true if token exists
+    setIsAuthenticated(!!token);
   }, []);
+  const handleLogout = () => {
+    // Clear all localStorage and sessionStorage data
+    localStorage.removeItem("token");
+    localStorage.clear();
+    sessionStorage.clear();
+  
+    // Optionally clear cookies if you're storing data there
+    document.cookie.split(";").forEach((cookie) => {
+      document.cookie = cookie
+        .replace(/^ +/, "")
+        .replace(/=.*/, `=;expires=${new Date(0).toUTCString()};path=/`);
+    });
+  
+    // Clear user data in the context
+    setData(null);
+  
+    // Set authentication status to false
+    setIsAuthenticated(false);
+  
+    // Navigate to the login page AFTER clearing the cache and session
+    setTimeout(() => {
+      navigate("/login");
+    }, 0);
+  };
+  
 
   return (
     <div className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
@@ -224,7 +244,7 @@ const Sidebar = ({ sidebarOpen, toggleSidebar }) => {
       <div className="dasboard-sidebar mt-3 px-1 px-3 mx-2 d-flex gap-3">
         <Link to="/AccountStatement" className="link-none">
           <p className="mt-2 text-align-center">
-            <img src="/icon/accountstatement.png" style={{ height: "22px" }} alt="" className='mx-2' /> AccountStatement
+            <img src="/icon/accountstatement.png" style={{ height: "22px" }} alt="" className='mx-2' /> Account Statement
           </p>
         </Link>
       </div>
@@ -235,7 +255,7 @@ const Sidebar = ({ sidebarOpen, toggleSidebar }) => {
           </p>
         </Link>
       </div>
-    
+
       {/* Logout */}
       {isAuthenticated && (
         <div className="dasboard-sidebar mt-3 px-1 px-3 mx-2 d-flex gap-3 mb-2">

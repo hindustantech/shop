@@ -11,7 +11,7 @@ const Activation = () => {
   const [referralUserName, setReferralUserName] = useState('');
   const [referralUserEmail, setReferralUserEmail] = useState('');
   const [tpin, setTpin] = useState('');
-  const [activateid, setActivateid] = useState('');
+  const [acitvateid, setActivateid] = useState('');
   const [input_amount, setInput_Amount] = useState('');
   const [productData, setProductData] = useState(null);
   const navigate = useNavigate();
@@ -60,6 +60,8 @@ const Activation = () => {
     else if (name === 'refferalid') setActivateid(value);
   };
 
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -70,18 +72,18 @@ const Activation = () => {
         toast.error('Invalid amount. Please check your input.');
         return;
       }
-
+      
       const formData = new FormData();
       formData.append('amount', input_amount);
       formData.append('id', data.user.user.email); // Correct ID field
       formData.append('tpin', tpin);
-      formData.append('activateid', activateid); // Fix typo here
+      formData.append('acitvateid',acitvateid ); // Fix typo here
 
       console.log(formData);
       const response = await axios.post(`${apiBaseUrl}/activate_package`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
-          // 'Authorization': `Bearer ${yourAuthToken}`,
+
         },
       });
 
@@ -99,15 +101,22 @@ const Activation = () => {
     }
   };
 
+
+
   useEffect(() => {
+    // Replace icons after component is mounted
+
     const token = localStorage.getItem('token');
     if (token == null) {
+
       navigate('/login');
+
     } else {
-      fetchData();
+      navigate('/activation');
     }
 
-    // Fetch product data from local storage
+
+    fetchData();
     const product = JSON.parse(localStorage.getItem('cart'));
     console.log('Fetched Product Data:', product); // Log the product data for debugging
     if (product && product.length > 0) {
@@ -121,10 +130,22 @@ const Activation = () => {
     }
   }, []);
 
+  // useEffect(() => {
+  //   const token = localStorage.getItem('token');
+  //   if (token == null) {
+  //     navigate('/login');
+  //   } else {
+  //     fetchData();
+  //   }
+
+  //   // Fetch product data from local storage
+
+  // }, []);
+
   useEffect(() => {
     if (data && data.user.user && data.user.user.email) {
-      setActivateid(data.user.user.email); // Correct field name here
-      fetchData1(data.user.user.email);
+      setActivateid(data.user.user.email);
+      fetchData1(data.user.user.email); // Optionally, fetch data when activating ID
     }
   }, [data]);
 
@@ -132,8 +153,9 @@ const Activation = () => {
     const { name, value } = e.target;
     if (name === 'refferalid') {
       fetchData1(value);
-      setActivateid(value); // Correct field name
+      setActivateid(value); // Call fetchData only when referral ID changes
     }
+
     setActivateid(value);
   };
 
@@ -195,7 +217,7 @@ const Activation = () => {
                   name="activate_package"
                   value={input_amount} // Set value to input_amount
                   readOnly // Make it read-only to prevent manual entry
-                  style={{width:"100%"}}
+                  style={{ width: "100%" }}
                 />
               </div>
             )}
