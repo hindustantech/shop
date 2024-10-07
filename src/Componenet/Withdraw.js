@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate  } from 'react-router-dom';
 import Headers from './Headers';
+import toast from 'react-hot-toast';
 
 const Withdraw = () => {
     const navigate = useNavigate();
@@ -9,7 +10,6 @@ const Withdraw = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
-    
     const [recMetrics, setRecMetrics] = useState([0, 0, 0]);
     const [amount, setAmount] = useState('');
     const [deductedAmount, setDeductedAmount] = useState('');
@@ -63,7 +63,7 @@ const Withdraw = () => {
 
             navigate('/');
         } catch (error) {
-            
+            toast.error(error)
         }
     };
 

@@ -48,6 +48,7 @@ const Login = () => {
       toast.success('Login successfully!');
       // console.log(id)
       navigate("/");
+      window.location.reload();
     } catch (error) {
       toast.error('Login Failed');
     }

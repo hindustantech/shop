@@ -1348,6 +1348,9 @@ p {
 .list-notify p{
     display: none;
 }
+.font-size-s{
+  font-size: 10px;
+}
 
 .list-notify.active p{
   display: inline-block;

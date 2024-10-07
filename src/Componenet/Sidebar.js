@@ -14,10 +14,26 @@ const Sidebar = ({ sidebarOpen, toggleSidebar }) => {
     const token = localStorage.getItem('token');
     setIsAuthenticated(!!token);
   }, []);
+
+
   const handleLogout = () => {
-    // Clear all localStorage and sessionStorage data
-    localStorage.removeItem("token");
-    
+    // Clear all localStorage data
+    localStorage.clear();
+  
+    // Optionally clear sessionStorage if any session data is stored there
+    sessionStorage.clear();
+  
+    // Clear cookies if necessary (note: cookies have to be manually managed)
+    document.cookie.split(";").forEach((cookie) => {
+      document.cookie = cookie.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
+    });
+  
+    // Clear any service worker or app cache (if applicable)
+    if ('caches' in window) {
+      caches.keys().then((names) => {
+        names.forEach(name => caches.delete(name));
+      });
+    }
   
     // Clear user data in the context
     setData(null);
@@ -25,12 +41,16 @@ const Sidebar = ({ sidebarOpen, toggleSidebar }) => {
     // Set authentication status to false
     setIsAuthenticated(false);
   
-    // Navigate to the login page AFTER clearing the cache and session
+    // Navigate to the login page
     setTimeout(() => {
       navigate("/login");
+      // Auto-refresh the page after navigating to login to ensure no residual data is cached
+     
     }, 0);
   };
   
+
+
 
   return (
     <div className={`sidebar ${sidebarOpen ? 'open' : ''}`}>

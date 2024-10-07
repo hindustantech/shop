@@ -36,12 +36,12 @@ const Earn = () => {
                     text: `Check this out! Here's the link: ${sharedLink}`,
                     url: sharedLink
                 });
-                toast.success('Link shared successfully!');
+               
             } else {
                 toast.error('Web share not supported on this device.');
             }
         } catch (error) {
-            toast.error('Failed to share the link!');
+         
         }
     };
 
