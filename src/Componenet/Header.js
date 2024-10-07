@@ -13,7 +13,7 @@ const Header = () => {
   const [searchTerm, setSearchTerm] = useState(''); // State for search term
 
   const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
-  const { data,setData, setSearchResults } = useContext(DataContext);
+  const { data, setSearchResults } = useContext(DataContext);
   const navigate = useNavigate();
 
   const toggleSidebar = () => {
@@ -42,7 +42,9 @@ const Header = () => {
 
     if (!token) {
       navigate("/login");
-    } 
+    } else {
+        
+    }
 
   }, [])
 

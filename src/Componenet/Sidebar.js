@@ -17,15 +17,7 @@ const Sidebar = ({ sidebarOpen, toggleSidebar }) => {
   const handleLogout = () => {
     // Clear all localStorage and sessionStorage data
     localStorage.removeItem("token");
-    localStorage.clear();
-    sessionStorage.clear();
-  
-    // Optionally clear cookies if you're storing data there
-    document.cookie.split(";").forEach((cookie) => {
-      document.cookie = cookie
-        .replace(/^ +/, "")
-        .replace(/=.*/, `=;expires=${new Date(0).toUTCString()};path=/`);
-    });
+    
   
     // Clear user data in the context
     setData(null);

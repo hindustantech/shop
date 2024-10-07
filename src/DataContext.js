@@ -8,20 +8,22 @@ export const DataContext = createContext();
 export const DataProvider = ({ children }) => {
   const [data, setData] = useState(null);
   const [searchResults, setSearchResults] = useState([]);
+  const [loading, setLoading] = useState(true); // Add loading state
+  const [error, setError] = useState(null); // Add error state
   const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
-
-  
 
   const fetchData = async () => {
     try {
       const id = localStorage.getItem("id");
+    
       const response = await axios.get(`${apiBaseUrl}/homepageapi/${id}`);
       setData(response.data);
-      
+      console.log(response.data);
     } catch (error) {
-    
+      setError(error.message); // Set error message in state
+      console.error('Error fetching data:', error);
     } finally {
-      
+      setLoading(false); // Set loading to false in finally block
     }
   };
 
@@ -30,7 +32,7 @@ export const DataProvider = ({ children }) => {
   }, []);
 
   return (
-    <DataContext.Provider value={{ data,setData, searchResults, setSearchResults }}>
+    <DataContext.Provider value={{ data, searchResults, setSearchResults, loading, error }}>
       {children}
     </DataContext.Provider>
   );
