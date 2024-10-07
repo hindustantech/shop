@@ -27,6 +27,24 @@ const Earn = () => {
         });
     };
 
+    // Function to handle sharing via the Web Share API
+    const shareAllPlatforms = async () => {
+        try {
+            if (navigator.share) {
+                await navigator.share({
+                    title: 'Refer & Earn',
+                    text: `Check this out! Here's the link: ${sharedLink}`,
+                    url: sharedLink
+                });
+                toast.success('Link shared successfully!');
+            } else {
+                toast.error('Web share not supported on this device.');
+            }
+        } catch (error) {
+            toast.error('Failed to share the link!');
+        }
+    };
+
     return (
         <>
             <div className="header-refer-earn">
@@ -87,6 +105,11 @@ const Earn = () => {
                             <a href={linkedinUrl} target="_blank" rel="noopener noreferrer">
                                 <img src="/asset/logo/34.png" className="socal-media-icons" alt="LinkedIn" />
                             </a>
+                        </div>
+
+                        {/* Share all platforms icon */}
+                        <div className="share-all">
+                            <i className="fa fa-share-alt" onClick={shareAllPlatforms} style={{ fontSize: '24px', cursor: 'pointer' }}></i>
                         </div>
                     </div>
                 </div>

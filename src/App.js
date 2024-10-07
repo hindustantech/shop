@@ -56,9 +56,6 @@ function App() {
           <Route path="/forgot" element={<Forgot />} />
           <Route path="/OTP" element={<OTP />} />
           <Route path="/OTP2" element={<OTPC/>} />
-          
-         
-          
           <Route path="/forgotpassword" element={<ForgotPasswod />} />
           <Route path="/ChangePassword" element={<ChangePassword />} />
           <Route path="/SecurityPin" element={<SucerityPin />} />

@@ -10,6 +10,8 @@ const SignUp = () => {
     const navigate = useNavigate();
     const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
     const [errors, setErrors] = useState({});
+    const [showPassword, setShowPassword] = useState(false);
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
     const location = useLocation();
 
@@ -176,6 +178,15 @@ const SignUp = () => {
         }
     };
 
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
+
+    const toggleConfirmPasswordVisibility = () => {
+        setShowConfirmPassword(!showConfirmPassword);
+    };
+
+
     return (
         <>
             <div className='green-box App'>
@@ -275,7 +286,7 @@ const SignUp = () => {
                         <div className="mb-3 input-fi">
                             <img src="/asset/design/profile/3.png" className='logo-e' alt="" />
                             <input
-                                type="password"
+                                type={showPassword ? "text" : "password"}
                                 className="password login-color input-login"
                                 onChange={handleChange}
                                 value={formData.password}
@@ -283,13 +294,17 @@ const SignUp = () => {
                                 placeholder=" Enter Password"
                                 required
                             />
-
+                            <i
+                                className={`fa ${showPassword ? 'fa-eye-slash' : 'fa-eye'}`}
+                                onClick={togglePasswordVisibility} // Call the toggle function on click
+                                style={{ cursor: 'pointer', marginLeft: '10px' }}
+                            />
                         </div>
                         {errors.password && <p className="text-danger" style={{ fontSize: "16px" }}>{errors.password}</p>}
                         <div className="mb-3 input-fi">
                             <img src="/asset/design/profile/3.png" className='logo-e' alt="" />
                             <input
-                                type="password"
+                                type={showConfirmPassword ? "text" : "password"}
                                 className="password login-color input-login"
                                 onChange={handleChange}
                                 value={formData.pwd_open}
@@ -297,7 +312,11 @@ const SignUp = () => {
                                 placeholder="confirm Password"
                                 required
                             />
-
+                            <i
+                                className={`fa ${showConfirmPassword ? 'fa-eye-slash' : 'fa-eye'}`}
+                                onClick={toggleConfirmPasswordVisibility} // Call the toggle function on click
+                                style={{ cursor: 'pointer', marginLeft: '10px' }}
+                            />
                         </div>
                         {errors.pwd_open && <p className="text-danger" style={{ fontSize: "16px" }}>{errors.pwd_open}</p>}
                         <div className="d-flex justify-content-center">
