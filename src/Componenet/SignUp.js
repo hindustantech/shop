@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, NavLink, useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
-import { DataContext } from '../DataContext';
+
 
 
 const SignUp = () => {
@@ -49,7 +49,7 @@ const SignUp = () => {
 
             // Assuming you're storing the result in a state variable called 'data'
             setdata(res.data);
-          
+
         } catch (error) {
             console.error('Error fetching sponsor data:', error);
             toast.error('Error fetching sponsor data. Please try again later.');
@@ -65,12 +65,12 @@ const SignUp = () => {
 
     const handleBlur = async () => {
         const { sponcer_id } = formData;
-    
+
         // Check if sponcer_id is set and data is available as an array
         if (sponcer_id && Array.isArray(data)) {
             // Use a flag to determine if the sponsor was found
             let sponsorFound = false;
-    
+
             // Iterate over all users in the array
             data.forEach((user) => {
                 if (user.email === sponcer_id) {
@@ -79,7 +79,7 @@ const SignUp = () => {
                     toast.success(`Sponsor found: ${sponcer_id}`); // Show success toast
                 }
             });
-    
+
             // If no sponsor was found after checking all users
             if (!sponsorFound) {
                 setSponcerMessage('Sponsor not found.'); // Update message
@@ -89,8 +89,8 @@ const SignUp = () => {
             setSponcerMessage('Please enter a Sponsor ID.'); // Handle case where no ID is entered
         }
     };
-    
-    
+
+
 
     // Form validation function
 
@@ -104,11 +104,11 @@ const SignUp = () => {
         }
 
         // Validate password (at least 8 characters, 1 number, 1 uppercase, 1 lowercase, 1 special character)
-        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-        if (!passwordRegex.test(formData.password)) {
-            newErrors.password = 'Password must be at least 8 .';
-        }
+        const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d).{8,}$/;
 
+        if (!passwordRegex.test(formData.password)) {
+            newErrors.password = 'Password must be at least 8 characters long and include at least one letter and one number.';
+        }
         // Validate password confirmation
         if (formData.password !== formData.pwd_open) {
             newErrors.pwd_open = 'Passwords do not match.';
@@ -132,12 +132,12 @@ const SignUp = () => {
 
     useEffect(() => {
         const { sponcer_id } = formData;
-    
+
         // Check if sponcer_id is set and data is available
         if (sponcer_id && Array.isArray(data)) {
             // Use a flag to determine if the sponsor was found
             let sponsorFound = false;
-    
+
             // Iterate over all users in the array
             data.forEach((user) => {
                 if (user.email === sponcer_id) {
@@ -146,7 +146,7 @@ const SignUp = () => {
                     toast.success(`Sponsor found: ${sponcer_id}`); // Show success toast
                 }
             });
-    
+
             // If no sponsor was found after checking all users
             if (!sponsorFound) {
                 setSponcerMessage('Sponsor not found.'); // Update message
@@ -156,7 +156,7 @@ const SignUp = () => {
             setSponcerMessage('Please enter a Sponsor ID.'); // Handle case where no ID is entered
         }
     }, [formData.sponcer_id, data]);
-    
+
 
 
 
@@ -259,7 +259,7 @@ const SignUp = () => {
                             {errors.sponcer_id && <p>{errors.sponcer_id}</p>}
 
                         </div>
-                        {sponcerMessage && <p className="text-success message-name-emai mb-0">{sponcerMessage}</p>}
+                        {sponcerMessage && <p className=" message-name-emai mb-0" style={{color:"#f39437",}}>{sponcerMessage}</p>}
 
                         <div className="mb-3 input-fi mt-2">
                             <img src="/asset/logo/7.png" className='logo-e' alt="" />

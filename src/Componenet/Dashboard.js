@@ -52,7 +52,7 @@ const Dashboard = () => {
                             <div className="card gradient-border">
                                 <div className="card-body d-flex justify-content-between align-items-center">
                                     <div>
-                                        <h4>₹ {data&&data.wallet&& data.wallet.level_income}</h4>
+                                        <h4>₹ {data&&data.wallet&& data.wallet.level}</h4>
                                         <h5 className="text-s">Leval Commission</h5>
                                     </div>
                                     <div className='Activation Wallet Logo'>
