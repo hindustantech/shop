@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, NavLink, useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
@@ -6,13 +6,13 @@ import { DataContext } from '../DataContext';
 
 
 const SignUp = () => {
-    const { data } = useContext(DataContext);
+
     const navigate = useNavigate();
     const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
     const [errors, setErrors] = useState({});
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-
+    const [data, setdata] = useState();
     const location = useLocation();
 
     const [sponcerMessage, setSponcerMessage] = useState('');
@@ -39,23 +39,47 @@ const SignUp = () => {
         setFormData({ ...formData, [name]: value });
     };
 
-    const handleBlur = () => {
-        const { sponcer_id } = formData;
+    const fetchSponsor = async () => {
+        try {
+            const res = await axios.get(`${apiBaseUrl}/getalluser1`, formData, {
+                headers: {
+                    "Content-Type": "application/json; charset=utf-8",
+                },
+            });
 
-        // Check if sponcer_id is set and data.getalluser is an array
-        if (sponcer_id && data && Array.isArray(data.getalluser)) {
+            // Assuming you're storing the result in a state variable called 'data'
+            setdata(res.data);
+          
+        } catch (error) {
+            console.error('Error fetching sponsor data:', error);
+            toast.error('Error fetching sponsor data. Please try again later.');
+        }
+    };
+
+    useEffect(() => {
+        fetchSponsor();
+        // Empty dependency array to fetch data only on component mount
+    }, []);
+
+
+
+    const handleBlur = async () => {
+        const { sponcer_id } = formData;
+    
+        // Check if sponcer_id is set and data is available as an array
+        if (sponcer_id && Array.isArray(data)) {
             // Use a flag to determine if the sponsor was found
             let sponsorFound = false;
-
+    
             // Iterate over all users in the array
-            data.getalluser.forEach((user) => {
+            data.forEach((user) => {
                 if (user.email === sponcer_id) {
                     sponsorFound = true; // Mark as found
                     setSponcerMessage(`Name: ${user.first_name}`); // Set the message with the found name
                     toast.success(`Sponsor found: ${sponcer_id}`); // Show success toast
                 }
             });
-
+    
             // If no sponsor was found after checking all users
             if (!sponsorFound) {
                 setSponcerMessage('Sponsor not found.'); // Update message
@@ -65,6 +89,8 @@ const SignUp = () => {
             setSponcerMessage('Please enter a Sponsor ID.'); // Handle case where no ID is entered
         }
     };
+    
+    
 
     // Form validation function
 
@@ -106,21 +132,21 @@ const SignUp = () => {
 
     useEffect(() => {
         const { sponcer_id } = formData;
-
+    
         // Check if sponcer_id is set and data is available
-        if (sponcer_id && data && Array.isArray(data.getalluser)) {
+        if (sponcer_id && Array.isArray(data)) {
             // Use a flag to determine if the sponsor was found
             let sponsorFound = false;
-
+    
             // Iterate over all users in the array
-            data.getalluser.forEach((user) => {
+            data.forEach((user) => {
                 if (user.email === sponcer_id) {
                     sponsorFound = true; // Mark as found
                     setSponcerMessage(`Name: ${user.first_name}`); // Set the message with the found name
                     toast.success(`Sponsor found: ${sponcer_id}`); // Show success toast
                 }
             });
-
+    
             // If no sponsor was found after checking all users
             if (!sponsorFound) {
                 setSponcerMessage('Sponsor not found.'); // Update message
@@ -130,6 +156,10 @@ const SignUp = () => {
             setSponcerMessage('Please enter a Sponsor ID.'); // Handle case where no ID is entered
         }
     }, [formData.sponcer_id, data]);
+    
+
+
+
 
 
 

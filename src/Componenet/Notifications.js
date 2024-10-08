@@ -8,7 +8,7 @@ const Notifications = () => {
   const [filter, setFilter] = useState('All');
   const [notifications, setNotifications] = useState([
 
-    { text: 'Welcome ! DigiConcept', event: 'New  Session', date: '2024-10-02 10:00 AM' },
+
 
   ]);
 
@@ -26,10 +26,12 @@ const Notifications = () => {
       }
 
       // Fetch notification data from API
-      const response = await axios.get(`${apiBaseUrl}/notificationapi/${id}`);
+      const response = await axios.get(`${apiBaseUrl}/logs/${id}`);
       setNotifications(response.data);  // Set the notifications state with response data
+      console.log(response.data)
     } catch (err) {
       setError(err.message);  // Set the error if the request fails
+
     } finally {
       setLoading(false);  // Set loading to false once request is complete
     }
@@ -97,21 +99,21 @@ const Notifications = () => {
               Previous <p className='count-n-p'>{filter === 'Today' ? todayNotificationsCount : filteredNotifications.length}</p>
             </li>
           </ul>
-          
+
         </div>
         {filteredNotifications.map((notification, index) => (
           isToday(notification.date) ? (
             <div key={index} className="card-ntification px-2 pt-2 mt-2  mx-2">
-              <p className='notification-text'>{notification.text}</p>
-              <p className='notification-text'>{notification.event} </p>
+              <p className='notification-text'>{notification.heading}</p>
+              <p className='notification-text'>{notification.message} </p>
               <div className="date-notification d-flex justify-content-end ">
                 <p className='mb-2' >{notification.date}</p>
               </div>
             </div>
           ) : (
             <div className="card-ntification-read px-2 pt-2 mt-2  mx-2">
-              <p className='notification-text-read '>{notification.text}</p>
-              <p className='notification-text-read '>{notification.event} </p>
+              <p className='notification-text-read '> {notification.heading} </p>
+              <p className='notification-text-read '>{notification.message}</p>
               <div className="date-notification-read  d-flex justify-content-end ">
                 <p className='mb-2 ' >{notification.date}</p>
               </div>
