@@ -3,7 +3,7 @@ import Headers from './Headers';
 import { DataContext } from '../DataContext';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import { useDropzone } from 'react-dropzone'
+
 const ProfileDeatils = () => {
     const { data } = useContext(DataContext);
     const [errors, setErrors] = useState({});
@@ -26,10 +26,15 @@ const ProfileDeatils = () => {
         mobile: '',
         pan: '',
         gst: '',
+        adhar: '',
+        bank_name: '',
+        bank_ifsc: '',
+        bank_acc_holder_name: '',
+        bank_acc_no:'',
         nomineeName: '',
         nomineeAge: '',
         nomineeRelation: '',
-        image: null, // Set image as a file object
+        image: null, 
     });
     const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
     const imageurl = process.env.REACT_APP_IMAGE_BASE_URL;
@@ -52,6 +57,11 @@ const ProfileDeatils = () => {
                 pan: data.user.user.pan || '',
                 gst: data.user.user.gst || '',
                 image: data.user.user.image || '',
+                adhar: data.user.user.adhar || '',
+                bank_name: data.user.user.bank_name || '',
+                bank_ifsc: data.user.user.bank_ifsc || '',
+                bank_acc_no: data.user.user.bank_acc_no || '',
+                bank_acc_holder_name: data.user.user.bank_acc_holder_name || '',
                 nomineeName: data.user.user.nominee_name || '',
                 nomineeAge: data.user.user.nominee_age || '',
                 nomineeRelation: data.user.user.nominee_relation || '',
@@ -110,7 +120,7 @@ const ProfileDeatils = () => {
                     Authorization: `Bearer ${data.user.token}`, // Ensure token is passed
                 },
             });
-           
+            console.log(formDataToSend)
             toast.success('Profile updated successfully', {
                 duration: 5000, // 5 seconds
             });
@@ -122,7 +132,7 @@ const ProfileDeatils = () => {
 
     };
 
-    // File dropzone for uploading images
+
 
     return (
         <>
@@ -147,7 +157,7 @@ const ProfileDeatils = () => {
                         onError={(e) => {
                             e.target.onerror = null; // prevents looping if fallback fails
                             e.target.src = "/asset/logo/22.png"; // provide fallback image path
-                          }}
+                        }}
                     />
                     <div className="detail px-3 mb-0">
                         <p className="sponser_id mb-0dd">
@@ -387,6 +397,18 @@ const ProfileDeatils = () => {
                                     type="text"
                                     name="bank_acc_holder_name"
                                     value={formData.bank_acc_holder_name}
+                                    onChange={handleChange}
+                                    className="px-4 p-text-p fw-bold border-0 mt-2"
+                                    style={{ outline: 'none', width: "55%" }}
+                                />
+
+                            </div>
+                            <div className="d-flex justify-content-space-between box-s">
+                                <p className='mb-0 px-1 mt-2 profile-text-right'> Account No </p>
+                                <input
+                                    type="text"
+                                    name="bank_acc_no"
+                                    value={formData.bank_acc_no}
                                     onChange={handleChange}
                                     className="px-4 p-text-p fw-bold border-0 mt-2"
                                     style={{ outline: 'none', width: "55%" }}

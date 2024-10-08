@@ -19,7 +19,7 @@ const SignUp = () => {
     // State to store form data
     const [formData, setFormData] = useState({
         sponcer_id: "",
-        country_code: "",
+        country_code: "+91",
         mobile: "",
         name: "",
         email: "",
@@ -256,7 +256,10 @@ const SignUp = () => {
                                 name="country_code"
                                 onChange={handleChange}
                                 value={formData.country_code}
-                                placeholder='+91' />
+                                placeholder='+91'
+                                readonly
+                            />
+
                             <input
                                 type="text"
                                 className="text login-color input-login mx-2"

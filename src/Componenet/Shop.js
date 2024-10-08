@@ -17,7 +17,7 @@ export const Shop = () => {
 
     const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
     const imageurl = process.env.REACT_APP_IMAGE_BASE_URL;
-
+    console.log(searchResults )
     const fetchProduct = async () => {
         try {
             const response = await axios.get(`${apiBaseUrl}/products_view`);

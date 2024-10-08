@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useNavigate  } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Headers from './Headers';
 import toast from 'react-hot-toast';
 
@@ -17,8 +17,8 @@ const Withdraw = () => {
     const [withdrawalCurrency, setwithdrawalCurrency] = useState('inr'); // Set default currency to INR
     const [id, setId] = useState('');
     const [upi, setUpi] = useState('');
-    
-    
+
+
     // Fetching Data
     const fetchData = async () => {
         try {
@@ -63,7 +63,7 @@ const Withdraw = () => {
 
             navigate('/');
         } catch (error) {
-            toast.error(error)
+          toast.error("Withdraw failed.")
         }
     };
 
@@ -116,7 +116,7 @@ const Withdraw = () => {
                                 value={data.user.email}
                             />
                         </div>
-                        <p className="text-center max-min mt-2">min $1000 | max $10000</p>
+                        <p className="text-center max-min mt-2">min  ₹ 1000 | max  ₹ 10000</p>
                         <div className="d-flex mt-2">
                             <label htmlFor="deducted_amount" className="dedu">Deducted Amount</label>
                             <input

@@ -50,11 +50,11 @@ const WithdrawHistory = () => {
                     </div>
                     <div className="d-flex history-data">
                         <p className='package-activation-text'>Status</p>
-                        <p className="right-text-history">{item.status}</p> {/* Assuming the key is 'status' */}
+                        <p className="right-text-history">{item.status}</p> 
                         <img src="/asset/logo/50.jpeg" className='l-h activation-img_h' alt="" />
                     </div>
                     <div className="px-3 d-flex justify-content-end">
-                        <p className='mb-2 data-history'>{item.date}</p> {/* Assuming the key is 'date' */}
+                        <p className='mb-2 data-history'>{item.date}</p> 
                     </div>
                 </div>
             ))}

@@ -74,7 +74,7 @@ const SponsorReport = () => {
                 <div className="card-id mt-3 row">
                     {filteredReports.length > 0 ? (
                         filteredReports.map((report) => (
-                            <div className="col-md-4 mt-2 col-12" key={report.id}>
+                            <div className="col-md-4 mt-2 col-12 mb-2" key={report.id}>
                                 <div className="id-card mx-2 mt-1">
                                     <div className="info">
                                         <p className="id-no text-center">ID: {report.id}</p>

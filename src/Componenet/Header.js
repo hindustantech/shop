@@ -29,6 +29,7 @@ const Header = () => {
     try {
       const response = await axios.get(`${apiBaseUrl}/search?keywords=${searchTerm}`); // Make API request with search term
       setSearchResults(response.data);
+      console.log(response.data)
       // Store search results in state
     } catch (error) {
       console.error('Error fetching search results:', error);
