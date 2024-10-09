@@ -87,7 +87,7 @@ const Dashboard = () => {
                                 <div className="card-body d-flex justify-content-between align-items-center">
                                     <div>
                                         <h4>₹ {data && data.wallet && data.wallet.bonus}</h4>
-                                        <h5 className="text-s">Bonus Income</h5>
+                                        <h5 className="text-s">Bonus Rank</h5>
                                     </div>
                                     <div className='Activation Wallet Logo'>
                                         <h4 className='t' >+18%</h4>
