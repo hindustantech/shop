@@ -69,7 +69,24 @@ const Dashboard = () => {
                             <div className="card gradient-border">
                                 <div className="card-body d-flex justify-content-between align-items-center">
                                     <div>
-                                        <h4>₹ {data && data.wallet && data.wallet.sponcer_income04}</h4>
+                                        <h4>₹ {data && data.wallet && data.wallet.sponcer_income}</h4>
+                                        <h5 className="text-s">Sponser Income</h5>
+                                    </div>
+                                    <div className='Activation Wallet Logo'>
+                                        <h4 className='t' >+18%</h4>
+                                        <p>From Last Week</p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-12 mt-3">
+                        <div className='cardBox '>
+                            <div className="card gradient-border">
+                                <div className="card-body d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h4>₹ {data && data.wallet && data.wallet.bonus}</h4>
                                         <h5 className="text-s">Sponser Income</h5>
                                     </div>
                                     <div className='Activation Wallet Logo'>
