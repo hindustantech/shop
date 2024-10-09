@@ -46,7 +46,7 @@ const ProductDeatis = () => {
             console.error('Error fetching product details:', error);
         }
     };
-
+    
     useEffect(() => {
         fetchProductDetails(id);
     }, [id]);

@@ -67,7 +67,7 @@ export const Home = () => {
     useEffect(() => {
      
         const token = localStorage.getItem("id");
-        console.log(token)
+        
        
         if (!token) {
             

@@ -8,16 +8,8 @@ const Notifications = () => {
   const [filter, setFilter] = useState('All');
   const [notifications, setNotifications] = useState([
 
-
-
   ]);
-
-
   const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
-
-
-
-
   const fetchNotifications = async () => {
     try {
       const id = localStorage.getItem('id');  // Get ID from localStorage
@@ -28,7 +20,7 @@ const Notifications = () => {
       // Fetch notification data from API
       const response = await axios.get(`${apiBaseUrl}/logs/${id}`);
       setNotifications(response.data);  // Set the notifications state with response data
-      console.log(response.data)
+     
     } catch (err) {
       setError(err.message);  // Set the error if the request fails
 
@@ -66,9 +58,6 @@ const Notifications = () => {
     if (filter === 'Previous') return isPrevious(notification.date);
     return true; // For 'All', return all notifications
   });
-
-
-
 
 
   const todayNotificationsCount = notifications.filter((notification) => isToday(notification.date)).length;
