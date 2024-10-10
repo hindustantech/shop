@@ -2,12 +2,12 @@ import React, { useContext, useState, useEffect } from 'react';
 import Headers from './Headers';
 import { DataContext } from '../DataContext';
 import axios from 'axios';
-import { toast } from 'react-toastify';
+import { toast } from 'react-hot-toast';
 
 const ProfileDeatils = () => {
     const { data } = useContext(DataContext);
     const [errors, setErrors] = useState({});
-
+    const [imagePreview, setImagePreview] = useState(null);
 
 
     // State for holding editable profile data
@@ -30,11 +30,11 @@ const ProfileDeatils = () => {
         bank_name: '',
         bank_ifsc: '',
         bank_acc_holder_name: '',
-        bank_acc_no:'',
+        bank_acc_no: '',
         nomineeName: '',
         nomineeAge: '',
         nomineeRelation: '',
-        image: null, 
+        image: null,
     });
     const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
     const imageurl = process.env.REACT_APP_IMAGE_BASE_URL;
@@ -86,6 +86,7 @@ const ProfileDeatils = () => {
                     image: files[0], // Safely store file object
                 });
             }
+            setImagePreview(URL.createObjectURL(files[0]));
         } else {
             setFormData({
                 ...formData,
@@ -100,7 +101,6 @@ const ProfileDeatils = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-
         try {
             const formDataToSend = new FormData();
             Object.keys(formData).forEach((key) => {
@@ -113,24 +113,31 @@ const ProfileDeatils = () => {
                 }
             });
 
-
             const res = await axios.post(`${apiBaseUrl}/update`, formDataToSend, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     Authorization: `Bearer ${data.user.token}`, // Ensure token is passed
                 },
             });
-            console.log(formDataToSend)
-            toast.success('Profile updated successfully', {
-                duration: 5000, // 5 seconds
+
+            console.log(res.data);
+            toast.success('Profile updated successfully!', {
+              // 5 seconds
+                position: 'bottom-center', // Display toast at the bottom
             });
+
+            // Reload the page after a successful update
+            setTimeout(() => {
+                window.location.reload(); // Reloads the current page
+            }, 1000); // Wait for 5 seconds to allow the toast to be visible
+          
         } catch (error) {
-            toast.error('Error updating profile:', error.response ? error.response.data : error, {
-                duration: 50000, // 5 seconds
+            toast.error(`Error updating profile: ${error.response ? error.response.data.message : error.message}`, {
+                // 5 seconds
             });
         }
-
     };
+
 
 
 
@@ -194,18 +201,27 @@ const ProfileDeatils = () => {
                         </div>
                         <div className="referral-deatils text-center">
                             <div className="d-flex justify-content-space-between box-s">
-                                <p className="mb-0 px-1 mt-2 profile-text-right">Upload user image</p>
+                                <p className="mb-0 px-1 mt-2 profile-text-right">Upload User Iage</p>
                                 <input
                                     type="file"
                                     name="image"
-                                    accept="image/*"  // Ensure only image files are allowed
+                                    
+                                    accept="image/*"  // Ensure only image files are allow
                                     onChange={handleChange}
                                     className="px-4 p-text-p fw-bold border-0 mt-2"
                                     style={{ outline: 'none', width: "55%" }}
                                 />
+                                      {imagePreview && (
+                    <img
+                        src={imagePreview}
+                        alt="Selected"
+                        style={{ width: "100px", height: "100px", marginTop: "10px" }} // Set dimensions as needed
+                    />
+                )}
                             </div>
+
                             <div className="d-flex justify-content-space-between box-s">
-                                <p className='mb-0 px-1 mt-2 profile-text-right'>USER id</p>
+                                <p className='mb-0 px-1 mt-2 profile-text-right'>User Id</p>
                                 <input
                                     type="text"
                                     name="title"
@@ -492,9 +508,9 @@ const ProfileDeatils = () => {
                     </div>
                     <div className="referal-card profile-information d-flex flex-column justify-content-evenly container-fluid mt-2 mb-4">
                         <div className="referal-information-header">
-                            <h3 className='text-center text-white'>update  Your Informaiton Information</h3>
+
                         </div>
-                        <button className="update-Deatils mx-4 ">Update Deatils </button>
+                        <button className="update-Deatils mx-4 ">Update</button>
                     </div>
                 </form>
             </div>

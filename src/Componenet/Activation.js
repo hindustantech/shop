@@ -72,12 +72,12 @@ const Activation = () => {
         toast.error('Invalid amount. Please check your input.');
         return;
       }
-      
+
       const formData = new FormData();
       formData.append('amount', input_amount);
       formData.append('id', data.user.user.email); // Correct ID field
       formData.append('tpin', tpin);
-      formData.append('acitvateid',acitvateid ); // Fix typo here
+      formData.append('acitvateid', acitvateid); // Fix typo here
 
       console.log(formData);
       const response = await axios.post(`${apiBaseUrl}/activate_package`, formData, {
@@ -106,7 +106,7 @@ const Activation = () => {
   useEffect(() => {
     // Replace icons after component is mounted
 
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('id');
     if (token == null) {
 
       navigate('/login');
@@ -145,12 +145,15 @@ const Activation = () => {
   useEffect(() => {
     if (data && data.user.user && data.user.user.email) {
       setActivateid(data.user.user.email);
-      fetchData1(data.user.user.email); // Optionally, fetch data when activating ID
+      // Optionally, fetch data when activating ID
     }
   }, [data]);
 
   const handleReferral = (e) => {
     const { name, value } = e.target;
+
+
+
     if (name === 'refferalid') {
       fetchData1(value);
       setActivateid(value); // Call fetchData only when referral ID changes
@@ -183,7 +186,7 @@ const Activation = () => {
               onBlur={handleReferral}
             />
             <p className="text-center font-size-name Withdraw-heading ">
-              User Name: {referralUserName || "User Name"}
+              User Name: {referralUserName}
             </p>
 
             <p className="text-center mt-4 Withdraw-heading fw-bold">Available Balance</p>

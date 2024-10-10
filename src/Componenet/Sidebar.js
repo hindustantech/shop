@@ -19,36 +19,36 @@ const Sidebar = ({ sidebarOpen, toggleSidebar }) => {
   const handleLogout = () => {
     // Clear all localStorage data
     localStorage.clear();
-  
+
     // Optionally clear sessionStorage if any session data is stored there
     sessionStorage.clear();
-  
+
     // Clear cookies if necessary (note: cookies have to be manually managed)
     document.cookie.split(";").forEach((cookie) => {
       document.cookie = cookie.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
     });
-  
+
     // Clear any service worker or app cache (if applicable)
     if ('caches' in window) {
       caches.keys().then((names) => {
         names.forEach(name => caches.delete(name));
       });
     }
-  
+
     // Clear user data in the context
     setData(null);
-  
+
     // Set authentication status to false
     setIsAuthenticated(false);
-  
+
     // Navigate to the login page
     setTimeout(() => {
       navigate("/login");
       // Auto-refresh the page after navigating to login to ensure no residual data is cached
-     
+
     }, 0);
   };
-  
+
 
 
 
@@ -81,16 +81,7 @@ const Sidebar = ({ sidebarOpen, toggleSidebar }) => {
           </p>
         </div>
       </div>
-      {/* Register */}
-      <div className="dasboard-sidebar mt-3 px-1 px-3 mx-2 d-flex gap-3">
-        <Link to="/register" className="link-none">
-          <p className="mt-2 text-align-center">
-            <FontAwesomeIcon className="mx-2 mt-2" icon={faFileAlt} /> Register
-          </p>
-        </Link>
 
-
-      </div>
 
       {/* Accordion - Profile */}
       <div className="accordion mt-3 mb-1 px-1 mx-1" id="accordionExample">
@@ -135,7 +126,7 @@ const Sidebar = ({ sidebarOpen, toggleSidebar }) => {
                     <FontAwesomeIcon className='px-2' icon={faKey} /> Change Password
                   </li>
                 </Link>
-                <Link className="link-none" to="/SecurityPin">
+                {/* <Link className="link-none" to="/SecurityPin">
                   <li className="list-profile-sidebar mt-3">
                     <FontAwesomeIcon className='px-2' icon={faLock} /> Security PIN
                   </li>
@@ -144,7 +135,7 @@ const Sidebar = ({ sidebarOpen, toggleSidebar }) => {
                   <li className="list-profile-sidebar mt-3">
                     <FontAwesomeIcon className='px-2' icon={faLock} /> Forgot Security PIN
                   </li>
-                </Link>
+                </Link> */}
                 <Link className="link-none" to="/IDCards">
                   <li className="list-profile-sidebar mt-3">
                     <FontAwesomeIcon className='px-2' icon={faIdCard} /> ID Card
@@ -267,7 +258,16 @@ const Sidebar = ({ sidebarOpen, toggleSidebar }) => {
           </p>
         </Link>
       </div>
+      {/* Register */}
+      <div className="dasboard-sidebar mt-3 px-1 px-3 mx-2 d-flex gap-3">
+        <Link to="/register" className="link-none">
+          <p className="mt-2 text-align-center">
+            <FontAwesomeIcon className="mx-2 mt-2" icon={faFileAlt} /> Register
+          </p>
+        </Link>
 
+
+      </div>
       {/* Logout */}
       {isAuthenticated && (
         <div className="dasboard-sidebar mt-3 px-1 px-3 mx-2 d-flex gap-3 mb-2">

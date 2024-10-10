@@ -81,6 +81,7 @@ export const KYC = () => {
             if (response.status === 200) {
                 setUploadSuccess(true);
                 toast.success("KYC documents uploaded successfully!");
+                window.location.reload();
             } else {
                 toast.error("Failed to upload KYC documents. Try again later.");
             }

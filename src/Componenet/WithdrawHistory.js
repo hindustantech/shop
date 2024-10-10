@@ -37,7 +37,7 @@ const WithdrawHistory = () => {
 
     return (
         <>
-            <Headers Name=" WithdrawHistory" />
+            <Headers Name=" Withdraw History" />
             {Withdraw.transaction.data.map((item, index) => (
                 <div className="history-card px-2 pt-2 mt-2 mx-2" key={index}>
                     <div className="d-flex history-data">
