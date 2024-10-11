@@ -82,7 +82,7 @@ const Receipt = () => {
     
 
     // Calculate the result
-    const totalAmount = receipt.amount - ((receipt.amount * 0.9) + (receipt.amount * 0.9));
+    const totalAmount = (receipt.amount - ((receipt.amount * 0.09) + (receipt.amount * 0.09)));
 
     return (
         <div className='receipt' >

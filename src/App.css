@@ -1616,7 +1616,8 @@ p {
 
   margin-top: 48px !important;
 }
-.terms-li-id{
+
+.terms-li-id {
   font-size: 14px;
 }
 
@@ -1633,7 +1634,7 @@ p {
   border: 1px solid #c0c0c0;
   background-color: #0f4171;
   color: white;
- 
+
   width: 100%;
 }
 
@@ -2032,13 +2033,14 @@ p {
 }
 
 
-.viwe-reciper{
+.viwe-reciper {
   color: black;
   font-weight: bold;
 
   margin-left: 237px;
   text-decoration: none;
 }
+
 /* Deposit Page Styles */
 .deposit-main {
   display: flex;
@@ -2153,13 +2155,20 @@ p {
 
 
 
+
 @media (min-width: 992px) {
 
   .dashboard-body {
-    width: 100%;
-    min-height: 100vh;
+    padding: 20px;
+
+    height: 100%;
+  }
+
+  .big-screen-het {
+    padding-top: 200px;
 
   }
+
 
   .main-body {
     padding: 20px;

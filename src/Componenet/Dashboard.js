@@ -12,7 +12,7 @@ const Dashboard = () => {
                 <h3 className='text-dashborad mx-4'>Dashboards</h3>
                 <img src="/asset/design/25.png" className='l-h heade-nav mx-3' alt="Company Logo 2" />
             </div>
-            <div className="dashboard-body container " style={{ height: "100vh" }}>
+            <div className="dashboard-body container " >
                 <div className="row px-2 mt-3">
                     <h2>Wallets</h2>
                     <div className="col-6 ">
@@ -131,13 +131,16 @@ const Dashboard = () => {
                         </div>
                     </div>
                 </div>
-                <div className='text-center btn-b pb-4 '>
+                <div className='text-center btn-b pb-4 big-screen-het-botton '>
                     <Link to="/earn">   <button type="button" className="btn btn-dashboard btn-c m-4"> Refer & Earn</button></Link>
                 </div>
 
             </div>
+            <div className='big-screen-het'>
+                <Nav />
 
-            <Nav />
+            </div>
+
 
         </>
     )
