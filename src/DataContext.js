@@ -18,7 +18,7 @@ export const DataProvider = ({ children }) => {
     
       const response = await axios.get(`${apiBaseUrl}/homepageapi/${id}`);
       setData(response.data);
-      console.log(response.data);
+     
     } catch (error) {
       setError(error.message); // Set error message in state
       console.error('Error fetching data:', error);

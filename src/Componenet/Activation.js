@@ -46,7 +46,7 @@ const Activation = () => {
         toast.error("ID NOT Found");
       }
     } catch (error) {
-      console.log(error);
+     
       setError(error);
     } finally {
       setLoading(false);
@@ -66,7 +66,7 @@ const Activation = () => {
     e.preventDefault();
     try {
       const amount = parseInt(input_amount, 10); // Convert input_amount to an integer
-      console.log('Input Amount:', input_amount);
+      
 
       if (isNaN(amount)) {
         toast.error('Invalid amount. Please check your input.');
@@ -79,7 +79,7 @@ const Activation = () => {
       formData.append('tpin', tpin);
       formData.append('acitvateid', acitvateid); // Fix typo here
 
-      console.log(formData);
+      
       const response = await axios.post(`${apiBaseUrl}/activate_package`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
@@ -118,7 +118,7 @@ const Activation = () => {
 
     fetchData();
     const product = JSON.parse(localStorage.getItem('cart'));
-    console.log('Fetched Product Data:', product); // Log the product data for debugging
+     // Log the product data for debugging
     if (product && product.length > 0) {
       setProductData(product[0]); // Get the first item
       setInput_Amount(product[0].price); // Set the input_amount to the product price

@@ -71,7 +71,7 @@ const ProfileDeatils = () => {
         }
     }, [data]);
 
-    console.log(data?.user?.user?.image)
+   
 
 
     // File upload handler
@@ -145,7 +145,9 @@ const ProfileDeatils = () => {
                 },
             });
 
-            console.log(res.data);
+            
+
+
             toast.success('Profile updated successfully!', {
                 // 5 seconds
                 position: 'bottom-center', // Display toast at the bottom

@@ -15,7 +15,7 @@ const PackageActivationHistory = () => {
             const id = localStorage.getItem('id');
             const reason = 'activate_package';
             const response = await axios.get(`${apiBaseUrl}/Transaction/${id}/${reason}`);
-            console.log(response.data);
+
             
             // Update the state with the data
             setActivaton(response.data);

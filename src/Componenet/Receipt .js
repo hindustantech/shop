@@ -34,7 +34,7 @@ const Receipt = () => {
             try {
                 const response = await axios.get(`${apiBaseUrl}/depositReceipt/${id}`);
                 setReceipt(response.data);
-                console.log(response.data)
+               
             } catch (err) {
                 setError(err);
             } finally {
