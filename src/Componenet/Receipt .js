@@ -79,45 +79,43 @@ const Receipt = () => {
             pdf.save('receipt.pdf'); // Save the PDF
         });
     };
-    
+
 
     // Calculate the result
     const totalAmount = (receipt.amount - ((receipt.amount * 0.09) + (receipt.amount * 0.09)));
 
     return (
         <div className='receipt' >
-            <div className="container my-4 mt-4" id='receipt'>
-                <div className="border p-4">
+            <div className="container my-4 " id='receipt'>
+                <div className="border">
                     {/* Header */}
-                    <div className="text-center mb-4">
+                    <div className="text-center mb-2">
                         <h5 style={{ fontSize: '14px', fontWeight: 'bold' }}>DIGICONCEPT TECHMEDIA PRIVATE LIMITED</h5>
-                        <p>
+                        <p style={{ fontSize: '12px' }}>
                             CIN: U93000MH2020PTC339780 <br />
-                            EMAIL: digiconcept.mgt@gmail.com
-                        </p>
-                        <p>
+                            EMAIL: digiconcept.mgt@gmail.com <br />
                             FLAT NO.02, OM SAI APT, PARTH COLONY, <br />
-                            SHANTI NAGAR, MAKHAMALABAD, </p>
-                        <p>NASHIK - 422003 </p>
-                        <p>Mobile: 7350002556 <br /></p>
-                        <p>GSTN: 27AAHCD7407Q1Z2</p>
-
+                            SHANTI NAGAR, MAKHAMALABAD,<br />
+                            NASHIK - 422003 <br />
+                            Mobile: 7350002556 <br />
+                            GSTN: 27AAHCD7407Q1Z2
+                        </p>
                     </div>
 
                     {/* Invoice Info */}
-                    <div className="d-flex justify-content-between mb-4">
+                    <div className="d-flex justify-content-between mb-2 mx-4">
                         <div>
-                            <h4>INVOICE</h4>
-                            <p>Invoice #:{receipt.id}</p>
+                            <h4 style={{ fontSize: '12px' }}>INVOICE</h4>
+                            <p style={{ fontSize: '12px' }}>Invoice #:{receipt.id}</p>
                         </div>
-                        <div>
-                            <h4>Date:</h4>
-                            <p>{receipt.date}</p>
+                        <div >
+                            <h4 style={{ fontSize: '12px' }}>Date:</h4>
+                            <p style={{ fontSize: '12px' }}>{receipt.date}</p>
                         </div>
                     </div>
 
                     {/* Bill To */}
-                    <div className="border p-3 mb-4">
+                    <div className="border p-3 mb-4" style={{ fontSize: '12px' }}>
                         <p className='fw-bold' >BILL TO</p>
                         <p>{data?.user?.user?.first_name}</p>
                         <p>{data?.user?.user?.addres}</p>
@@ -127,7 +125,7 @@ const Receipt = () => {
                     </div>
 
                     {/* Description Table */}
-                    <table className="table table-bordered mb-4">
+                    <table className="table table-bordered mb-4" style={{ fontSize: '12px' }}>
                         <thead>
                             <tr>
                                 <th>DESCRIPTION</th>
@@ -152,7 +150,7 @@ const Receipt = () => {
                             </tr>
                             <tr>
                                 <td>Total Amount </td>
-                                <td className="text-end"> {totalAmount }</td>
+                                <td className="text-end"> {totalAmount}</td>
                             </tr>
 
                             <tr>
