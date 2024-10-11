@@ -11,7 +11,7 @@ const Receipt = () => {
     const { data } = useContext(DataContext);
     const [receipt, setReceipt] = useState(null);
     const [loading, setLoading] = useState(true);
-   
+
     const [error, setError] = useState(null);
     const { id } = useParams();
     const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
@@ -79,83 +79,92 @@ const Receipt = () => {
             pdf.save('receipt.pdf'); // Save the PDF
         });
     };
+    
 
+    // Calculate the result
+    const totalAmount = receipt.amount - ((receipt.amount * 0.9) + (receipt.amount * 0.9));
 
     return (
-        <div>
-            <div
-                id="receipt" // Set id for the receipt to capture it
-                className="invoice-box"
-                style={{ maxWidth: '800px', margin: 'auto', padding: '30px', border: '1px solid #eee', boxShadow: '0 0 10px rgba(0, 0, 0, 0.15)', fontSize: '16px', lineHeight: '24px', color: '#555' }}
-            >
-                <table style={{ width: '100%', lineHeight: 'inherit', textAlign: 'left', borderCollapse: 'collapse', border: '1px solid #ddd' }}>
-                    <tr className="top">
-                        <td colSpan="2" style={{ paddingBottom: '20px' }}>
-                            <table style={{ border: '1px solid #ddd', width: '100%' }}>
-                                <tr>
-                                    <td className="title" style={{ fontSize: '45px', lineHeight: '45px', color: '#333' }}>
-                                        <img
-                                            src="/asset/logo/1.png"
-                                            alt="Company logo"
+        <div className='receipt' >
+            <div className="container my-4 mt-4" id='receipt'>
+                <div className="border p-4">
+                    {/* Header */}
+                    <div className="text-center mb-4">
+                        <h5 style={{ fontSize: '14px', fontWeight: 'bold' }}>DIGICONCEPT TECHMEDIA PRIVATE LIMITED</h5>
+                        <p>
+                            CIN: U93000MH2020PTC339780 <br />
+                            EMAIL: digiconcept.mgt@gmail.com
+                        </p>
+                        <p>
+                            FLAT NO.02, OM SAI APT, PARTH COLONY, <br />
+                            SHANTI NAGAR, MAKHAMALABAD, </p>
+                        <p>NASHIK - 422003 </p>
+                        <p>Mobile: 7350002556 <br /></p>
+                        <p>GSTN: 27AAHCD7407Q1Z2</p>
 
-                                            style={{ maxHeight: '70px' }}
-                                        />
-                                    </td>
+                    </div>
 
-                                    <td style={{ fontSize: '14px' }}>
-                                        Receipt : {receipt.id}<br />
-                                        Created: {receipt.created_at}<br />
+                    {/* Invoice Info */}
+                    <div className="d-flex justify-content-between mb-4">
+                        <div>
+                            <h4>INVOICE</h4>
+                            <p>Invoice #:{receipt.id}</p>
+                        </div>
+                        <div>
+                            <h4>Date:</h4>
+                            <p>{receipt.date}</p>
+                        </div>
+                    </div>
 
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
+                    {/* Bill To */}
+                    <div className="border p-3 mb-4">
+                        <p className='fw-bold' >BILL TO</p>
+                        <p>{data?.user?.user?.first_name}</p>
+                        <p>{data?.user?.user?.addres}</p>
+                        <p>{data?.user?.user?.city}</p>
+                        <p> {data?.user?.user?.mobile}</p>
+                        <p>{data?.user?.user?.email1}</p>
+                    </div>
 
-                    <tr className="information">
-                        <td colSpan="2" style={{ paddingBottom: '40px', fontSize: '14px' }}>
-                            <table style={{ border: '1px solid #ddd', width: '100%' }}>
-                                <tr>
-                                    <td style={{ border: '1px solid #ddd' }}>
-                                      <b>  Digiconcept </b> <br />
+                    {/* Description Table */}
+                    <table className="table table-bordered mb-4">
+                        <thead>
+                            <tr>
+                                <th>DESCRIPTION</th>
+                                <th className="text-end">AMOUNT</th>
+                            </tr>
+                        </thead>
 
+                        <tbody>
+                            <tr>
+                                <td>Service Fee</td>
+                                <td className="text-end">{receipt.amount}</td>
+                            </tr>
+                            <tr>
+                                <td> <p className="text-end">CGST</p>
+                                    <p className="text-end">SGST</p>
+                                </td>
+                                <td>
+                                    <p > {receipt.amount * 0.9}</p>
+                                    <p >{receipt.amount * 0.9}</p>
+                                </td>
 
-                                    </td>
+                            </tr>
+                            <tr>
+                                <td>Total Amount </td>
+                                <td className="text-end"> {totalAmount }</td>
+                            </tr>
 
-                                    <td style={{ border: '1px solid #ddd' }}>
-
-                                       <strong className='mx-2'> {data?.user?.user?.first_name} </strong><br />
-                                       <strong className='mx-2'> {data?.user?.user?.email1}</strong>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-
-                    <tr className="heading">
-                        <td style={{ border: '1px solid #ddd', backgroundColor: '#f8f8f8', fontWeight: 'bold' }}>Deposit</td>
-                        <td style={{ border: '1px solid #ddd', backgroundColor: '#f8f8f8', fontWeight: 'bold' }}>Amount</td>
-                    </tr>
-
-                    <tr className="item">
-                        <td style={{ border: '1px solid #ddd' }}>Dposit Amount</td>
-                        <td style={{ border: '1px solid #ddd' }}>₹ {receipt.amount}</td>
-                    </tr>
-
-                    <tr className="item">
-                        <td style={{ border: '1px solid #ddd' }}>GST</td>
-                        <td style={{ border: '1px solid #ddd' }}>₹ {receipt.amount} </td>
-                    </tr>
-
-
-
-                    <tr className="total">
-                        <td></td>
-                        <td style={{ borderTop: '2px solid #eee', fontWeight: 'bold' }}>Total: ₹ {receipt.amount}</td>
-                    </tr>
-                </table>
+                            <tr>
+                                <td colSpan="2" className="text-center mt-4">
+                                    <p>Thank you for your business!</p>
+                                    <p>Amount in Rs</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-
             {/* Download Button */}
             <button onClick={downloadPDF} className='down-r  '>
                 Download Receipt

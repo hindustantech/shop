@@ -137,7 +137,7 @@ const Login = () => {
             </div>
             <div className='mt-3 '>
               <Link className='text-white text-decoration-none fw-bold' to="/forgot">Forgot Password?</Link>
-              <p className='text-white mx-2'>Don’t have an account?
+              <p className='text-white mx-2 pt-4 pb-4'>Don’t have an account?
                 <span className='text-white'><NavLink to="/register" className='text-white fw-bold text-decoration-none'> sign up</NavLink></span>
               </p>
             </div>

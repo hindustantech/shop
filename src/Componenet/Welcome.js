@@ -1,4 +1,4 @@
-import React, {useContext, useRef } from 'react';
+import React, { useContext, useRef } from 'react';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 import Headers from './Headers';
@@ -10,18 +10,24 @@ const WelcomeLetter = React.forwardRef((props, ref) => {
     const { data } = useContext(DataContext);
     return (
         <>
-            <Headers Name="Welcome Letter"  style={{height:'300px'}} />
+            <Headers Name="Welcome Letter" style={{ height: '300px' }} />
             <div >
                 <div ref={ref} className="letter mx-2 mt-5">
                     <div className="heading-letter mt-2">
-                        <p>DigiConcept Pvt. Ltd.</p>
-                        <p>Address: 123 Main Street, City, Country</p>
-                        <p>Email: ragmil@gmail.com</p>
-                        <p>Website: www.DigiConcept.com</p>
+                    <p style={{ fontSize: '12px', fontWeight: 'bold' }} className="text-end mx-4">DIGICONCEPT TECHMEDIA PRIVATE LIMITED</p>
+                        <p className="text-end mx-4">
+                            FLAT NO.02, OM SAI APT, PARTH COLONY, <br /> 
+                            SHANTI NAGAR, MAKHAMALABAD, </p>
+
+                        <p className="text-end mx-4">Website: www.DigiConcept.com </p>
+                        <p className="text-end mx-4">
+                            CIN: U93000MH2020PTC339780 <br />
+                            EMAIL: digiconcept.mgt@gmail.com
+                        </p> 
                     </div>
 
                     <div className='welo mt-2'>
-                        <h4 className="text-center mx-3 mb-1 pt-2 " style={{height:'30px'}}>Congratulations! Welcome to the Family</h4>
+                        <h4 className="text-center mx-3 mb-1 pt-2 " style={{ height: '30px' }}>Congratulations! Welcome to the Family</h4>
                         <p className='text-center px-3 '>We are thrilled to have you join us on our mission to deliver innovative!</p>
                     </div>
 
@@ -36,7 +42,7 @@ const WelcomeLetter = React.forwardRef((props, ref) => {
                         <p>
                             You will be a key contributor to our success, and we are here to support you every step of the way. Let’s embark on this exciting journey to create meaningful solutions and drive positive change in the industry.
                         </p>
- 
+
                         <h3 className='mt-3'>Company History</h3>
                         <p>
                             DigiConcept Pvt. Ltd. was founded in [Year] with a vision to provide cutting-edge digital solutions that empower businesses to thrive in the digital age. Over the years, we have worked with numerous clients across various industries, delivering exceptional results and establishing ourselves as a trusted name in the industry.
@@ -63,7 +69,7 @@ const Welcome = () => {
         html2canvas(input).then((canvas) => {
             const imgData = canvas.toDataURL('image/png');
             const pdf = new jsPDF();
-            pdf.addImage(imgData, 'PNG', 0, 0, 210, 297); // Adjust the width and height for A4 size
+            pdf.addImage(imgData, 'PNG', 0, 0, 210, 210); // Adjust the width and height for A4 size
             pdf.save('welcome-letter.pdf'); // This will download the PDF
         });
     };
