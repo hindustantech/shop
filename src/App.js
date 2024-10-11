@@ -35,8 +35,8 @@ import About from './Componenet/About';
 import TermsAndConditions from './Componenet/TermsAndConditions ';
 import Forgot_Spin from './Componenet/Forgot_Spin';
 import OTPC from './Componenet/OTPC';
-
-
+import Receipt from './Componenet/Receipt ';
+import Welcome from './Componenet/Welcome';
 
 function App() {
   return (
@@ -55,7 +55,7 @@ function App() {
           <Route path="/earn" element={<Earn />} />
           <Route path="/forgot" element={<Forgot />} />
           <Route path="/OTP" element={<OTP />} />
-          <Route path="/OTP2" element={<OTPC/>} />
+          <Route path="/OTP2" element={<OTPC />} />
           <Route path="/forgotpassword" element={<ForgotPasswod />} />
           <Route path="/ChangePassword" element={<ChangePassword />} />
           <Route path="/SecurityPin" element={<SucerityPin />} />
@@ -69,17 +69,20 @@ function App() {
           <Route path="/AccountStatement" element={<AccountStatement />} />
           <Route path="/withdraw" element={<Withdraw />} />
           <Route path="/Activation" element={<Activation />} />
+          <Route path="/Receipt/:id" element={<Receipt />} />
           <Route path="/Deposit" element={<Deposit />} />
           <Route path="/historyA" element={<PackageActivationHistory />} />
           <Route path="/historyD" element={<DepositHistory />} />
           <Route path="/historyW" element={<WithdrawHistory />} />
           <Route path="/DownLine" element={<DownLine />} />
           <Route path="/About" element={<About />} />
+          <Route path="/Welcome" element={<Welcome/>} />
           <Route path="/Forgot_Spin" element={<Forgot_Spin />} />
           <Route path="/AbouTermsAndConditionst" element={<TermsAndConditions />} />
           <Route path="/signup/:email" element={<SignUp />} />
           <Route path="/ProductDeatis/:id" element={<ProductDeatis />} />
-         
+          
+
         </Routes>
       </Router>
 

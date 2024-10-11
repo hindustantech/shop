@@ -28,6 +28,7 @@ const AccountStatement = () => {
                 },
             });
             setuserData(response.data);
+            
             if (response.data.transaction.data.length === 0) {
                 setHasMore(false); // No more data to load
             } else {

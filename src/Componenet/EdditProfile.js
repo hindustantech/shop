@@ -7,8 +7,9 @@ import { toast } from 'react-hot-toast';
 const ProfileDeatils = () => {
     const { data } = useContext(DataContext);
     const [errors, setErrors] = useState({});
-    const [imagePreview, setImagePreview] = useState(null);
 
+    const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
+    const imageurl = process.env.REACT_APP_IMAGE_BASE_URL;
 
     // State for holding editable profile data
     const [formData, setFormData] = useState({
@@ -34,13 +35,14 @@ const ProfileDeatils = () => {
         nomineeName: '',
         nomineeAge: '',
         nomineeRelation: '',
-        image: null,
+        image: '',
     });
-    const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
-    const imageurl = process.env.REACT_APP_IMAGE_BASE_URL;
+
     // Effect to set initial values from context data
     useEffect(() => {
         if (data && data.user && data.user.user) {
+
+
             setFormData({
                 id: data.user.user.id || '',
                 title: data.user.user.title || '',
@@ -56,7 +58,7 @@ const ProfileDeatils = () => {
                 mobile: data.user.user.mobile || '',
                 pan: data.user.user.pan || '',
                 gst: data.user.user.gst || '',
-                image: data.user.user.image || '',
+                image: data.user.user.image, // Check if image exists
                 adhar: data.user.user.adhar || '',
                 bank_name: data.user.user.bank_name || '',
                 bank_ifsc: data.user.user.bank_ifsc || '',
@@ -69,6 +71,7 @@ const ProfileDeatils = () => {
         }
     }, [data]);
 
+    console.log(data?.user?.user?.image)
 
 
     // File upload handler
@@ -86,7 +89,7 @@ const ProfileDeatils = () => {
                     image: files[0], // Safely store file object
                 });
             }
-            setImagePreview(URL.createObjectURL(files[0]));
+
         } else {
             setFormData({
                 ...formData,
@@ -97,9 +100,31 @@ const ProfileDeatils = () => {
 
 
 
+
+
     // Handle form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
+        // Check if all fields have values, including the file upload
+        for (const key of Object.keys(formData)) {
+            if (key === 'image') {
+                // Check if the image field has a file selected
+                if (!formData[key]) {
+                    toast.error('Image is required!', {
+                        position: 'bottom-center',
+                    });
+                    return; // Stop submission if image is empty
+                }
+            } else {
+                // Check if other fields have values
+                if (formData[key] === '' || formData[key] === null) {
+                    toast.error(`${key} is required!`, {
+                        position: 'bottom-center',
+                    });
+                    return; // Stop submission if any field is empty
+                }
+            }
+        }
 
         try {
             const formDataToSend = new FormData();
@@ -122,7 +147,7 @@ const ProfileDeatils = () => {
 
             console.log(res.data);
             toast.success('Profile updated successfully!', {
-              // 5 seconds
+                // 5 seconds
                 position: 'bottom-center', // Display toast at the bottom
             });
 
@@ -130,14 +155,13 @@ const ProfileDeatils = () => {
             setTimeout(() => {
                 window.location.reload(); // Reloads the current page
             }, 1000); // Wait for 5 seconds to allow the toast to be visible
-          
+
         } catch (error) {
             toast.error(`Error updating profile: ${error.response ? error.response.data.message : error.message}`, {
                 // 5 seconds
             });
         }
     };
-
 
 
 
@@ -174,6 +198,7 @@ const ProfileDeatils = () => {
                             Name : <span>{data?.user?.user?.first_name}</span>
                         </p>
                     </div>
+
                 </div>
 
                 {/* Referral Information */}
@@ -181,7 +206,7 @@ const ProfileDeatils = () => {
                     <div className="referal-information-header">
                         <h3 className='text-center text-white'>Referral Information</h3>
                     </div>
-                    <div className="referral-deatils text-center" style={{ height: '110px' }}>
+                    <div className="referral-deatils text-center" style={{ height: '100px' }}>
                         <div className="d-flex justify-content-space-between box-s">
                             <p className='mb-0 px-1 mt-2 profile-text-right'>Referral To</p>
                             <p className='mb-0dd p-text-p fw-bold-p mt-2'> {data?.user?.sponsor?.email}</p>
@@ -190,6 +215,11 @@ const ProfileDeatils = () => {
                             <p className='mb-0 px-1 mt-2 profile-text-right'>Referral Name</p>
                             <p className='mb-0dd p-text-p fw-bold-p mt-2'> {data?.user?.sponsor?.first_name}</p>
                         </div>
+
+
+
+
+
                     </div>
                 </div>
                 <form onSubmit={handleSubmit} >
@@ -200,26 +230,19 @@ const ProfileDeatils = () => {
                             <h3 className='text-center text-white'>Profile Information</h3>
                         </div>
                         <div className="referral-deatils text-center">
+
                             <div className="d-flex justify-content-space-between box-s">
-                                <p className="mb-0 px-1 mt-2 profile-text-right">Upload User Iage</p>
+                                <p className="mb-0 px-1 mt-2 profile-text-right">Upload User image</p>
                                 <input
                                     type="file"
                                     name="image"
-                                    
                                     accept="image/*"  // Ensure only image files are allow
                                     onChange={handleChange}
                                     className="px-4 p-text-p fw-bold border-0 mt-2"
                                     style={{ outline: 'none', width: "55%" }}
                                 />
-                                      {imagePreview && (
-                    <img
-                        src={imagePreview}
-                        alt="Selected"
-                        style={{ width: "100px", height: "100px", marginTop: "10px" }} // Set dimensions as needed
-                    />
-                )}
-                            </div>
 
+                            </div>
                             <div className="d-flex justify-content-space-between box-s">
                                 <p className='mb-0 px-1 mt-2 profile-text-right'>User Id</p>
                                 <input

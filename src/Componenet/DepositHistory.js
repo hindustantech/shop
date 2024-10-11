@@ -1,26 +1,30 @@
 import React, { useEffect, useState } from 'react'
 import Headers from './Headers'
 import axios from 'axios';
+import Receipt from './Receipt ';
+import { Link } from 'react-router-dom';
 
 const DepositHistory = () => {
 
-    const[Deposit,setDeposit]=useState(null);
+    const [Deposit, setDeposit] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    
-   
+
+
     const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
+
     const DepositHistory = async () => {
         try {
             const id = localStorage.getItem('id');
             const reason = 'deposit';
             const response = await axios.get(`${apiBaseUrl}/Transaction/${id}/${reason}`);
-           
-            
+
+
             // Update the state with the data
+            
             setDeposit(response.data);
-           
-           
+
+
         } catch (err) {
             setError(err.message);
         } finally {
@@ -35,11 +39,11 @@ const DepositHistory = () => {
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error}</p>;
 
-
+   
     return (
         <>
             <Headers Name="Deposit History " />
-
+            
             {Deposit.transaction.data.map((item, index) => (
                 <div className="history-card px-2 pt-2 mt-2 mx-2" key={index}>
                     <div className="d-flex history-data">
@@ -58,6 +62,10 @@ const DepositHistory = () => {
                     <div className="px-3 d-flex justify-content-end">
                         <p className='mb-2 data-history'>{item.date}</p> {/* Assuming the key is 'date' */}
                     </div>
+
+                    <Link to={`/Receipt/${item.id}`} className="viwe-reciper">
+                        View Receipt
+                    </Link>
                 </div>
             ))}
 

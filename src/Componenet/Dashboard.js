@@ -56,7 +56,7 @@ const Dashboard = () => {
                                         <h5 className="text-s">Leval Commission</h5>
                                     </div>
                                     <div className='Activation Wallet Logo'>
-                                        <h4 className='t' >+18%</h4>
+                                        <img src="asset/logo/l.png" className="l-h" alt="Activation Wallet Logo" />
                                         <p>From Last Week</p>
                                     </div>
 
@@ -73,7 +73,7 @@ const Dashboard = () => {
                                         <h5 className="text-s">Sponser Income</h5>
                                     </div>
                                     <div className='Activation Wallet Logo'>
-                                        <h4 className='t' >+18%</h4>
+                                        <img src="asset/logo/s.png" className="l-h" alt="Activation Wallet Logo" />
                                         <p>From Last Week</p>
                                     </div>
 
@@ -90,7 +90,7 @@ const Dashboard = () => {
                                         <h5 className="text-s">Bonus Rank</h5>
                                     </div>
                                     <div className='Activation Wallet Logo'>
-                                        <h4 className='t' >+18%</h4>
+                                        <img src="asset/logo/b.png" className="l-h" alt="Activation Wallet Logo" />
                                         <p>From Last Week</p>
                                     </div>
 

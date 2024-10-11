@@ -139,7 +139,7 @@ export const KYC = () => {
                                 <img src="/asset/design/profile/8.png" className='logo-e' alt="" />
                             </div>
                         </div>
-                        {fileNames.pan && <p className="text-success px-3" style={{ fontSize: "12px" }}>Uploaded: {fileNames.pan}</p>}
+                        {fileNames.pan && <p className="text-success px-3" style={{ fontSize: "12px" }}>Uploaded</p>}
 
                         {/* adhar Card Upload */}
                         <div className="uploadDocument1 d-flex justify-content-around mx-2 mt-3">
@@ -154,7 +154,7 @@ export const KYC = () => {
                                 <img src="/asset/design/profile/8.png" className='logo-e' alt="" />
                             </div>
                         </div>
-                        {fileNames.adhar && <p className="text-success px-3" style={{ fontSize: "12px" }}>Uploaded: {fileNames.adhar}</p>}
+                        {fileNames.adhar && <p className="text-success px-3" style={{ fontSize: "12px" }}>Uploaded</p>}
 
                         {/* Passbook Upload */}
                         <div className="uploadDocument1 d-flex justify-content-around mx-2 mt-3">
@@ -169,7 +169,7 @@ export const KYC = () => {
                                 <img src="/asset/design/profile/8.png" className='logo-e' alt="" />
                             </div>
                         </div>
-                        {fileNames.passbook && <p className="text-success px-3 " style={{ fontSize: "12px" }}>Uploaded: {fileNames.passbook}</p>}
+                        {fileNames.passbook && <p className="text-success px-3 " style={{ fontSize: "12px" }}>Uploaded</p>}
 
                         {!fileValid && <div className="text-danger text-center">Upload Valid (JPEG, PNG, JPG).</div>}
 

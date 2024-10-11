@@ -91,14 +91,15 @@ const Profile = () => {
                     </Link>
 
                     {/* Welcome Letter */}
+                    <Link className="link-none" to="/Welcome" >
                     <div className="d-flex justify-content-around profile-content">
                         <img src="/asset/profile/5.png" alt="" className='profile-icons-height' />
                         <p className='profile-text-color'>Welcome Letter</p>
                         <img src="/asset/logo/38.png" alt="" className='profile-icons-height' />
                     </div>
-
+                    </Link>
                     {/* Identity Card */}
-                    <Link className="link-none" to="/IDCards">
+                    <Link className="link-none" to="/IDCards" >
                         <div className="d-flex justify-content-around profile-content">
                             <img src="/asset/profile/6.png" alt="" className='profile-icons-height' />
                             <p className='profile-text-color'>Identity Card</p>
