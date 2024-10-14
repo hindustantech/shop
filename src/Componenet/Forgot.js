@@ -52,7 +52,7 @@ export const Forgot = () => {
                             type="text"
                             className="text login-color input-login forgot-password"
                             name='email'
-                            placeholder="Enter your email "
+                            placeholder="Enter Your Email "
                             onClick={onchange}
                             onChange={handleChange}
                             value={email}
@@ -60,7 +60,7 @@ export const Forgot = () => {
                         />
                     </div>
 
-                    <button type="submit" className="change_password_btn_color mt-2 "> change Password</button>
+                    <button type="submit" className="change_password_btn_color mt-2 "> Change Password</button>
 
                 </form>
             </div>

@@ -1,10 +1,47 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { DataContext } from '../DataContext';
 import Nav from './Nav'
 import { Link } from 'react-router-dom'
 
 const Dashboard = () => {
-    const { data, error, loading } = useContext(DataContext);
+    const { data } = useContext(DataContext);
+    console.log(data)
+
+   
+
+    const [tier, setTier] = useState("");
+    
+    const rankImages = {
+        Bronze: "/asset/logo/bronze.png",
+        Silver: "/asset/logo/silver.png",
+        Gold: "/asset/logo/gold.png",
+        Platinum: "/asset/logo/platinum.png",
+        Diamond: "/asset/logo/diamond.png",
+        Invalid: "/asset/logo/default.png"  // Default image if rank is invalid
+    };
+
+    const determineTier = (points) => {
+        if (points >= 0 && points <= 1000) {
+            return "Bronze";
+        } else if (points > 1000 && points <= 10000) {
+            return "Silver";
+        } else if (points > 10000 && points <= 100000) {
+            return "Gold";
+        } else if (points > 100000 && points <= 1000000) {
+            return "Platinum";
+        } else if (points > 1000000 && points <= 10000000) {
+            return "Diamond";
+        } else {
+            return "Invalid Rank";
+        }
+    };
+
+    useEffect(() => {
+        if (data && data.wallet && data.wallet.bonus !== undefined) {
+            const calculatedTier = determineTier(data.wallet.bonus);
+            setTier(calculatedTier);
+        }
+    }, [data]);
     return (
         <>
             <div className="header-dashboard d-flex justify-content-evenly align-items-center py-2">
@@ -90,8 +127,8 @@ const Dashboard = () => {
                                         <h5 className="text-s">Bonus Rank</h5>
                                     </div>
                                     <div className='Activation Wallet Logo'>
-                                        <img src="asset/logo/b.png" className="l-h" alt="Activation Wallet Logo" />
-                                        <p>From Last Week</p>
+                                        <img src={rankImages[tier]}className="l-h" alt="bonus Wallet " />
+                                        <p className='text-s'>{tier}</p>
                                     </div>
 
                                 </div>

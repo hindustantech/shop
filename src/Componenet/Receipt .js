@@ -34,7 +34,7 @@ const Receipt = () => {
             try {
                 const response = await axios.get(`${apiBaseUrl}/depositReceipt/${id}`);
                 setReceipt(response.data);
-               
+
             } catch (err) {
                 setError(err);
             } finally {
@@ -149,16 +149,13 @@ const Receipt = () => {
 
                             </tr>
                             <tr>
-                                <td>Total Amount </td>
+                                <p>Thank you for your business! &nbsp; &nbsp;  Total Amount</p>
+                                
                                 <td className="text-end"> {totalAmount}</td>
                             </tr>
 
-                            <tr>
-                                <td colSpan="2" className="text-center mt-4">
-                                    <p>Thank you for your business!</p>
-                                    <p>Amount in Rs</p>
-                                </td>
-                            </tr>
+
+
                         </tbody>
                     </table>
                 </div>
