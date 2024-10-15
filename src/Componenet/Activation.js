@@ -13,6 +13,7 @@ const Activation = () => {
   const [tpin, setTpin] = useState('');
   const [acitvateid, setActivateid] = useState('');
   const [input_amount, setInput_Amount] = useState('');
+  const [productname, setproductname] = useState('');
   const [productData, setProductData] = useState(null);
   const navigate = useNavigate();
   const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
@@ -78,6 +79,7 @@ const Activation = () => {
       formData.append('id', data.user.user.email); // Correct ID field
       formData.append('tpin', tpin);
       formData.append('acitvateid', acitvateid); // Fix typo here
+      formData.append('product', productname); // Fix typo here
 
       
       const response = await axios.post(`${apiBaseUrl}/activate_package`, formData, {
@@ -118,10 +120,11 @@ const Activation = () => {
 
     fetchData();
     const product = JSON.parse(localStorage.getItem('cart'));
-     // Log the product data for debugging
+    console.log(product)
     if (product && product.length > 0) {
       setProductData(product[0]); // Get the first item
-      setInput_Amount(product[0].price); // Set the input_amount to the product price
+      setInput_Amount(product[0].price);
+      setproductname(product[0].productName)       
     }
 
     // Clear product data if it already exists

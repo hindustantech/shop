@@ -19,6 +19,7 @@ const PackageActivationHistory = () => {
             
             // Update the state with the data
             setActivaton(response.data);
+            console.log(response.data)
            
         } catch (err) {
             setError(err.message);
